@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab: Tab = .home
+    
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
+        VStack {
+            Spacer()
+            
+            switch selectedTab {
+            case .home:
+                HomeView()
+            case .activity:
+                ActivityView()
+            case .book:
+                BookView()
+            case .my:
+                MyView()
+            }
+            
+            Spacer()
+            
+            CustomTabView(selectedTab: $selectedTab)
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
-
 #Preview {
     ContentView()
 }
