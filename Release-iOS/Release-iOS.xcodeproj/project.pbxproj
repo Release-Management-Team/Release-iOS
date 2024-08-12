@@ -23,6 +23,7 @@
 		2C6E4E382C6A5D1A00E60363 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2C6E4E402C6A5D6200E60363 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		2C6E4E422C6A5D6A00E60363 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		2C6E4E462C6A5F1100E60363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 		2C6E4E302C6A5D1800E60363 /* Release-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2C6E4E462C6A5F1100E60363 /* Info.plist */,
 				2C6E4E3F2C6A5D4A00E60363 /* Resource */,
 				2C6E4E312C6A5D1800E60363 /* Release_iOSApp.swift */,
 				2C6E4E332C6A5D1800E60363 /* ContentView.swift */,
@@ -291,6 +293,7 @@
 				DEVELOPMENT_TEAM = L4327HMP3S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Release-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,6 +323,7 @@
 				DEVELOPMENT_TEAM = L4327HMP3S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Release-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
