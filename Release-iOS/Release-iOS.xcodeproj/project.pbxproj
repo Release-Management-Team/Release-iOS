@@ -115,14 +115,22 @@
 		2C6E4E4D2C6A706000E60363 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2C7A7CDB2C6CF1DE0071C259 /* Activity */,
 				2C6E4E332C6A5D1800E60363 /* ContentView.swift */,
 				2C6E4E4B2C6A705400E60363 /* HomeView.swift */,
-				2C6E4E4E2C6A70B600E60363 /* ActivityView.swift */,
 				2C6E4E502C6A70D600E60363 /* BookView.swift */,
 				2C6E4E522C6A70EE00E60363 /* MyView.swift */,
 				2C6E4E562C6A788E00E60363 /* CustomTabView.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2C7A7CDB2C6CF1DE0071C259 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				2C6E4E4E2C6A70B600E60363 /* ActivityView.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
