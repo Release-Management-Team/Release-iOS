@@ -19,7 +19,7 @@ struct Activity: Identifiable {
 
 struct ActivityView: View {
     
-    @State private var selectedCategory = "스터디/세미나"
+    @State private var selectedCategory = StringLiterals.Activity.study
     
     let activities = [
         Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
