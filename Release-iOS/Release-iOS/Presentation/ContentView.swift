@@ -30,6 +30,7 @@ struct ContentView: View {
             CustomTabView(selectedTab: $selectedTab)
         }
         .edgesIgnoringSafeArea(.bottom)
+        .background(Color.black1)
     }
 }
 

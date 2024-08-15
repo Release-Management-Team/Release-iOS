@@ -60,8 +60,6 @@ struct ActivityView: View {
                 activityCell(for: activity)
             }
             .listStyle(PlainListStyle())
-            .background(Color.black1)
-            .listRowBackground(Color.black1)
         }
     }
 }
@@ -110,6 +108,7 @@ private func activityCell(for activity: Activity) -> some View {
     .padding(.vertical, 12)
     .background(Color(.black2))
     .cornerRadius(16)
+    .listRowBackground(Color.clear)
 }
 
 struct ActivityView_Previews: PreviewProvider {
