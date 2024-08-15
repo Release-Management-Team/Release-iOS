@@ -20,23 +20,14 @@ struct Activity: Identifiable {
 struct ActivityView: View {
     
     @State private var selectedCategory = StringLiterals.Activity.study
-    
-    let activities = [
-        Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-        Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-        Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-        Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-        Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-        Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-        Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-        Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
-    ]
+    @State private var activityData: [Activity] = activities1
     
     var body: some View {
         VStack {
             HStack(spacing: 0) {
                 Button(action: {
                     selectedCategory = StringLiterals.Activity.study
+                    activityData = activities1
                 }) {
                     Text(StringLiterals.Activity.study)
                         .font(.heading4)
@@ -49,6 +40,7 @@ struct ActivityView: View {
                 
                 Button(action: {
                     selectedCategory = StringLiterals.Activity.event
+                    activityData = activities2
                 }) {
                     Text(StringLiterals.Activity.event)
                         .font(.heading4)
@@ -64,11 +56,11 @@ struct ActivityView: View {
             .cornerRadius(32)
             .padding(.horizontal, 24)
             
-            List(activities) { activity in
+            List(activityData) { activity in
                 activityCell(for: activity)
             }
             .listStyle(PlainListStyle())
-            .background(Color.black1.edgesIgnoringSafeArea(.all))
+            .background(Color.black1)
             .listRowBackground(Color.black1)
         }
     }

@@ -20,6 +20,7 @@
 		2C6E4E532C6A70EE00E60363 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6E4E522C6A70EE00E60363 /* MyView.swift */; };
 		2C6E4E572C6A788E00E60363 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6E4E562C6A788E00E60363 /* CustomTabView.swift */; };
 		2C97236F2C6DD431007F2C3D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97236E2C6DD431007F2C3D /* String.swift */; };
+		2C9723712C6E251F007F2C3D /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9723702C6E251F007F2C3D /* Dummy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		2C6E4E522C6A70EE00E60363 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		2C6E4E562C6A788E00E60363 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		2C97236E2C6DD431007F2C3D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2C9723702C6E251F007F2C3D /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				2C6E4E4E2C6A70B600E60363 /* ActivityView.swift */,
+				2C9723702C6E251F007F2C3D /* Dummy.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			files = (
 				2C6E4E532C6A70EE00E60363 /* MyView.swift in Sources */,
 				2C6E4E4A2C6A600A00E60363 /* Font+.swift in Sources */,
+				2C9723712C6E251F007F2C3D /* Dummy.swift in Sources */,
 				2C6E4E4C2C6A705400E60363 /* HomeView.swift in Sources */,
 				2C97236F2C6DD431007F2C3D /* String.swift in Sources */,
 				2C6E4E572C6A788E00E60363 /* CustomTabView.swift in Sources */,
