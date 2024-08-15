@@ -36,26 +36,26 @@ struct ActivityView: View {
         VStack {
             HStack(alignment: .center) {
                 Button(action: {
-                    selectedCategory = "스터디/세미나"
+                    selectedCategory = StringLiterals.Activity.study
                 }) {
-                    Text("스터디/세미나")
+                    Text(StringLiterals.Activity.study)
                         .font(.heading4)
-                        .foregroundColor(selectedCategory == "스터디/세미나" ? Color.black1 : Color.gray5)
+                        .foregroundColor(selectedCategory == StringLiterals.Activity.study ? Color.black1 : Color.gray5)
                         .padding(.horizontal, 32)
                         .padding(.vertical, 7)
-                        .background(selectedCategory == "스터디/세미나" ? Color.primary1 : Color.black2)
+                        .background(selectedCategory == StringLiterals.Activity.study ? Color.primary1 : Color.black2)
                         .cornerRadius(32)
                 }
                 
                 Button(action: {
-                    selectedCategory = "프로젝트"
+                    selectedCategory = StringLiterals.Activity.study
                 }) {
-                    Text("프로젝트")
+                    Text(StringLiterals.Activity.study)
                         .font(.heading4)
-                        .foregroundColor(selectedCategory == "프로젝트" ? Color.black1 : Color.gray5)
+                        .foregroundColor(selectedCategory == StringLiterals.Activity.study ? Color.black1 : Color.gray5)
                         .padding(.horizontal, 32)
                         .padding(.vertical, 7)
-                        .background(selectedCategory == "프로젝트" ? Color.primary1 : Color.black2)
+                        .background(selectedCategory == StringLiterals.Activity.study ? Color.primary1 : Color.black2)
                         .cornerRadius(32)
                 }
             }
@@ -63,7 +63,7 @@ struct ActivityView: View {
             .padding(.horizontal, 24)
             
             List(activities) { activity in
-                buildActivityCell(for: activity)
+                activityCell(for: activity)
             }
             .listStyle(PlainListStyle())
             .background(Color.black1.edgesIgnoringSafeArea(.all))
@@ -71,7 +71,7 @@ struct ActivityView: View {
     }
 }
 
-private func buildActivityCell(for activity: Activity) -> some View {
+private func activityCell(for activity: Activity) -> some View {
     HStack {
         Image(activity.image)
             .resizable()
