@@ -34,32 +34,34 @@ struct ActivityView: View {
     
     var body: some View {
         VStack {
-            HStack(alignment: .center) {
+            HStack(spacing: 0) {
                 Button(action: {
                     selectedCategory = StringLiterals.Activity.study
                 }) {
                     Text(StringLiterals.Activity.study)
                         .font(.heading4)
                         .foregroundColor(selectedCategory == StringLiterals.Activity.study ? Color.black1 : Color.gray5)
-                        .padding(.horizontal, 32)
                         .padding(.vertical, 7)
+                        .frame(maxWidth: .infinity)
                         .background(selectedCategory == StringLiterals.Activity.study ? Color.primary1 : Color.black2)
                         .cornerRadius(32)
                 }
                 
                 Button(action: {
-                    selectedCategory = StringLiterals.Activity.study
+                    selectedCategory = StringLiterals.Activity.event
                 }) {
-                    Text(StringLiterals.Activity.study)
+                    Text(StringLiterals.Activity.event)
                         .font(.heading4)
-                        .foregroundColor(selectedCategory == StringLiterals.Activity.study ? Color.black1 : Color.gray5)
-                        .padding(.horizontal, 32)
+                        .foregroundColor(selectedCategory == StringLiterals.Activity.event ? Color.black1 : Color.gray5)
                         .padding(.vertical, 7)
-                        .background(selectedCategory == StringLiterals.Activity.study ? Color.primary1 : Color.black2)
+                        .frame(maxWidth: .infinity)
+                        .background(selectedCategory == StringLiterals.Activity.event ? Color.primary1 : Color.black2)
                         .cornerRadius(32)
                 }
             }
-            .padding(.top, 8)
+            .padding(8)
+            .background(Color.black2)
+            .cornerRadius(32)
             .padding(.horizontal, 24)
             
             List(activities) { activity in
@@ -67,6 +69,7 @@ struct ActivityView: View {
             }
             .listStyle(PlainListStyle())
             .background(Color.black1.edgesIgnoringSafeArea(.all))
+            .listRowBackground(Color.black1)
         }
     }
 }
