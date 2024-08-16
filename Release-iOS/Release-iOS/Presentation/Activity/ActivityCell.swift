@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-private func activityCell(for activity: Activity) -> some View {
+func activityCell(for activity: Activity) -> some View {
     HStack {
         Image(activity.image)
             .resizable()

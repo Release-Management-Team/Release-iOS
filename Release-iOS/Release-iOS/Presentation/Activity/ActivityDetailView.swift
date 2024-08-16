@@ -68,8 +68,7 @@ struct ActivityDetailView: View {
             }) {
                 Image("icArrow")
                     .foregroundColor(.white)
-                    .frame(width: 24, height: 24)
-                    .padding(12)
+                    .frame(width: 48, height: 48)
                     .background(Color.black.opacity(0.2))
                     .cornerRadius(16)
             }
