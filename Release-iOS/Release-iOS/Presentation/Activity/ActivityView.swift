@@ -21,6 +21,7 @@ struct ActivityView: View {
     
     @State private var selectedCategory = StringLiterals.Activity.study
     @State private var activityData: [Activity] = activities1
+    @Binding var isTabBarHidden: Bool
     
     var body: some View {
         NavigationView {
@@ -59,7 +60,7 @@ struct ActivityView: View {
                 
                 List(activityData) { activity in
                     ZStack {
-                        NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                        NavigationLink(destination: ActivityDetailView(activity: activity, isTabBarHidden: $isTabBarHidden)) {
                             EmptyView()
                         }
                         .opacity(0.0)
@@ -70,12 +71,9 @@ struct ActivityView: View {
                 .listStyle(PlainListStyle())
             }
             .background(Color.black1)
+            .onAppear {
+                isTabBarHidden = false
+            }
         }
-    }
-}
-
-struct ActivityView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityView()
     }
 }

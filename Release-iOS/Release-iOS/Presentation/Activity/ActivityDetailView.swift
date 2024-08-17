@@ -11,6 +11,7 @@ struct ActivityDetailView: View {
     
     let activity: Activity
     @Environment(\.presentationMode) var presentationMode
+    @Binding var isTabBarHidden: Bool
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -78,5 +79,11 @@ struct ActivityDetailView: View {
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .background(Color.black1)
+        .onAppear {
+            isTabBarHidden = true
+        }
+        .onDisappear {
+            isTabBarHidden = false
+        }
     }
 }
