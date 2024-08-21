@@ -8,25 +8,33 @@
 import SwiftUI
 
 func bookCell(for book: Book) -> some View {
-    HStack {
+    HStack(alignment: .center)
+    {
         Image(book.image)
             .resizable()
             .frame(width: 88, height: 124)
             .padding(.trailing, 16)
         
         VStack(alignment: .leading) {
-            Text(book.status)
-                .font(.paragraph3)
-                .foregroundColor(Color.black2)
-                .padding(.horizontal, 17)
-                .padding(.vertical, 3.5)
-                .background(Color.primary1)
-                .cornerRadius(8)
+            HStack {    
+                Spacer()
+                
+                Text(book.status)
+                    .font(.paragraph3)
+                    .foregroundColor(Color.black2)
+                    .padding(.horizontal, 17)
+                    .padding(.vertical, 3.5)
+                    .background(Color.primary1)
+                    .cornerRadius(8)
+                
+            }
+            .padding(.bottom, 4)
             
             Text(book.title)
                 .font(.paragraph1)
                 .foregroundColor(.gray1)
                 .padding(.bottom, 8)
+                .truncationMode(.tail)
             
             Text(book.author)
                 .font(.paragraph2)
@@ -44,7 +52,6 @@ func bookCell(for book: Book) -> some View {
                     .foregroundColor(.gray5)
             }
         }
-        Spacer()
     }
     .padding(.horizontal, 16)
     .padding(.vertical, 12)

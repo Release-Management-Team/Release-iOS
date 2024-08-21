@@ -45,7 +45,6 @@ func activityCell(for activity: Activity) -> some View {
                 .font(.paragraph2)
                 .foregroundColor(.gray3)
         }
-        Spacer()
     }
     .padding(.horizontal, 16)
     .padding(.vertical, 12)
