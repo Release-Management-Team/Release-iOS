@@ -70,6 +70,10 @@ struct MyInfoEditView: View {
                             .font(.heading4)
                             .foregroundColor(.gray3)
                             .padding(.bottom, 8)
+                        
+                        CustomTextField(text: $statusValue,
+                                        placeholder: my.status,
+                                        type: .default)
                     }
                     .padding(.bottom, 32)
                     
