@@ -18,9 +18,32 @@ struct Book: Identifiable {
 }
 
 struct BookView: View {
+    
+    @State private var bookData: [Book] = book1
+    @Binding var isTabBarHidden: Bool
+    
     var body: some View {
-        Text("This is the BookView")
-            .font(.title)
-            .padding()
+        NavigationView {
+            VStack {
+                List(bookData) { book in
+                    ZStack {
+                        NavigationLink(destination:
+                                        ActivityDetailView(
+                                            activity: activity,
+                                            isTabBarHidden: $isTabBarHidden)) {
+                                                EmptyView()
+                                            }
+                                            .opacity(0.0)
+                        bookCell(for: book)
+                    }
+                    .listRowBackground(Color.black1)
+                }
+                .listStyle(PlainListStyle())
+            }
+            .background(Color.black1)
+            .onAppear {
+                isTabBarHidden = false
+            }
+        }
     }
 }

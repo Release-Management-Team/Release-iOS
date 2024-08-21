@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-func BookCell(for book: Book) -> some View {
+func bookCell(for book: Book) -> some View {
     HStack {
         Image(book.image)
             .resizable()

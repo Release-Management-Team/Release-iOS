@@ -126,6 +126,7 @@
 		2C6E4E4D2C6A706000E60363 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2C9723702C6E251F007F2C3D /* Dummy.swift */,
 				2CBC76AE2C75F04D00C0D3EC /* Book */,
 				2C7A7CDB2C6CF1DE0071C259 /* Activity */,
 				2C6E4E332C6A5D1800E60363 /* ContentView.swift */,
@@ -142,7 +143,6 @@
 				2C6E4E4E2C6A70B600E60363 /* ActivityView.swift */,
 				2C92FEE02C6F57D70044920F /* ActivityCell.swift */,
 				2C9723722C6E27E0007F2C3D /* ActivityDetailView.swift */,
-				2C9723702C6E251F007F2C3D /* Dummy.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
