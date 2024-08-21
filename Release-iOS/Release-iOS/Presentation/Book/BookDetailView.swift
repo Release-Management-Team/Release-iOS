@@ -17,10 +17,29 @@ struct BookDetailView: View {
         ZStack(alignment: .topLeading) {
             ScrollView() {
                 VStack {
-                    Image("kuromiDummy")
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                        .padding(.bottom, 32)
+                    ZStack {
+                        Image("kuromiDummy")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                            .blur(radius: 2)
+                            .opacity(0.8)
+                        
+                        VStack{
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                
+                                Image("kuromiDummy")
+                                    .resizable()
+                                    .frame(width: 180, height: 254)
+                                
+                                Spacer()
+                            }
+                            .padding(.bottom, 48)
+                        }
+                    }
+                    .padding(.bottom, 32)
                     
                     VStack(alignment: .leading) {
                         Text(book.status)
