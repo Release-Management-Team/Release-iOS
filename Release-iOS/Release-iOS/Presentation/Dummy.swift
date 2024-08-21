@@ -35,3 +35,36 @@ let book1 = [
     Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
     Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스")
 ]
+
+let weekly1 = [
+    [
+        WeeklyEvent(category: "Release Management Project", title: "정기 회의", time: "15:00 ~"),
+        WeeklyEvent(category: "Release Management Project", title: "정기 회의", time: "15:00 ~"),
+        WeeklyEvent(category: "Release Management Project", title: "정기 회의", time: "15:00 ~"),
+        WeeklyEvent(category: "Release Management Project", title: "정기 회의", time: "15:00 ~"),
+        WeeklyEvent(category: "Release Management Project", title: "정기 회의", time: "15:00 ~"),
+        WeeklyEvent(category: "Release Management Project", title: "정기 회의", time: "15:00 ~")
+    ],
+    [
+        WeeklyEvent(category: "Release Management Project Release Management Project Release Management Project", title: "정기 회의", time: "15:00 ~"),
+        WeeklyEvent(category: "Release Management Project", title: "정기 회의", time: "15:00 ~")
+    ],
+    [
+        WeeklyEvent(category: "개발", title: "백엔드 개발", time: "09:00 ~ 11:00"),
+        WeeklyEvent(category: "테스트", title: "유닛 테스트 작성", time: "13:00 ~ 15:00")
+    ],
+    [
+        WeeklyEvent(category: "회의", title: "클라이언트 미팅", time: "10:00 ~ 11:00"),
+        WeeklyEvent(category: "개발", title: "프론트엔드 개발", time: "11:30 ~ 13:00")
+    ],
+    [ 
+        WeeklyEvent(category: "리뷰", title: "스프린트 리뷰", time: "09:30 ~ 11:00"),
+        WeeklyEvent(category: "회의", title: "회고 미팅", time: "15:00 ~ 16:00")
+    ],
+    [],
+    [] 
+]
+
+let weekEmpty = [
+    WeeklyEvent(category: "리뷰", title: "스프린트 리뷰", time: "09:30 ~ 11:00")
+]

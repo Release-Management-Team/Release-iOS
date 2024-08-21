@@ -18,7 +18,7 @@ struct ContentView: View {
             
             switch selectedTab {
             case .home:
-                HomeView()
+                HomeView(eventsByDay: weekly1)
                     .padding(.bottom, 114+10)
             case .activity:
                 ActivityView(navigationTitle: StringLiterals.Navigation.activity,
