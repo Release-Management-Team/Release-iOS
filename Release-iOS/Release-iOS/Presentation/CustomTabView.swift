@@ -71,10 +71,12 @@ func leadingNavigationView(for title: String) -> some View {
     .frame(width: UIScreen.main.bounds.width, height: 72)
 }
 
-func centerNavigationView(for title: String, presentationMode: Binding<PresentationMode>) -> some View {
+func centerNavigationView(for title: String, presentationMode: Binding<PresentationMode>, isTabBarHidden: Binding<Bool>) -> some View {
     HStack(alignment: .center) {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
+            isTabBarHidden.wrappedValue = false
+            
         }) {
             Image("icArrow")
                 .foregroundColor(.white)

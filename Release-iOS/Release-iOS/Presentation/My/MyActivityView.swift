@@ -18,7 +18,8 @@ struct MyActivityView: View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.activityCheck,
-                                 presentationMode: presentationMode)
+                                 presentationMode: presentationMode,
+                                 isTabBarHidden: $isTabBarHidden)
             
             List(activityData) { activity in
                 ZStack {

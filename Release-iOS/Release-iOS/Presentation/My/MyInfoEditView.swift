@@ -22,7 +22,8 @@ struct MyInfoEditView: View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.infoEdit,
-                                 presentationMode: presentationMode)
+                                 presentationMode: presentationMode,
+                                 isTabBarHidden: $isTabBarHidden)
             
             ScrollView {
                 VStack(alignment: .center) {
@@ -78,7 +79,9 @@ struct MyInfoEditView: View {
                             .foregroundColor(.gray3)
                             .padding(.bottom, 8)
                         
-                        CustomTextField(text: $emailValue, placeholder: my.email)
+                        CustomTextField(text: $emailValue,
+                                        placeholder: my.email,
+                                        type: .emailAddress)
                     }
                     .padding(.bottom, 32)
                     
@@ -88,7 +91,9 @@ struct MyInfoEditView: View {
                             .foregroundColor(.gray3)
                             .padding(.bottom, 8)
                         
-                        CustomTextField(text: $phoneValue, placeholder: my.phone)
+                        CustomTextField(text: $phoneValue,
+                                        placeholder: my.phone,
+                                        type: .numberPad)
                     }
                     .padding(.bottom, 24)
                 }

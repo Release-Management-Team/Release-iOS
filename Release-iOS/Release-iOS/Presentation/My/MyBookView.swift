@@ -18,7 +18,8 @@ struct MyBookView: View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.activityCheck,
-                                 presentationMode: presentationMode)
+                                 presentationMode: presentationMode,
+                                 isTabBarHidden: $isTabBarHidden)
             
             List(book) { book in
                 ZStack {

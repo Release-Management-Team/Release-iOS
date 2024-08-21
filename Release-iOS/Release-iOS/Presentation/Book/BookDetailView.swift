@@ -126,8 +126,5 @@ struct BookDetailView: View {
         .onAppear {
             isTabBarHidden = true
         }
-        .onDisappear {
-            isTabBarHidden = false
-        }
     }
 }
