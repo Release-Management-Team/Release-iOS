@@ -19,12 +19,17 @@ struct Book: Identifiable {
 
 struct BookView: View {
     
-    @State private var bookData: [Book] = book1
+    var navigationTitle: String
     @Binding var isTabBarHidden: Bool
+    
+    @State private var bookData: [Book] = book1
     
     var body: some View {
         NavigationView {
             VStack {
+                
+                customNavigationView(for: navigationTitle)
+                
                 List(bookData) { book in
                     ZStack {
                         NavigationLink(destination:

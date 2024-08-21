@@ -19,16 +19,18 @@ struct ContentView: View {
             switch selectedTab {
             case .home:
                 HomeView()
-                    .padding(.bottom, 96)
+                    .padding(.bottom, 114+10)
             case .activity:
-                ActivityView(isTabBarHidden: $isTabBarHidden)
-                    .padding(.bottom, isTabBarHidden ? 0 : 96)
+                ActivityView(navigationTitle: StringLiterals.Navigation.activity,
+                             isTabBarHidden: $isTabBarHidden)
+                    .padding(.bottom, isTabBarHidden ? 0 : 114+10)
             case .book:
-                BookView(isTabBarHidden: $isTabBarHidden)
-                    .padding(.bottom, isTabBarHidden ? 0 : 96)
+                BookView(navigationTitle: StringLiterals.Navigation.book,
+                         isTabBarHidden: $isTabBarHidden)
+                    .padding(.bottom, isTabBarHidden ? 0 : 114+10)
             case .my:
                 MyView()
-                    .padding(.bottom, 96)
+                    .padding(.bottom, 114+10)
             }
             
             Spacer()
