@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+struct Book: Identifiable {
+    let id = UUID()
+    let image: String
+    let status: String
+    let title: String
+    let author: String
+    let year: String
+    let publisher: String
+}
+
 struct BookView: View {
     var body: some View {
         Text("This is the BookView")
