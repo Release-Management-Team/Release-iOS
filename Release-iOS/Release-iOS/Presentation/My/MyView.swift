@@ -27,8 +27,8 @@ struct MyView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                ZStack {
+            VStack(alignment: .leading) {
+                ZStack(alignment: .topLeading) {
                     VStack(alignment: .leading) {
                         HStack {
                             Text(my.name)
@@ -104,23 +104,25 @@ struct MyView: View {
                     
                     Image("kuromiDummy")
                         .frame(width: 96, height: 96)
+                        .cornerRadius(48)
                         .background(Color.clear)
                         .padding(.leading, 8)
                 }
                 
-                VStack {
+                VStack(alignment: .leading) {
                     Text(StringLiterals.My.goal)
                         .font(.heading4)
                         .foregroundColor(.gray1)
                         .padding([.leading, .bottom], 8)
                     
-                    HStack {
+                    HStack(alignment: .center) {
                         Spacer()
                         
                         Text("학회원 자격 조건을 달성하였습니다!")
                             .font(.paragraph1)
                             .foregroundColor(.gray4)
                             .padding(.horizontal, 16)
+                            .padding(.vertical, 24)
                         
                         Spacer()
                     }
@@ -129,7 +131,7 @@ struct MyView: View {
                 }
                 .padding(.bottom, 32)
                 
-                VStack {
+                VStack(alignment: .leading) {
                     Text(StringLiterals.My.check)
                         .font(.heading4)
                         .foregroundColor(.gray1)
@@ -142,6 +144,7 @@ struct MyView: View {
                             .font(.paragraph1)
                             .foregroundColor(.black2)
                             .padding(.horizontal, 16)
+                            .padding(.vertical, 24)
                             .frame(maxWidth: .infinity)
                             .background(.primary1)
                             .cornerRadius(16)
@@ -155,6 +158,7 @@ struct MyView: View {
                             .font(.paragraph1)
                             .foregroundColor(.black2)
                             .padding(.horizontal, 16)
+                            .padding(.vertical, 24)
                             .frame(maxWidth: .infinity)
                             .background(.primary1)
                             .cornerRadius(16)
@@ -162,7 +166,7 @@ struct MyView: View {
                 }
                 .padding(.bottom, 32)
                 
-                VStack {
+                VStack(alignment: .leading) {
                     Text(StringLiterals.My.edit)
                         .font(.heading4)
                         .foregroundColor(.gray1)
@@ -175,6 +179,7 @@ struct MyView: View {
                             .font(.paragraph1)
                             .foregroundColor(.gray3)
                             .padding(.horizontal, 16)
+                            .padding(.vertical, 24)
                             .frame(maxWidth: .infinity)
                             .background(.black2)
                             .cornerRadius(16)
@@ -188,6 +193,7 @@ struct MyView: View {
                             .font(.paragraph1)
                             .foregroundColor(.gray3)
                             .padding(.horizontal, 16)
+                            .padding(.vertical, 24)
                             .frame(maxWidth: .infinity)
                             .background(.black2)
                             .cornerRadius(16)
