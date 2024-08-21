@@ -21,6 +21,7 @@ struct CustomTabView: View {
     var body: some View {
         GeometryReader { geometry in
             let buttonWidth = (geometry.size.width - 48) / 4
+            
             HStack(spacing: 0) {       
                 tabButton(tab: .home, image: "icHome", text: "홈", width: buttonWidth)            
                 tabButton(tab: .activity, image: "icStudy", text: "활동", width: buttonWidth)        
@@ -30,6 +31,7 @@ struct CustomTabView: View {
             .frame(width: UIScreen.main.bounds.width, height: 96)
             .background(Color.black2)
             .clipShape(RoundedRectangle(cornerRadius: 16))
+            .shadow(color: Color.black3.opacity(0.3), radius: 10, x: 0, y: 4)
         }
         .frame(width: UIScreen.main.bounds.width, height: 96)
     }
