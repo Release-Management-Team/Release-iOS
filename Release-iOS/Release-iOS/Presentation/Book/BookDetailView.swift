@@ -19,7 +19,7 @@ struct BookDetailView: View {
                 ScrollView() {
                     VStack {
                         ZStack {
-                            Image("kuromiDummy")
+                            Image(book.image)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
@@ -31,7 +31,7 @@ struct BookDetailView: View {
                                 HStack{
                                     Spacer()
                                     
-                                    Image("kuromiDummy")
+                                    Image(book.image)
                                         .resizable()
                                         .frame(width: 180, height: 254)
                                     
@@ -79,13 +79,12 @@ struct BookDetailView: View {
                             }
                         }
                         .padding(.horizontal, 24)
+                        .padding(.bottom, 40)
                     }
                     .background(Color.black1)
                 }
-                .padding(.bottom, 40)
                 
-                HStack {  
-                    Spacer()
+                VStack(alignment: .center) {  
                     Button(action: {
                         print("버튼 탭💖\n")
                     }) {
@@ -97,14 +96,16 @@ struct BookDetailView: View {
                             .background(Color.primary1)
                             .cornerRadius(16)
                     }
+                    .padding(.top, 13)
                     
                     Spacer()
                 }
                 .frame(width: UIScreen.main.bounds.width, height: 114)
                 .background(Color.black2)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
-                .shadow(color: Color.black3.opacity(0.3), radius: 10, x: 0, y: 4)
+                .shadow(color: Color.gray1.opacity(0.2), radius: 10, x: 0, y: 5)
             }
+            .background(Color.clear)
             
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
@@ -118,6 +119,7 @@ struct BookDetailView: View {
             .padding(.leading, 24)
             .padding(.top, 13)
         }
+        .ignoresSafeArea(edges: .bottom)
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .background(Color.black1)
