@@ -17,6 +17,7 @@ struct HomeView: View {
                 HStack(alignment: .center) {
                     Image("releaseLogo")
                         .frame(width: 80, height: 48)
+                        .background(Color.clear)
                     
                     Spacer()
                     
@@ -24,13 +25,14 @@ struct HomeView: View {
                         print("알람버튼 탭\n")
                     }) {
                         Image("icRing")
+                            .frame(width: 32, height: 32)
+                            .background(Color.clear)
                     }
-                    .frame(width: 32, height: 32)
                     
                     Image("kuromiDummy")
                         .frame(width: 48, height: 48)
                         .cornerRadius(24)
-                        .padding(.leading, 8)
+                        .padding(.leading, 24)
                 }
                 .padding(.vertical, 12)
                 .padding(.bottom, 32)
