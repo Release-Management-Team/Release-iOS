@@ -161,16 +161,18 @@ struct MyView: View {
                             }
                             .padding(.bottom, 8)
                             
-                            Button(action: {
-                                print("대여 중인 도서 확인하기\n")
-                            }) {
+                            NavigationLink(
+                                destination: MyBookView(
+                                    navigationTitle: StringLiterals.Navigation.bookCheck,
+                                    isTabBarHidden: $isTabBarHidden
+                                )) {
                                 Text(StringLiterals.My.bookCheck)
                                     .font(.paragraph1)
                                     .foregroundColor(.black2)
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 24)
                                     .frame(maxWidth: .infinity)
-                                    .background(.primary1)
+                                    .background(Color.primary1)
                                     .cornerRadius(16)
                             }
                         }
