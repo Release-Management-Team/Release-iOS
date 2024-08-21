@@ -24,8 +24,8 @@ struct ContentView: View {
                 ActivityView(isTabBarHidden: $isTabBarHidden)
                     .padding(.bottom, isTabBarHidden ? 0 : 96)
             case .book:
-                BookView()
-                    .padding(.bottom, 96)
+                BookView(isTabBarHidden: $isTabBarHidden)
+                    .padding(.bottom, isTabBarHidden ? 0 : 96)
             case .my:
                 MyView()
                     .padding(.bottom, 96)

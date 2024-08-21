@@ -28,8 +28,8 @@ struct BookView: View {
                 List(bookData) { book in
                     ZStack {
                         NavigationLink(destination:
-                                        ActivityDetailView(
-                                            activity: activity,
+                                        BookDetailView(
+                                            book: book,
                                             isTabBarHidden: $isTabBarHidden)) {
                                                 EmptyView()
                                             }

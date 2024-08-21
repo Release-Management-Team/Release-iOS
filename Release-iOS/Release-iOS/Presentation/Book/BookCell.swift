@@ -14,7 +14,7 @@ func bookCell(for book: Book) -> some View {
             .frame(width: 88, height: 124)
             .padding(.trailing, 16)
         
-        VStack(alignment: .leading) { 
+        VStack(alignment: .leading) {
             Text(book.status)
                 .font(.paragraph3)
                 .foregroundColor(Color.black2)
@@ -37,6 +37,7 @@ func bookCell(for book: Book) -> some View {
                 Text(book.year)
                     .font(.paragraph3)
                     .foregroundColor(.gray5)
+                    .padding(.trailing, 1)
                 
                 Text(book.publisher)
                     .font(.paragraph3)
