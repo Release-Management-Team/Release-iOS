@@ -28,7 +28,7 @@ struct MyView: View {
     var body: some View {
         NavigationView {
             VStack {
-                customNavigationView(for: StringLiterals.Navigation.my)
+                leadingNavigationView(for: StringLiterals.Navigation.my)
                 
                 ScrollView {
                     VStack(alignment: .leading) {
@@ -145,16 +145,18 @@ struct MyView: View {
                                 .foregroundColor(.gray1)
                                 .padding([.leading, .bottom], 8)
                             
-                            Button(action: {
-                                print("참여 중인 스터디/프로젝트 확인하기\n")
-                            }) {
+                            NavigationLink(
+                                destination: MyActivityView(
+                                    navigationTitle: StringLiterals.Navigation.activityCheck,
+                                    isTabBarHidden: $isTabBarHidden
+                                )) {
                                 Text(StringLiterals.My.activityCheck)
                                     .font(.paragraph1)
                                     .foregroundColor(.black2)
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 24)
                                     .frame(maxWidth: .infinity)
-                                    .background(.primary1)
+                                    .background(Color.primary1)
                                     .cornerRadius(16)
                             }
                             .padding(.bottom, 8)

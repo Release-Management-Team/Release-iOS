@@ -12,6 +12,10 @@ struct StringLiterals {
         static let activity = "활동"
         static let book = "도서"
         static let my = "마이페이지"
+        static let infoEdit = "개인정보 수정"
+        static let passwordEdit = "비밀번호 변경"
+        static let activityCheck = "참여 중인 스터디/프로잭트"
+        static let bookCheck = "대여 중인 도서"
     }
     
     enum Home {

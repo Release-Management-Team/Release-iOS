@@ -59,7 +59,7 @@ struct CustomTabView: View {
     }
 }
 
-func customNavigationView(for title: String) -> some View {
+func leadingNavigationView(for title: String) -> some View {
     HStack {
         Text(title)
             .font(.heading3)
@@ -67,6 +67,29 @@ func customNavigationView(for title: String) -> some View {
             .padding(.leading, 24)
         
         Spacer()
+    }
+    .frame(width: UIScreen.main.bounds.width, height: 72)
+}
+
+func centerNavigationView(for title: String, presentationMode: Binding<PresentationMode>) -> some View {
+    
+    ZStack {
+        
+        VStack(alignment: .center) {
+            Text(title)
+                .font(.heading4)
+                .foregroundColor(.gray1)
+        }
+        
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Image("icArrow")
+                .foregroundColor(.white)
+                .frame(width: 24, height: 24)
+                .background(Color.clear)
+        }
+        .padding(.leading, 24)
     }
     .frame(width: UIScreen.main.bounds.width, height: 72)
 }
