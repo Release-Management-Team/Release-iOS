@@ -35,6 +35,7 @@ struct StringLiterals {
         static let studentNumber = "학번"
         static let major = "학과"
         static let period = "활동기간"
+        static let status = "상태메세지"
         static let email = "이메일"
         static let phone = "전화번호"
         

@@ -150,31 +150,31 @@ struct MyView: View {
                                     navigationTitle: StringLiterals.Navigation.activityCheck,
                                     isTabBarHidden: $isTabBarHidden
                                 )) {
-                                Text(StringLiterals.My.activityCheck)
-                                    .font(.paragraph1)
-                                    .foregroundColor(.black2)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 24)
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.primary1)
-                                    .cornerRadius(16)
-                            }
-                            .padding(.bottom, 8)
+                                    Text(StringLiterals.My.activityCheck)
+                                        .font(.paragraph1)
+                                        .foregroundColor(.black2)
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 24)
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.primary1)
+                                        .cornerRadius(16)
+                                }
+                                .padding(.bottom, 8)
                             
                             NavigationLink(
                                 destination: MyBookView(
                                     navigationTitle: StringLiterals.Navigation.bookCheck,
                                     isTabBarHidden: $isTabBarHidden
                                 )) {
-                                Text(StringLiterals.My.bookCheck)
-                                    .font(.paragraph1)
-                                    .foregroundColor(.black2)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 24)
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.primary1)
-                                    .cornerRadius(16)
-                            }
+                                    Text(StringLiterals.My.bookCheck)
+                                        .font(.paragraph1)
+                                        .foregroundColor(.black2)
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 24)
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.primary1)
+                                        .cornerRadius(16)
+                                }
                         }
                         .padding(.bottom, 32)
                         
@@ -184,19 +184,21 @@ struct MyView: View {
                                 .foregroundColor(.gray1)
                                 .padding([.leading, .bottom], 8)
                             
-                            Button(action: {
-                                print("참여 중인 스터디/프로젝트 확인하기\n")
-                            }) {
-                                Text(StringLiterals.My.infoEdit)
-                                    .font(.paragraph1)
-                                    .foregroundColor(.gray3)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 24)
-                                    .frame(maxWidth: .infinity)
-                                    .background(.black2)
-                                    .cornerRadius(16)
-                            }
-                            .padding(.bottom, 8)
+                            NavigationLink(
+                                destination: MyInfoEditView(
+                                    navigationTitle: StringLiterals.Navigation.infoEdit,
+                                    isTabBarHidden: $isTabBarHidden
+                                )) {
+                                    Text(StringLiterals.My.infoEdit)
+                                        .font(.paragraph1)
+                                        .foregroundColor(.gray3)
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 24)
+                                        .frame(maxWidth: .infinity)
+                                        .background(.black2)
+                                        .cornerRadius(16)
+                                }
+                                .padding(.bottom, 8)
                             
                             Button(action: {
                                 print("대여 중인 도서 확인하기\n")
