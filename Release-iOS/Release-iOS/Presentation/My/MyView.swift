@@ -212,9 +212,13 @@ struct MyView: View {
                         .padding(.bottom, 24)
                     }
                 }
+                .scrollIndicators(.hidden)
             }
             .padding(.horizontal, 24)
             .background(Color.black1)
+        }
+        .onAppear {
+            isTabBarHidden = false
         }
     }
 }

@@ -15,33 +15,31 @@ struct MyActivityView: View {
     @State private var activityData: [Activity] = activities1
     
     var body: some View {
-        NavigationView {
-            VStack {
-                
-                centerNavigationView(for: StringLiterals.Navigation.activityCheck,
-                                     presentationMode: presentationMode)
-                
-                List(activityData) { activity in
-                    ZStack {
-                        NavigationLink(
-                            destination: ActivityDetailView(
-                                activity: activity,
-                                isTabBarHidden: $isTabBarHidden)) {
-                                    EmptyView()
-                                }
-                                .opacity(0.0)
-                        activityCell(for: activity)
-                    }
-                    .listRowBackground(Color.black1)
+        VStack {
+            
+            centerNavigationView(for: StringLiterals.Navigation.activityCheck,
+                                 presentationMode: presentationMode)
+            
+            List(activityData) { activity in
+                ZStack {
+                    NavigationLink(
+                        destination: ActivityDetailView(
+                            activity: activity,
+                            isTabBarHidden: $isTabBarHidden)) {
+                                EmptyView()
+                            }
+                            .opacity(0.0)
+                    activityCell(for: activity)
                 }
-                .listStyle(PlainListStyle())
+                .listRowBackground(Color.black1)
             }
-            .background(Color.black1)
-            .navigationBarHidden(true)
-            .toolbar(.hidden, for: .tabBar)
-            .onAppear {
-                isTabBarHidden = false
-            }
+            .listStyle(PlainListStyle())
+        }
+        .background(Color.black1)
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .tabBar)
+        .onAppear {
+            isTabBarHidden = true
         }
     }
 }

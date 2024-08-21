@@ -72,15 +72,7 @@ func leadingNavigationView(for title: String) -> some View {
 }
 
 func centerNavigationView(for title: String, presentationMode: Binding<PresentationMode>) -> some View {
-    
-    ZStack {
-        
-        VStack(alignment: .center) {
-            Text(title)
-                .font(.heading4)
-                .foregroundColor(.gray1)
-        }
-        
+    HStack(alignment: .center) {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
         }) {
@@ -90,6 +82,14 @@ func centerNavigationView(for title: String, presentationMode: Binding<Presentat
                 .background(Color.clear)
         }
         .padding(.leading, 24)
+        
+        Spacer()
+        
+        Text(title)
+            .font(.heading4)
+            .foregroundColor(.gray1)
+        
+        Spacer()
     }
     .frame(width: UIScreen.main.bounds.width, height: 72)
 }
