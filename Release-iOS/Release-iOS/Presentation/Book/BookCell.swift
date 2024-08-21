@@ -2,48 +2,55 @@
 //  ActivityCell.swift
 //  Release-iOS
 //
-//  Created by 신지원 on 8/16/24.
+//  Created by 신지원 on 8/21/24.
 //
 
 import SwiftUI
 
-func activityCell(for activity: Activity) -> some View {
-    HStack {
-        Image(activity.image)
+func bookCell(for book: Book) -> some View {
+    HStack(alignment: .center)
+    {
+        Image(book.image)
             .resizable()
-            .frame(width: 96, height: 96)
+            .frame(width: 88, height: 124)
             .padding(.trailing, 16)
         
         VStack(alignment: .leading) {
-            HStack {
-                Text(activity.category)
-                    .font(.paragraph3)
-                    .foregroundColor(.gray5)
-                
+            HStack {    
                 Spacer()
                 
-                Text(activity.status)
+                Text(book.status)
                     .font(.paragraph3)
                     .foregroundColor(Color.black2)
                     .padding(.horizontal, 17)
                     .padding(.vertical, 3.5)
                     .background(Color.primary1)
                     .cornerRadius(8)
+                
             }
-            .padding(.bottom, 5)
+            .padding(.bottom, 4)
             
-            Text(activity.title)
-                .font(.heading4)
+            Text(book.title)
+                .font(.paragraph1)
                 .foregroundColor(.gray1)
+                .padding(.bottom, 8)
+                .truncationMode(.tail)
             
-            Text(activity.content)
-                .font(.paragraph3)
+            Text(book.author)
+                .font(.paragraph2)
                 .foregroundColor(.gray3)
                 .padding(.bottom, 8)
             
-            Text(activity.person)
-                .font(.paragraph2)
-                .foregroundColor(.gray3)
+            HStack {
+                Text(book.year)
+                    .font(.paragraph3)
+                    .foregroundColor(.gray5)
+                    .padding(.trailing, 1)
+                
+                Text(book.publisher)
+                    .font(.paragraph3)
+                    .foregroundColor(.gray5)
+            }
         }
     }
     .padding(.horizontal, 16)

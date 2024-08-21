@@ -19,13 +19,18 @@ struct Activity: Identifiable {
 
 struct ActivityView: View {
     
+    var navigationTitle: String
+    @Binding var isTabBarHidden: Bool
+    
     @State private var selectedCategory = StringLiterals.Activity.study
     @State private var activityData: [Activity] = activities1
-    @Binding var isTabBarHidden: Bool
     
     var body: some View {
         NavigationView {
             VStack {
+                
+                customNavigationView(for: navigationTitle)
+                
                 HStack(spacing: 0) {
                     Button(action: {
                         selectedCategory = StringLiterals.Activity.study

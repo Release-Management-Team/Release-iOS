@@ -21,19 +21,22 @@ struct CustomTabView: View {
     var body: some View {
         GeometryReader { geometry in
             let buttonWidth = (geometry.size.width - 48) / 4
-            
-            HStack(spacing: 0) {       
-                tabButton(tab: .home, image: "icHome", text: "홈", width: buttonWidth)            
-                tabButton(tab: .activity, image: "icStudy", text: "활동", width: buttonWidth)        
-                tabButton(tab: .book, image: "icBook", text: "도서", width: buttonWidth)
-                tabButton(tab: .my, image: "icProfile", text: "마이페이지", width: buttonWidth)
+            VStack {
+                HStack(spacing: 0) {       
+                    tabButton(tab: .home, image: "icHome", text: "홈", width: buttonWidth)            
+                    tabButton(tab: .activity, image: "icStudy", text: "활동", width: buttonWidth)        
+                    tabButton(tab: .book, image: "icBook", text: "도서", width: buttonWidth)
+                    tabButton(tab: .my, image: "icProfile", text: "마이페이지", width: buttonWidth)
+                }
+                .padding(.top, 18)
+                Spacer()
             }
-            .frame(width: UIScreen.main.bounds.width, height: 96)
+            .frame(width: UIScreen.main.bounds.width, height: 114)
             .background(Color.black2)
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(color: Color.black3.opacity(0.3), radius: 10, x: 0, y: 4)
+            .shadow(color: Color.gray1.opacity(0.15), radius: 10, x: 0, y: 10)
         }
-        .frame(width: UIScreen.main.bounds.width, height: 96)
+        .frame(width: UIScreen.main.bounds.width, height: 114)
     }
     
     private func tabButton(tab: Tab, image: String, text: String, width: CGFloat) -> some View {
@@ -54,4 +57,16 @@ struct CustomTabView: View {
             .frame(width: width)
         }
     }
+}
+
+func customNavigationView(for title: String) -> some View {
+    HStack {
+        Text(title)
+            .font(.heading3)
+            .foregroundColor(.gray1)
+            .padding(.leading, 24)
+        
+        Spacer()
+    }
+    .frame(width: UIScreen.main.bounds.width, height: 72)
 }
