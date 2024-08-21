@@ -9,11 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     
+    let eventsByDay: [[WeeklyEvent]]
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-                   Image("releaseLogo")
+                    Image("releaseLogo")
                         .frame(width: 80, height: 48)
                     
                     Spacer()
@@ -26,9 +28,9 @@ struct HomeView: View {
                     .frame(width: 32, height: 32)
                     
                     Image("kuromiDummy")
-                         .frame(width: 48, height: 48)
-                         .cornerRadius(24)
-                         .padding(.leading, 8)
+                        .frame(width: 48, height: 48)
+                        .cornerRadius(24)
+                        .padding(.leading, 8)
                 }
                 .padding(.vertical, 12)
                 .padding(.bottom, 32)
@@ -50,15 +52,17 @@ struct HomeView: View {
                         Spacer()
                     }
                     
-                    VStack(alignment: .center) {
+                    HStack {
+                        Spacer()
+                        
                         Text("⛔️ 16:00 ~ 18:00  랩실 출입 통제됩니다")
                             .font(.paragraph1)
                             .foregroundColor(.black2)
                             .padding(.vertical, 24)
-                            .padding(.horizontal, 16)
+                        
+                        Spacer()
                     }
                     .background(Color.primary1)
-                    .frame(maxWidth: .infinity)
                     .cornerRadius(16)
                 }
                 .padding(.bottom, 32)
@@ -67,8 +71,12 @@ struct HomeView: View {
                     .font(.heading3)
                     .foregroundColor(.gray1)
                     .padding(.bottom, 8)
+                
+                HomeWeeklyView(eventsByDay: eventsByDay)
+                    .padding(.bottom, 24)
             }
         }
+        .scrollIndicators(.hidden)
         .padding(.horizontal, 24)
     }
 }
