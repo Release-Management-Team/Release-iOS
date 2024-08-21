@@ -64,3 +64,7 @@ let weekly1 = [
     [],
     [] 
 ]
+
+let weekEmpty = [
+    WeeklyEvent(category: "리뷰", title: "스프린트 리뷰", time: "09:30 ~ 11:00")
+]
