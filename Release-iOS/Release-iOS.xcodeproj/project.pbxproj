@@ -133,11 +133,11 @@
 			isa = PBXGroup;
 			children = (
 				2C9723702C6E251F007F2C3D /* Dummy.swift */,
+				2CC6A9C32C76896D008DB5F1 /* My */,
 				2CC6A9BA2C76640E008DB5F1 /* Home */,
 				2CBC76AE2C75F04D00C0D3EC /* Book */,
 				2C7A7CDB2C6CF1DE0071C259 /* Activity */,
 				2C6E4E332C6A5D1800E60363 /* ContentView.swift */,
-				2C6E4E522C6A70EE00E60363 /* MyView.swift */,
 				2C6E4E562C6A788E00E60363 /* CustomTabView.swift */,
 			);
 			path = Presentation;
@@ -171,6 +171,14 @@
 				2CC6A9C12C7669D8008DB5F1 /* HomeWeeklyViewCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		2CC6A9C32C76896D008DB5F1 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				2C6E4E522C6A70EE00E60363 /* MyView.swift */,
+			);
+			path = My;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

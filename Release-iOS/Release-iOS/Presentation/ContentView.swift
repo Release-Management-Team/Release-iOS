@@ -23,14 +23,16 @@ struct ContentView: View {
             case .activity:
                 ActivityView(navigationTitle: StringLiterals.Navigation.activity,
                              isTabBarHidden: $isTabBarHidden)
-                    .padding(.bottom, isTabBarHidden ? 0 : 114+10)
+                .padding(.bottom, isTabBarHidden ? 0 : 114+10)
             case .book:
                 BookView(navigationTitle: StringLiterals.Navigation.book,
                          isTabBarHidden: $isTabBarHidden)
-                    .padding(.bottom, isTabBarHidden ? 0 : 114+10)
+                .padding(.bottom, isTabBarHidden ? 0 : 114+10)
             case .my:
-                MyView()
-                    .padding(.bottom, 114+10)
+                MyView(my: my1,
+                       navigationTitle: StringLiterals.Navigation.my,
+                       isTabBarHidden: $isTabBarHidden)
+                .padding(.bottom, isTabBarHidden ? 0 : 114+10)
             }
             
             Spacer()
