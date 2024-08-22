@@ -19,14 +19,23 @@ func bookCell(for book: BookDTO) -> some View {
             HStack {    
                 Spacer()
                 
-                Text(book.status)
-                    .font(.paragraph3)
-                    .foregroundColor(Color.black2)
-                    .padding(.horizontal, 17)
-                    .padding(.vertical, 3.5)
-                    .background(Color.primary1)
-                    .cornerRadius(8)
-                
+                if book.status == BookStatus.available {
+                    Text(book.status.rawValue)
+                        .font(.paragraph3)
+                        .foregroundColor(Color.black2)
+                        .padding(.horizontal, 17)
+                        .padding(.vertical, 3.5)
+                        .background(Color.primary1)
+                        .cornerRadius(8)
+                } else {
+                    Text(book.status.rawValue)
+                        .font(.paragraph3)
+                        .foregroundColor(Color.black2)
+                        .padding(.horizontal, 17)
+                        .padding(.vertical, 3.5)
+                        .background(Color.primary2)
+                        .cornerRadius(8)
+                }
             }
             .padding(.bottom, 4)
             
@@ -42,12 +51,7 @@ func bookCell(for book: BookDTO) -> some View {
                 .padding(.bottom, 8)
             
             HStack {
-                Text(book.year)
-                    .font(.paragraph3)
-                    .foregroundColor(.gray5)
-                    .padding(.trailing, 1)
-                
-                Text(book.publisher)
+                Text(book.tag)
                     .font(.paragraph3)
                     .foregroundColor(.gray5)
             }

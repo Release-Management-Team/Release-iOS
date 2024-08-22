@@ -43,30 +43,35 @@ struct BookDetailView: View {
                         .padding(.bottom, 32)
                         
                         VStack(alignment: .leading) {
-                            Text(book.status.rawValue)
-                                .font(.paragraph3)
-                                .foregroundColor(Color.black2)
-                                .padding(.horizontal, 17)
-                                .padding(.vertical, 3.5)
-                                .background(
-                                    if book.status == BookStatus.available {
-                                        Color.primary1
-                                    } else {
-                                        Color.primary2
-                                    }
-                                )
-                                .cornerRadius(8)
-                                .padding(.bottom, 8)
-                            
-                            HStack {
-                                Text(StringLiterals.Book.date)
-                                    .font(.paragraph2)
-                                    .foregroundColor(.primary1)
-                                    .padding(.trailing, 0.5)
+                            if book.status == BookStatus.available {
+                                Text(book.status.rawValue)
+                                    .font(.paragraph3)
+                                    .foregroundColor(Color.black2)
+                                    .padding(.horizontal, 17)
+                                    .padding(.vertical, 3.5)
+                                    .background(Color.primary1)
+                                    .cornerRadius(8)
+                                    .padding(.bottom, 30)
+                            } else {
+                                Text(book.status.rawValue)
+                                    .font(.paragraph3)
+                                    .foregroundColor(Color.black2)
+                                    .padding(.horizontal, 17)
+                                    .padding(.vertical, 3.5)
+                                    .background(Color.primary2)
+                                    .cornerRadius(8)
+                                    .padding(.bottom, 8)
                                 
-                                //TODO: 시작과 마감 기한 추가
+                                HStack {
+                                    Text(StringLiterals.Book.date)
+                                        .font(.paragraph2)
+                                        .foregroundColor(.primary1)
+                                        .padding(.trailing, 0.5)
+                                    
+                                    //TODO: 시작과 마감 기한 추가
+                                }
+                                .padding(.bottom, 24)
                             }
-                            .padding(.bottom, 24)
                             
                             Text(book.title)
                                 .font(.heading3)
