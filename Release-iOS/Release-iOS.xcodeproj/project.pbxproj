@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				2C6E4E352C6A5D1A00E60363 /* Assets.xcassets */,
-				2C97236E2C6DD431007F2C3D /* String.swift */,
+				2CC6A9DF2C772AA3008DB5F1 /* Constant */,
 				2C6E4E482C6A5FFA00E60363 /* Extension */,
 				2C6E4E472C6A5FEF00E60363 /* Font */,
 			);
@@ -220,6 +220,14 @@
 				2CC6A9DB2C772A0E008DB5F1 /* WeeklyEventDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		2CC6A9DF2C772AA3008DB5F1 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2C97236E2C6DD431007F2C3D /* String.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
