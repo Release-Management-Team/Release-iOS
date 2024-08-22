@@ -27,6 +27,13 @@ struct StringLiterals {
     enum Activity {
         static let study = "스터디/프로젝트"
         static let event = "이벤트"
+        static let join = "참여하기"
+    }
+    
+    enum Book {
+        static let avaliable = "대여하기"
+        static let unavaliable = "대여 불가"
+        static let date = "대여 가능 날짜"
     }
     
     enum My {

@@ -10,9 +10,14 @@ import Foundation
 struct BookDTO: Identifiable {
     let id = UUID()
     let image: String
-    let status: String
+    let status: BookStatus
     let title: String
     let author: String
-    let year: String
-    let publisher: String
+    let tag: String
+}
+
+enum BookStatus: String, CaseIterable {
+    case available = "대여 가능"
+    case rented = "대여 중"
+    case unavailable = "대여 불가"
 }

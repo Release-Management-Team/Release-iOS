@@ -69,7 +69,7 @@ struct ActivityDetailView: View {
                     Button(action: {
                         print("버튼 탭💖\n")
                     }) {
-                        Text("신청하기")
+                        Text(StringLiterals.Activity.join)
                             .font(.heading4)
                             .foregroundColor(.black2)
                             .padding(.horizontal, 68)

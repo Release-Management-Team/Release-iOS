@@ -43,19 +43,30 @@ struct BookDetailView: View {
                         .padding(.bottom, 32)
                         
                         VStack(alignment: .leading) {
-                            Text(book.status)
+                            Text(book.status.rawValue)
                                 .font(.paragraph3)
                                 .foregroundColor(Color.black2)
                                 .padding(.horizontal, 17)
                                 .padding(.vertical, 3.5)
-                                .background(Color.primary1)
+                                .background(
+                                    if book.status == BookStatus.available {
+                                        Color.primary1
+                                    } else {
+                                        Color.primary2
+                                    }
+                                )
                                 .cornerRadius(8)
                                 .padding(.bottom, 8)
                             
-                            Text("대여가능 날짜")
-                                .font(.paragraph2)
-                                .foregroundColor(.primary1)
-                                .padding(.bottom, 24)
+                            HStack {
+                                Text(StringLiterals.Book.date)
+                                    .font(.paragraph2)
+                                    .foregroundColor(.primary1)
+                                    .padding(.trailing, 0.5)
+                                
+                                //TODO: 시작과 마감 기한 추가
+                            }
+                            .padding(.bottom, 24)
                             
                             Text(book.title)
                                 .font(.heading3)
@@ -67,16 +78,9 @@ struct BookDetailView: View {
                                 .foregroundColor(.gray3)
                                 .padding(.bottom, 16)
                             
-                            HStack {
-                                Text(book.year)
-                                    .font(.paragraph2)
-                                    .foregroundColor(.gray5)
-                                    .padding(.trailing, 1)
-                                
-                                Text(book.publisher)
-                                    .font(.paragraph2)
-                                    .foregroundColor(.gray5)
-                            }
+                            Text(book.tag)
+                                .font(.paragraph2)
+                                .foregroundColor(.gray5)
                         }
                         .padding(.horizontal, 24)
                         .padding(.bottom, 40)
@@ -88,13 +92,23 @@ struct BookDetailView: View {
                     Button(action: {
                         print("버튼 탭💖\n")
                     }) {
-                        Text("대여하기")
-                            .font(.heading4)
-                            .foregroundColor(.black2)
-                            .padding(.horizontal, 68)
-                            .padding(.vertical, 15)
-                            .background(Color.primary1)
-                            .cornerRadius(16)
+                        if book.status == BookStatus.available {
+                            Text(StringLiterals.Book.avaliable)
+                                .font(.heading4)
+                                .foregroundColor(.black2)
+                                .padding(.horizontal, 68)
+                                .padding(.vertical, 15)
+                                .background(Color.primary1)
+                                .cornerRadius(16)
+                        } else {
+                            Text(StringLiterals.Book.unavaliable)
+                                .font(.heading4)
+                                .foregroundColor(.black2)
+                                .padding(.horizontal, 68)
+                                .padding(.vertical, 15)
+                                .background(Color.black1)
+                                .cornerRadius(16)
+                        }
                     }
                     .padding(.top, 13)
                     

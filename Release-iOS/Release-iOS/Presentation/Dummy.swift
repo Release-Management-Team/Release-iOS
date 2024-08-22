@@ -32,15 +32,13 @@ let event1 = [
 ]
 
 let book1 = [
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래,인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래,", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스")
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.rented.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.unavailable.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰")
 ]
 
 let weekly1 = [
