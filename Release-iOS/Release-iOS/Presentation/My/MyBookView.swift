@@ -17,7 +17,7 @@ struct MyBookView: View {
     var body: some View {
         VStack {
             
-            centerNavigationView(for: StringLiterals.Navigation.activityCheck,
+            centerNavigationView(for: StringLiterals.Navigation.bookCheck,
                                  presentationMode: presentationMode,
                                  isTabBarHidden: $isTabBarHidden)
             

@@ -31,6 +31,7 @@
 		2CC6A9C72C76A4C1008DB5F1 /* MyBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9C62C76A4C1008DB5F1 /* MyBookView.swift */; };
 		2CC6A9C92C76A5C0008DB5F1 /* MyInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */; };
 		2CC6A9CB2C76ACBA008DB5F1 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */; };
+		2CC6A9CD2C76B3D8008DB5F1 /* MyPasswordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		2CC6A9C62C76A4C1008DB5F1 /* MyBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookView.swift; sourceTree = "<group>"; };
 		2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditView.swift; sourceTree = "<group>"; };
 		2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
+		2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPasswordEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				2CC6A9C42C7699A0008DB5F1 /* MyActivityView.swift */,
 				2CC6A9C62C76A4C1008DB5F1 /* MyBookView.swift */,
 				2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */,
+				2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				2C6E4E532C6A70EE00E60363 /* MyView.swift in Sources */,
 				2C6E4E4A2C6A600A00E60363 /* Font+.swift in Sources */,
 				2C9723712C6E251F007F2C3D /* Dummy.swift in Sources */,
+				2CC6A9CD2C76B3D8008DB5F1 /* MyPasswordEditView.swift in Sources */,
 				2CBC76B02C75F07300C0D3EC /* BookCell.swift in Sources */,
 				2C6E4E4C2C6A705400E60363 /* HomeView.swift in Sources */,
 				2CBC76B22C75F1B100C0D3EC /* BookDetailView.swift in Sources */,

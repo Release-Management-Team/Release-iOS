@@ -48,5 +48,12 @@ struct StringLiterals {
         static let edit = "정보 수정"
         static let infoEdit = "개인정보 수정"
         static let passwordEdit = "비밀번호 변경"
+        
+        static let newPassword = "새 비밀번호"
+        static let checkPassword = "새 비밀번호 확인"
+        static let passwordCondition = "영문, 숫자, 특수문자가 2종류 이상 조합된 8~20자"
+        static let warningPassword = "영문, 숫자, 특수문자가 2종류 이상 포함된 8~20자로 설정해주세요."
+        
+        static let changePassword = "변경 완료"
     }
 }

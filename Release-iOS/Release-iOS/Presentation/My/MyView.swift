@@ -200,18 +200,20 @@ struct MyView: View {
                                 }
                                 .padding(.bottom, 8)
                             
-                            Button(action: {
-                                print("대여 중인 도서 확인하기\n")
-                            }) {
-                                Text(StringLiterals.My.passwordEdit)
-                                    .font(.paragraph1)
-                                    .foregroundColor(.gray3)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 24)
-                                    .frame(maxWidth: .infinity)
-                                    .background(.black2)
-                                    .cornerRadius(16)
-                            }
+                            NavigationLink(
+                                destination: MyPasswordEditView(
+                                    navigationTitle: StringLiterals.Navigation.passwordEdit,
+                                    isTabBarHidden: $isTabBarHidden
+                                )) {
+                                    Text(StringLiterals.My.passwordEdit)
+                                        .font(.paragraph1)
+                                        .foregroundColor(.gray3)
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 24)
+                                        .frame(maxWidth: .infinity)
+                                        .background(.black2)
+                                        .cornerRadius(16)
+                                }
                         }
                         .padding(.bottom, 24)
                     }
