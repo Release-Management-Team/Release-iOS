@@ -30,3 +30,19 @@ struct CustomTextField: View {
         .cornerRadius(16)
     }
 }
+
+struct CustomSecureTextField: View {
+    @Binding var text: String
+
+    var body: some View {
+        ZStack(alignment: .leading) {
+            SecureField("", text: $text)
+                .font(.paragraph1)
+                .foregroundColor(.gray4)
+        }
+        .padding(.horizontal, 24)
+        .padding(.vertical, 21)
+        .background(Color.black2)
+        .cornerRadius(16)
+    }
+}
