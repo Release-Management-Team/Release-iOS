@@ -12,7 +12,7 @@ struct ActivityView: View {
     var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     
-    var isStudy = true
+    @State private var isStudy = true
     @State private var selectedCategory = StringLiterals.Activity.study
     
     @State private var activityData: [ActivityDTO] = activities1
@@ -27,7 +27,7 @@ struct ActivityView: View {
                 HStack(spacing: 0) {
                     Button(action: {
                         selectedCategory = StringLiterals.Activity.study
-                        isStudy = isStudy
+                        isStudy = true
                     }) {
                         Text(StringLiterals.Activity.study)
                             .font(.heading4)

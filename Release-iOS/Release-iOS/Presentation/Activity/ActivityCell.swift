@@ -54,24 +54,41 @@ func activityCell(for activity: ActivityDTO) -> some View {
 }
 
 func eventCell(for event: EventDTO) -> some View {
-    VStack(alignment: .leading) {
-        Text(event.category)
-            .font(.paragraph3)
-            .foregroundColor(.gray5)
-            .padding(.bottom, 5)
+    HStack {
+        VStack(alignment: .leading) {
+            Text(event.category)
+                .font(.paragraph3)
+                .foregroundColor(.gray5)
+                .padding(.bottom, 8)
+            
+            Text(event.title)
+                .font(.heading4)
+                .foregroundColor(.gray1)
+                .padding(.bottom, 8)
+            
+            Text(event.content)
+                .font(.paragraph3)
+                .foregroundColor(.gray3)
+                .padding(.bottom, 8)
+            
+            HStack {
+                Text(event.start)
+                    .font(.paragraph2)
+                    .foregroundColor(.gray3)
+                    .padding(.trailing, 1)
+                
+                Text(event.end)
+                    .font(.paragraph2)
+                    .foregroundColor(.gray3)
+                    .padding(.trailing, 24)
+                
+                Text(event.place)
+                    .font(.paragraph2)
+                    .foregroundColor(.gray3)
+            }
+        }
         
-        Text(event.title)
-            .font(.heading4)
-            .foregroundColor(.gray1)
-        
-        Text(event.content)
-            .font(.paragraph3)
-            .foregroundColor(.gray3)
-            .padding(.bottom, 8)
-        
-        Text(event.place)
-            .font(.paragraph2)
-            .foregroundColor(.gray3)
+        Spacer()
     }
     .padding(.horizontal, 16)
     .padding(.vertical, 12)
