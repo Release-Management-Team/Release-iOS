@@ -82,7 +82,7 @@ struct ActivityDetailView: View {
                     Spacer()
                 }
                 .frame(width: UIScreen.main.bounds.width, height: 114)
-                .background(Color.black2)
+                .background(Color.clear)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .shadow(color: Color.black1.opacity(0.2), radius: 16, x: 0, y: 4)
             }
