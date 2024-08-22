@@ -7,22 +7,12 @@
 
 import SwiftUI
 
-struct Book: Identifiable {
-    let id = UUID()
-    let image: String
-    let status: String
-    let title: String
-    let author: String
-    let year: String
-    let publisher: String
-}
-
 struct BookView: View {
     
     var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     
-    @State private var bookData: [Book] = book1
+    @State private var bookData: [BookDTO] = book1
     
     var body: some View {
         NavigationView {

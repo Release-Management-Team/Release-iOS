@@ -32,6 +32,12 @@
 		2CC6A9C92C76A5C0008DB5F1 /* MyInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */; };
 		2CC6A9CB2C76ACBA008DB5F1 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */; };
 		2CC6A9CD2C76B3D8008DB5F1 /* MyPasswordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */; };
+		2CC6A9D22C772986008DB5F1 /* ActivityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9D12C772986008DB5F1 /* ActivityDTO.swift */; };
+		2CC6A9D42C772998008DB5F1 /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9D32C772998008DB5F1 /* EventDTO.swift */; };
+		2CC6A9D82C7729D1008DB5F1 /* BookDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9D72C7729D1008DB5F1 /* BookDTO.swift */; };
+		2CC6A9DA2C7729FB008DB5F1 /* MyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9D92C7729FB008DB5F1 /* MyDTO.swift */; };
+		2CC6A9DC2C772A0E008DB5F1 /* WeeklyEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9DB2C772A0E008DB5F1 /* WeeklyEventDTO.swift */; };
+		2CC6A9DE2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9DD2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +68,12 @@
 		2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditView.swift; sourceTree = "<group>"; };
 		2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPasswordEditView.swift; sourceTree = "<group>"; };
+		2CC6A9D12C772986008DB5F1 /* ActivityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDTO.swift; sourceTree = "<group>"; };
+		2CC6A9D32C772998008DB5F1 /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
+		2CC6A9D72C7729D1008DB5F1 /* BookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDTO.swift; sourceTree = "<group>"; };
+		2CC6A9D92C7729FB008DB5F1 /* MyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDTO.swift; sourceTree = "<group>"; };
+		2CC6A9DB2C772A0E008DB5F1 /* WeeklyEventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyEventDTO.swift; sourceTree = "<group>"; };
+		2CC6A9DD2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWeeklyEmptyViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				2C9723702C6E251F007F2C3D /* Dummy.swift */,
+				2CC6A9D02C772945008DB5F1 /* DTO */,
 				2CC6A9C32C76896D008DB5F1 /* My */,
 				2CC6A9BA2C76640E008DB5F1 /* Home */,
 				2CBC76AE2C75F04D00C0D3EC /* Book */,
@@ -180,6 +193,7 @@
 				2C6E4E4B2C6A705400E60363 /* HomeView.swift */,
 				2CC6A9BF2C7669CD008DB5F1 /* HomeWeeklyView.swift */,
 				2CC6A9C12C7669D8008DB5F1 /* HomeWeeklyViewCell.swift */,
+				2CC6A9DD2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -194,6 +208,18 @@
 				2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */,
 			);
 			path = My;
+			sourceTree = "<group>";
+		};
+		2CC6A9D02C772945008DB5F1 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6A9D12C772986008DB5F1 /* ActivityDTO.swift */,
+				2CC6A9D32C772998008DB5F1 /* EventDTO.swift */,
+				2CC6A9D72C7729D1008DB5F1 /* BookDTO.swift */,
+				2CC6A9D92C7729FB008DB5F1 /* MyDTO.swift */,
+				2CC6A9DB2C772A0E008DB5F1 /* WeeklyEventDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CC6A9D22C772986008DB5F1 /* ActivityDTO.swift in Sources */,
+				2CC6A9DC2C772A0E008DB5F1 /* WeeklyEventDTO.swift in Sources */,
 				2C9723732C6E27E0007F2C3D /* ActivityDetailView.swift in Sources */,
+				2CC6A9D82C7729D1008DB5F1 /* BookDTO.swift in Sources */,
 				2C6E4E532C6A70EE00E60363 /* MyView.swift in Sources */,
 				2C6E4E4A2C6A600A00E60363 /* Font+.swift in Sources */,
 				2C9723712C6E251F007F2C3D /* Dummy.swift in Sources */,
@@ -288,7 +317,10 @@
 				2CC6A9C02C7669CD008DB5F1 /* HomeWeeklyView.swift in Sources */,
 				2C6E4E322C6A5D1800E60363 /* Release_iOSApp.swift in Sources */,
 				2CC6A9C92C76A5C0008DB5F1 /* MyInfoEditView.swift in Sources */,
+				2CC6A9DE2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift in Sources */,
+				2CC6A9DA2C7729FB008DB5F1 /* MyDTO.swift in Sources */,
 				2CC6A9C72C76A4C1008DB5F1 /* MyBookView.swift in Sources */,
+				2CC6A9D42C772998008DB5F1 /* EventDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

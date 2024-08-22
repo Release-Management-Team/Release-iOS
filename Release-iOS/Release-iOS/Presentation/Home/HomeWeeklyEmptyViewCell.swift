@@ -1,5 +1,5 @@
 //
-//  HomeWeeklyViewCell.swift
+//  HomeWeeklyEmptyViewCell.swift
 //  Release-iOS
 //
 //  Created by 신지원 on 8/22/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeWeeklyViewCell: View {
+struct HomeWeeklyEmptyViewCell: View {
     let event: WeeklyEvent
     
     var body: some View {
@@ -15,19 +15,19 @@ struct HomeWeeklyViewCell: View {
             VStack(alignment: .leading) {
                 Text(event.category)
                     .font(.paragraph1)
-                    .foregroundColor(.gray4)
+                    .foregroundColor(.clear)
                     .lineLimit(1)
                     .padding(.bottom, 8)
                 
                 Text(event.title)
                     .font(.heading4)
-                    .foregroundColor(.gray1)
+                    .foregroundColor(.clear)
                     .lineLimit(1)
                     .padding(.bottom, 16)
                 
                 Text(event.time)
                     .font(.paragraph2)
-                    .foregroundColor(.gray3)
+                    .foregroundColor(.clear)
                     .lineLimit(1)
             }
             
@@ -35,11 +35,11 @@ struct HomeWeeklyViewCell: View {
         }
         .padding(.vertical, 24)
         .padding(.horizontal, 15)
-        .background(Color.black2)
+        .background(Color.clear)
         .cornerRadius(16)
         .overlay(
             RoundedRectangle(cornerRadius: 16)
-                .stroke(Color.primary1, lineWidth: 1)
+                .stroke(Color.clear, lineWidth: 1)
         )
     }
 }

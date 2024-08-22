@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ActivityDetailView: View {
     
-    let activity: Activity
+    let activity: ActivityDTO
     @Environment(\.presentationMode) var presentationMode
     @Binding var isTabBarHidden: Bool
     

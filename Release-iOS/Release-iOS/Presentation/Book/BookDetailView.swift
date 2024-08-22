@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookDetailView: View {
     
-    let book: Book
+    let book: BookDTO
     @Environment(\.presentationMode) var presentationMode
     @Binding var isTabBarHidden: Bool
     

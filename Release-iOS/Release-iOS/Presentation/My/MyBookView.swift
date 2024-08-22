@@ -12,7 +12,7 @@ struct MyBookView: View {
     var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     @Environment(\.presentationMode) var presentationMode
-    @State private var book: [Book] = book1
+    @State private var book: [BookDTO] = book1
     
     var body: some View {
         VStack {

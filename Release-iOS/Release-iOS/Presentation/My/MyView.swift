@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct My: Identifiable {
-    let id = UUID()
-    let name: String
-    let staff: Bool
-    let status: String
-    let studentNumber: Int
-    let major: String
-    let period: String
-    let email: String
-    let phone: String
-}
-
 struct MyView: View {
     
     var my: My

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-func bookCell(for book: Book) -> some View {
+func bookCell(for book: BookDTO) -> some View {
     HStack(alignment: .center)
     {
         Image(book.image)

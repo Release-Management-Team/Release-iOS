@@ -12,7 +12,7 @@ struct MyActivityView: View {
     var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     @Environment(\.presentationMode) var presentationMode
-    @State private var activityData: [Activity] = activities1
+    @State private var activityData: [ActivityDTO] = activities1
     
     var body: some View {
         VStack {

@@ -8,32 +8,39 @@
 import Foundation
 
 let activities1 = [
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
 ]
 
 let activities2 = [
-    Activity(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
+    ActivityDTO(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
+]
+
+let event1 = [
+    EventDTO(category: "이벤트", title: "개강총회", content: "맛있게 먹어봐요", start: "12:00", end: "14:00", place: "AS 10층"),
+    EventDTO(category: "이벤트", title: "개강총회", content: "맛있게 먹어봐요", start: "12:00", end: "14:00", place: "AS 10층"),
+    EventDTO(category: "이벤트", title: "개강총회", content: "맛있게 먹어봐요", start: "12:00", end: "14:00", place: "AS 10층"),
+    EventDTO(category: "이벤트", title: "개강총회", content: "맛있게 먹어봐요", start: "12:00", end: "14:00", place: "AS 10층")
 ]
 
 let book1 = [
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래,인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래,", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스")
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래,인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래,", author: "신지원", year: "2024", publisher: "테크노프레스"),
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능", author: "신지원", year: "2024", publisher: "테크노프레스"),
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
+    BookDTO(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스")
 ]
 
 let weekly1 = [

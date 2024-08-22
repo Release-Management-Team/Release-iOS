@@ -7,23 +7,16 @@
 
 import SwiftUI
 
-struct Activity: Identifiable {
-    let id = UUID()
-    let image: String
-    let category: String
-    let status: String
-    let title: String
-    let content: String
-    let person: String
-}
-
 struct ActivityView: View {
     
     var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     
+    var isStudy = true
     @State private var selectedCategory = StringLiterals.Activity.study
-    @State private var activityData: [Activity] = activities1
+    
+    @State private var activityData: [ActivityDTO] = activities1
+    @State private var eventData: [EventDTO] = event1
     
     var body: some View {
         NavigationView {
@@ -34,7 +27,7 @@ struct ActivityView: View {
                 HStack(spacing: 0) {
                     Button(action: {
                         selectedCategory = StringLiterals.Activity.study
-                        activityData = activities1
+                        isStudy = isStudy
                     }) {
                         Text(StringLiterals.Activity.study)
                             .font(.heading4)
@@ -47,7 +40,7 @@ struct ActivityView: View {
                     
                     Button(action: {
                         selectedCategory = StringLiterals.Activity.event
-                        activityData = activities2
+                        isStudy = false
                     }) {
                         Text(StringLiterals.Activity.event)
                             .font(.heading4)
@@ -63,17 +56,25 @@ struct ActivityView: View {
                 .cornerRadius(32)
                 .padding(.horizontal, 24)
                 
-                List(activityData) { activity in
-                    ZStack {
-                        NavigationLink(destination: ActivityDetailView(activity: activity, isTabBarHidden: $isTabBarHidden)) {
-                            EmptyView()
+                if isStudy {
+                    List(activityData) { activity in
+                        ZStack {
+                            NavigationLink(destination: ActivityDetailView(activity: activity, isTabBarHidden: $isTabBarHidden)) {
+                                EmptyView()
+                            }
+                            .opacity(0.0)
+                            activityCell(for: activity)
                         }
-                        .opacity(0.0)
-                        activityCell(for: activity)
+                        .listRowBackground(Color.black1)
+                    }
+                    .listStyle(PlainListStyle())
+                } else {
+                    List(eventData) { event in
+                        eventCell(for: event)
                     }
                     .listRowBackground(Color.black1)
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
             }
             .background(Color.black1)
             .onAppear {

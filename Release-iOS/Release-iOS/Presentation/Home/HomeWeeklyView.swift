@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-struct WeeklyEvent: Identifiable {
-    let id = UUID()
-    let category: String
-    let title: String
-    let time: String
-}
-
 struct HomeWeeklyView: View {
     
     let weeklyDay = StringLiterals.Home.weeklyDay
