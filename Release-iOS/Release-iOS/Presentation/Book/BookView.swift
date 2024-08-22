@@ -28,7 +28,7 @@ struct BookView: View {
         NavigationView {
             VStack {
                 
-                customNavigationView(for: navigationTitle)
+                leadingNavigationView(for: navigationTitle)
                 
                 List(bookData) { book in
                     ZStack {

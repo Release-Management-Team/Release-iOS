@@ -29,7 +29,7 @@ struct ActivityView: View {
         NavigationView {
             VStack {
                 
-                customNavigationView(for: navigationTitle)
+                leadingNavigationView(for: navigationTitle)
                 
                 HStack(spacing: 0) {
                     Button(action: {

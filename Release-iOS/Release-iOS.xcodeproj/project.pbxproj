@@ -27,6 +27,11 @@
 		2CBC76B22C75F1B100C0D3EC /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC76B12C75F1B100C0D3EC /* BookDetailView.swift */; };
 		2CC6A9C02C7669CD008DB5F1 /* HomeWeeklyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9BF2C7669CD008DB5F1 /* HomeWeeklyView.swift */; };
 		2CC6A9C22C7669D8008DB5F1 /* HomeWeeklyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9C12C7669D8008DB5F1 /* HomeWeeklyViewCell.swift */; };
+		2CC6A9C52C7699A0008DB5F1 /* MyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9C42C7699A0008DB5F1 /* MyActivityView.swift */; };
+		2CC6A9C72C76A4C1008DB5F1 /* MyBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9C62C76A4C1008DB5F1 /* MyBookView.swift */; };
+		2CC6A9C92C76A5C0008DB5F1 /* MyInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */; };
+		2CC6A9CB2C76ACBA008DB5F1 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */; };
+		2CC6A9CD2C76B3D8008DB5F1 /* MyPasswordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		2CBC76B12C75F1B100C0D3EC /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		2CC6A9BF2C7669CD008DB5F1 /* HomeWeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWeeklyView.swift; sourceTree = "<group>"; };
 		2CC6A9C12C7669D8008DB5F1 /* HomeWeeklyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWeeklyViewCell.swift; sourceTree = "<group>"; };
+		2CC6A9C42C7699A0008DB5F1 /* MyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivityView.swift; sourceTree = "<group>"; };
+		2CC6A9C62C76A4C1008DB5F1 /* MyBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookView.swift; sourceTree = "<group>"; };
+		2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditView.swift; sourceTree = "<group>"; };
+		2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
+		2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPasswordEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				2C6E4E492C6A600A00E60363 /* Font+.swift */,
+				2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -177,6 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				2C6E4E522C6A70EE00E60363 /* MyView.swift */,
+				2CC6A9C42C7699A0008DB5F1 /* MyActivityView.swift */,
+				2CC6A9C62C76A4C1008DB5F1 /* MyBookView.swift */,
+				2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */,
+				2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -257,18 +272,23 @@
 				2C6E4E532C6A70EE00E60363 /* MyView.swift in Sources */,
 				2C6E4E4A2C6A600A00E60363 /* Font+.swift in Sources */,
 				2C9723712C6E251F007F2C3D /* Dummy.swift in Sources */,
+				2CC6A9CD2C76B3D8008DB5F1 /* MyPasswordEditView.swift in Sources */,
 				2CBC76B02C75F07300C0D3EC /* BookCell.swift in Sources */,
 				2C6E4E4C2C6A705400E60363 /* HomeView.swift in Sources */,
 				2CBC76B22C75F1B100C0D3EC /* BookDetailView.swift in Sources */,
+				2CC6A9CB2C76ACBA008DB5F1 /* TextField+.swift in Sources */,
 				2C97236F2C6DD431007F2C3D /* String.swift in Sources */,
 				2CC6A9C22C7669D8008DB5F1 /* HomeWeeklyViewCell.swift in Sources */,
 				2C6E4E572C6A788E00E60363 /* CustomTabView.swift in Sources */,
 				2C6E4E342C6A5D1800E60363 /* ContentView.swift in Sources */,
+				2CC6A9C52C7699A0008DB5F1 /* MyActivityView.swift in Sources */,
 				2C6E4E512C6A70D600E60363 /* BookView.swift in Sources */,
 				2C6E4E4F2C6A70B600E60363 /* ActivityView.swift in Sources */,
 				2C92FEE12C6F57D70044920F /* ActivityCell.swift in Sources */,
 				2CC6A9C02C7669CD008DB5F1 /* HomeWeeklyView.swift in Sources */,
 				2C6E4E322C6A5D1800E60363 /* Release_iOSApp.swift in Sources */,
+				2CC6A9C92C76A5C0008DB5F1 /* MyInfoEditView.swift in Sources */,
+				2CC6A9C72C76A4C1008DB5F1 /* MyBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

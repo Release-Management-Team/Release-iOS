@@ -106,8 +106,5 @@ struct ActivityDetailView: View {
         .onAppear {
             isTabBarHidden = true
         }
-        .onDisappear {
-            isTabBarHidden = false
-        }
     }
 }
