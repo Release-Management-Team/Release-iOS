@@ -14,6 +14,10 @@ struct MyPasswordEditView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var my: My = my1
     
+    @State private var passwordIsNotSame: Bool = false
+    @State private var passwordIsNotValid: Bool = false
+    
+    @State private var currentPassword : String = ""
     @State private var newPassword : String = ""
     @State private var checkPassword : String = ""
     
@@ -25,6 +29,15 @@ struct MyPasswordEditView: View {
                                  isTabBarHidden: $isTabBarHidden)
             
             VStack(alignment: .leading) {
+                VStack(alignment: .leading) {
+                    Text(StringLiterals.My.currentPassword)
+                        .font(.heading4)
+                        .foregroundColor(.gray3)
+                        .padding(.bottom, 16)
+                    
+                    CustomSecureTextField(text: $currentPassword)
+                }
+                .padding(.bottom, 32)
                 
                 VStack(alignment: .leading) {
                     HStack(alignment: .center) {
@@ -41,6 +54,14 @@ struct MyPasswordEditView: View {
                     .padding(.bottom, 16)
                     
                     CustomSecureTextField(text: $newPassword)
+                        .border(.primary4, width: passwordIsNotValid ? 1 : 0)
+                        .padding(.bottom, 16)
+                    
+                    if passwordIsNotValid {
+                        Text(StringLiterals.My.warningPassword)
+                            .font(.paragraph3)
+                            .foregroundColor(.primary4)
+                    }
                 }
                 .padding(.bottom, 32)
                 
@@ -56,8 +77,16 @@ struct MyPasswordEditView: View {
                         .padding(.bottom, 16)
                     
                     CustomSecureTextField(text: $checkPassword)
+                        .border(.primary4, width: passwordIsNotSame ? 1 : 0)
+                        .padding(.bottom, 16)
+                    
+                    if passwordIsNotSame {
+                        Text(StringLiterals.My.isNotSame)
+                            .font(.paragraph3)
+                            .foregroundColor(.primary4)
+                    }
                 }
-                .padding(.bottom, 32)
+                .padding(.bottom, 40)
                 
                 Spacer()
             }
@@ -66,16 +95,19 @@ struct MyPasswordEditView: View {
             VStack(alignment: .center) {  
                 Button(action: {
                     print("버튼 탭💖\n")
+                    checkSamePassword()
+                    checkValidPassword(text: newPassword)
                 }) {
                     Text(StringLiterals.My.changePassword)
                         .font(.heading4)
                         .foregroundColor(.black2)
                         .padding(.horizontal, 68)
                         .padding(.vertical, 15)
-                        .background(checkToChangePassword())
+                        .background(!isAbleChangeButton() ? Color.primary1 : Color.black3)
                         .cornerRadius(16)
                 }
                 .padding(.top, 13)
+                .disabled(!isAbleChangeButton())
                 
                 Spacer()
             }
@@ -94,12 +126,23 @@ struct MyPasswordEditView: View {
         }
     }
     
-    private func checkToChangePassword() -> Color {
-        if newPassword == checkPassword && newPassword != "" && newPassword != "" {
-            return Color.primary1
+    private func checkSamePassword() {
+        var isSame = newPassword == checkPassword
+        passwordIsNotSame = !isSame
+    }
+    
+    private func checkValidPassword(text: String) {
+        let pattern = "^[A-Za-z0-9]{8,20}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        var isValid = predicate.evaluate(with: text)
+        passwordIsNotValid = !isValid
+    }
+    
+    private func isAbleChangeButton() -> Bool {
+        if newPassword != "" && newPassword != "" {
+            return true
         } else {
-            return Color.black3
+            return false
         }
     }
 }
-

@@ -23,8 +23,11 @@ struct BookDetailView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                                .blur(radius: 2)
                                 .opacity(0.8)
+                            
+                            Color.gray
+                                .opacity(0.3)
+                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                             
                             VStack{
                                 Spacer()
