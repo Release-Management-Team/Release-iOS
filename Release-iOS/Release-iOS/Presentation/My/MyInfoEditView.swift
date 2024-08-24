@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MyInfoEditView: View {
     
-    var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     @Environment(\.presentationMode) var presentationMode
     @State private var my: My = my1
@@ -22,8 +21,7 @@ struct MyInfoEditView: View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.infoEdit,
-                                 presentationMode: presentationMode,
-                                 isTabBarHidden: $isTabBarHidden)
+                                 presentationMode: presentationMode)
             
             ScrollView {
                 VStack(alignment: .center) {

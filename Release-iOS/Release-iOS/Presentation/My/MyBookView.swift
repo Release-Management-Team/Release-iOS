@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MyBookView: View {
     
-    var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     @Environment(\.presentationMode) var presentationMode
     @State private var book: [BookDTO] = book1
@@ -18,8 +17,7 @@ struct MyBookView: View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.bookCheck,
-                                 presentationMode: presentationMode,
-                                 isTabBarHidden: $isTabBarHidden)
+                                 presentationMode: presentationMode)
             
             List(book) { book in
                 ZStack {

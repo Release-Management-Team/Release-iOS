@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MyPasswordEditView: View {
     
-    var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     @Environment(\.presentationMode) var presentationMode
     @State private var my: My = my1
@@ -25,8 +24,7 @@ struct MyPasswordEditView: View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.passwordEdit,
-                                 presentationMode: presentationMode,
-                                 isTabBarHidden: $isTabBarHidden)
+                                 presentationMode: presentationMode)
             
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {

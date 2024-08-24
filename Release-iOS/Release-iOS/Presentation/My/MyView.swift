@@ -10,7 +10,6 @@ import SwiftUI
 struct MyView: View {
     
     var my: My
-    var navigationTitle: String
     @Binding var isTabBarHidden: Bool
     
     var body: some View {

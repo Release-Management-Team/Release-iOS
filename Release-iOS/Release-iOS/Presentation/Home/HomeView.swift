@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     let eventsByDay: [[WeeklyEvent]]
+    @Binding var isTabBarHidden: Bool
     
     var body: some View {
         NavigationView {
@@ -21,9 +22,9 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        print("알람버튼 탭\n")
-                    }) {
+                    NavigationLink(
+                        destination: HomeNoticeView(isTabBarHidden: $isTabBarHidden)
+                    ) {
                         Image("icRing")
                             .frame(width: 32, height: 32)
                             .background(Color.clear)

@@ -9,6 +9,7 @@ import Foundation
 
 struct StringLiterals {
     enum Navigation {
+        static let notice = "공지"
         static let activity = "활동"
         static let book = "도서"
         static let my = "마이페이지"
