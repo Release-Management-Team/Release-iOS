@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeNoticeView: View {
 
-    @Binding var isTabBarHidden: Bool
+//    @Binding var isTabBarHidden: Bool
     @Environment(\.presentationMode) var presentationMode
     
     let notices: [Notice] = notice1
@@ -29,8 +29,8 @@ struct HomeNoticeView: View {
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .background(Color.black1)
-        .onAppear {
-            isTabBarHidden = true
-        }
+//        .onAppear {
+//            isTabBarHidden = true
+//        }
     }
 }

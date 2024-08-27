@@ -9,8 +9,9 @@ import SwiftUI
 
 struct MyView: View {
     
+    @EnvironmentObject var tabBarState: TabBarState
+    
     var my: My
-    @Binding var isTabBarHidden: Bool
     
     var body: some View {
         NavigationView {
@@ -133,10 +134,7 @@ struct MyView: View {
                                 .padding([.leading, .bottom], 8)
                             
                             NavigationLink(
-                                destination: MyActivityView(
-                                    navigationTitle: StringLiterals.Navigation.activityCheck,
-                                    isTabBarHidden: $isTabBarHidden
-                                )) {
+                                destination: MyActivityView()) {
                                     Text(StringLiterals.My.activityCheck)
                                         .font(.paragraph1)
                                         .foregroundColor(.black2)
@@ -149,10 +147,7 @@ struct MyView: View {
                                 .padding(.bottom, 8)
                             
                             NavigationLink(
-                                destination: MyBookView(
-                                    navigationTitle: StringLiterals.Navigation.bookCheck,
-                                    isTabBarHidden: $isTabBarHidden
-                                )) {
+                                destination: MyBookView()) {
                                     Text(StringLiterals.My.bookCheck)
                                         .font(.paragraph1)
                                         .foregroundColor(.black2)
@@ -172,10 +167,7 @@ struct MyView: View {
                                 .padding([.leading, .bottom], 8)
                             
                             NavigationLink(
-                                destination: MyInfoEditView(
-                                    navigationTitle: StringLiterals.Navigation.infoEdit,
-                                    isTabBarHidden: $isTabBarHidden
-                                )) {
+                                destination: MyInfoEditView()) {
                                     Text(StringLiterals.My.infoEdit)
                                         .font(.paragraph1)
                                         .foregroundColor(.gray3)
@@ -188,10 +180,7 @@ struct MyView: View {
                                 .padding(.bottom, 8)
                             
                             NavigationLink(
-                                destination: MyPasswordEditView(
-                                    navigationTitle: StringLiterals.Navigation.passwordEdit,
-                                    isTabBarHidden: $isTabBarHidden
-                                )) {
+                                destination: MyPasswordEditView()) {
                                     Text(StringLiterals.My.passwordEdit)
                                         .font(.paragraph1)
                                         .foregroundColor(.gray3)
@@ -202,16 +191,16 @@ struct MyView: View {
                                         .cornerRadius(16)
                                 }
                         }
-                        .padding(.bottom, 24)
+                        .padding(.bottom, 114)
                     }
                 }
                 .scrollIndicators(.hidden)
             }
             .padding(.horizontal, 24)
             .background(Color.black1)
-        }
-        .onAppear {
-            isTabBarHidden = false
+            .onAppear {
+                tabBarState.isTabBarHidden = false
+            }
         }
     }
 }

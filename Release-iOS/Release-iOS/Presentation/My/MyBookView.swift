@@ -9,8 +9,9 @@ import SwiftUI
 
 struct MyBookView: View {
     
-    @Binding var isTabBarHidden: Bool
+    @EnvironmentObject var tabBarState: TabBarState
     @Environment(\.presentationMode) var presentationMode
+    
     @State private var book: [BookDTO] = book1
     
     var body: some View {
@@ -23,8 +24,7 @@ struct MyBookView: View {
                 ZStack {
                     NavigationLink(
                         destination: BookDetailView(
-                            book: book,
-                            isTabBarHidden: $isTabBarHidden)) {
+                            book: book)) {
                                 EmptyView()
                             }
                             .opacity(0.0)
@@ -38,7 +38,10 @@ struct MyBookView: View {
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .onAppear {
-            isTabBarHidden = true
+            tabBarState.isTabBarHidden = true
+        }
+        .onDisappear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct BookDetailView: View {
     
+    @EnvironmentObject var tabBarState: TabBarState
+    
     let book: BookDTO
     @Environment(\.presentationMode) var presentationMode
-    @Binding var isTabBarHidden: Bool
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -146,7 +147,10 @@ struct BookDetailView: View {
         .toolbar(.hidden, for: .tabBar)
         .background(Color.black1)
         .onAppear {
-            isTabBarHidden = true
+            tabBarState.isTabBarHidden = true
+        }
+        .onDisappear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }

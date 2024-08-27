@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+class TabBarState: ObservableObject {
+    @Published var isTabBarHidden: Bool = false
+}
+
 struct ContentView: View {
     
     @State private var selectedTab: Tab = .home
-    @State private var isTabBarHidden: Bool = false
+    @StateObject private var tabBarState = TabBarState()
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -18,34 +22,26 @@ struct ContentView: View {
             
             switch selectedTab {
             case .home:
-                HomeView(eventsByDay: weekly1)
-                    .padding(.bottom, 114+10)
+                HomeView()
+                    .padding(.bottom, tabBarState.isTabBarHidden ? 0 : 114+10)
             case .activity:
-                ActivityView(navigationTitle: StringLiterals.Navigation.activity,
-                             isTabBarHidden: $isTabBarHidden)
-                .padding(.bottom, isTabBarHidden ? 0 : 114+10)
+                ActivityView()
             case .book:
-                BookView(navigationTitle: StringLiterals.Navigation.book,
-                         isTabBarHidden: $isTabBarHidden)
-                .padding(.bottom, isTabBarHidden ? 0 : 114+10)
+                BookView()
+                    .padding(.bottom, tabBarState.isTabBarHidden ? 0 : 114+10)
             case .my:
-                MyView(my: my1,
-                       navigationTitle: StringLiterals.Navigation.my,
-                       isTabBarHidden: $isTabBarHidden)
-                .padding(.bottom, isTabBarHidden ? 0 : 114+10)
+                MyView(my: my1)
+                    .padding(.bottom, tabBarState.isTabBarHidden ? 0 : 114+10)
             }
             
             Spacer()
             
-            if !isTabBarHidden {
+            if !tabBarState.isTabBarHidden {
                 CustomTabView(selectedTab: $selectedTab)
             }
         }
         .edgesIgnoringSafeArea(.bottom)
         .background(Color.black1)
+        .environmentObject(tabBarState)
     }
-}
-
-#Preview {
-    ContentView()
 }

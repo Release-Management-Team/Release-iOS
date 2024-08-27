@@ -9,8 +9,9 @@ import SwiftUI
 
 struct MyInfoEditView: View {
     
-    @Binding var isTabBarHidden: Bool
+    @EnvironmentObject var tabBarState: TabBarState
     @Environment(\.presentationMode) var presentationMode
+    
     @State private var my: My = my1
     
     @State private var statusValue: String = ""
@@ -129,7 +130,10 @@ struct MyInfoEditView: View {
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .onAppear {
-            isTabBarHidden = true
+            tabBarState.isTabBarHidden = true
+        }
+        .onDisappear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }

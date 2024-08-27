@@ -25,10 +25,10 @@ let activities2 = [
 ]
 
 let event1 = [
-    EventDTO(category: "이벤트", title: "개강총회", content: "맛있게 먹어봐요", start: "12:00", end: "14:00", place: "AS 10층"),
-    EventDTO(category: "이벤트", title: "개강총회", content: "맛있게 먹어봐요", start: "12:00", end: "14:00", place: "AS 10층"),
-    EventDTO(category: "이벤트", title: "개강총회", content: "맛있게 먹어봐요", start: "12:00", end: "14:00", place: "AS 10층"),
-    EventDTO(category: "이벤트", title: "개강총회", content: "맛있게 먹어봐요", start: "12:00", end: "14:00", place: "AS 10층")
+    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
+    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
+    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
+    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management")
 ]
 
 let book1 = [

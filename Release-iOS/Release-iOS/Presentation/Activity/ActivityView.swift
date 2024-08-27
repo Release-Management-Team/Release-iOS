@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ActivityView: View {
     
-    var navigationTitle: String
-    @Binding var isTabBarHidden: Bool
+    @EnvironmentObject var tabBarState: TabBarState
     
     @State private var isStudy = true
     @State private var selectedCategory = StringLiterals.Activity.study
@@ -22,7 +21,7 @@ struct ActivityView: View {
         NavigationView {
             VStack {
                 
-                leadingNavigationView(for: navigationTitle)
+                leadingNavigationView(for: StringLiterals.Navigation.activity)
                 
                 HStack(spacing: 0) {
                     Button(action: {
@@ -59,7 +58,7 @@ struct ActivityView: View {
                 if isStudy {
                     List(activityData) { activity in
                         ZStack {
-                            NavigationLink(destination: ActivityDetailView(activity: activity, isTabBarHidden: $isTabBarHidden)) {
+                            NavigationLink(destination: ActivityDetailView(activity: activity)) {
                                 EmptyView()
                             }
                             .opacity(0.0)
@@ -77,9 +76,11 @@ struct ActivityView: View {
                 }
             }
             .background(Color.black1)
-            .onAppear {
-                isTabBarHidden = false
-            }
+        }
+        .padding(.bottom, 114+10)
+        .background(Color.black1)
+        .onAppear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }
