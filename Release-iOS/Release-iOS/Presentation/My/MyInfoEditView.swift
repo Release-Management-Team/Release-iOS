@@ -9,9 +9,9 @@ import SwiftUI
 
 struct MyInfoEditView: View {
     
-    var navigationTitle: String
-    @Binding var isTabBarHidden: Bool
+    @EnvironmentObject var tabBarState: TabBarState
     @Environment(\.presentationMode) var presentationMode
+    
     @State private var my: My = my1
     
     @State private var statusValue: String = ""
@@ -22,8 +22,7 @@ struct MyInfoEditView: View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.infoEdit,
-                                 presentationMode: presentationMode,
-                                 isTabBarHidden: $isTabBarHidden)
+                                 presentationMode: presentationMode)
             
             ScrollView {
                 VStack(alignment: .center) {
@@ -124,14 +123,17 @@ struct MyInfoEditView: View {
             .frame(width: UIScreen.main.bounds.width, height: 114)
             .background(Color.black2)
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(color: Color.gray1.opacity(0.2), radius: 10, x: 0, y: 5)
+            .shadow(color: Color.black1.opacity(0.2), radius: 16, x: 0, y: 4)
         }
         .background(Color.black1)
         .ignoresSafeArea(edges: .bottom)
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .onAppear {
-            isTabBarHidden = true
+            tabBarState.isTabBarHidden = true
+        }
+        .onDisappear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }

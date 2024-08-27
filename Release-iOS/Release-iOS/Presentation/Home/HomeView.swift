@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    let eventsByDay: [[WeeklyEvent]]
+
+    @EnvironmentObject var tabBarState: TabBarState
     
     var body: some View {
         NavigationView {
@@ -21,12 +21,15 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        print("알람버튼 탭\n")
-                    }) {
-                        Image("icRing")
-                            .frame(width: 32, height: 32)
-                            .background(Color.clear)
+                    ZStack {
+                        NavigationLink(
+                            destination: HomeNoticeView()
+                        ) {
+                            Image("icRing")
+                                .frame(width: 32, height: 32)
+                                .background(Color.clear)
+                                .contentShape(Rectangle())
+                        }
                     }
                     
                     Image("kuromiDummy")
@@ -76,7 +79,7 @@ struct HomeView: View {
                             .foregroundColor(.gray1)
                             .padding(.bottom, 8)
                         
-                        HomeWeeklyView(eventsByDay: eventsByDay)
+                        HomeWeeklyView(eventsByDay: weekly1)
                             .padding(.bottom, 24)
                     }
                 }

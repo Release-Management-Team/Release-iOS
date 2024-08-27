@@ -7,34 +7,26 @@
 
 import SwiftUI
 
-struct Activity: Identifiable {
-    let id = UUID()
-    let image: String
-    let category: String
-    let status: String
-    let title: String
-    let content: String
-    let person: String
-}
-
 struct ActivityView: View {
     
-    var navigationTitle: String
-    @Binding var isTabBarHidden: Bool
+    @EnvironmentObject var tabBarState: TabBarState
     
+    @State private var isStudy = true
     @State private var selectedCategory = StringLiterals.Activity.study
-    @State private var activityData: [Activity] = activities1
+    
+    @State private var activityData: [ActivityDTO] = activities1
+    @State private var eventData: [EventDTO] = event1
     
     var body: some View {
         NavigationView {
             VStack {
                 
-                leadingNavigationView(for: navigationTitle)
+                leadingNavigationView(for: StringLiterals.Navigation.activity)
                 
                 HStack(spacing: 0) {
                     Button(action: {
                         selectedCategory = StringLiterals.Activity.study
-                        activityData = activities1
+                        isStudy = true
                     }) {
                         Text(StringLiterals.Activity.study)
                             .font(.heading4)
@@ -47,7 +39,7 @@ struct ActivityView: View {
                     
                     Button(action: {
                         selectedCategory = StringLiterals.Activity.event
-                        activityData = activities2
+                        isStudy = false
                     }) {
                         Text(StringLiterals.Activity.event)
                             .font(.heading4)
@@ -63,22 +55,32 @@ struct ActivityView: View {
                 .cornerRadius(32)
                 .padding(.horizontal, 24)
                 
-                List(activityData) { activity in
-                    ZStack {
-                        NavigationLink(destination: ActivityDetailView(activity: activity, isTabBarHidden: $isTabBarHidden)) {
-                            EmptyView()
+                if isStudy {
+                    List(activityData) { activity in
+                        ZStack {
+                            NavigationLink(destination: ActivityDetailView(activity: activity)) {
+                                EmptyView()
+                            }
+                            .opacity(0.0)
+                            activityCell(for: activity)
                         }
-                        .opacity(0.0)
-                        activityCell(for: activity)
+                        .listRowBackground(Color.black1)
+                    }
+                    .listStyle(PlainListStyle())
+                } else {
+                    List(eventData) { event in
+                        eventCell(for: event)
                     }
                     .listRowBackground(Color.black1)
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
             }
             .background(Color.black1)
-            .onAppear {
-                isTabBarHidden = false
-            }
+        }
+        .padding(.bottom, 114+10)
+        .background(Color.black1)
+        .onAppear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }

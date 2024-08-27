@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-func activityCell(for activity: Activity) -> some View {
+func activityCell(for activity: ActivityDTO) -> some View {
     HStack {
         Image(activity.image)
             .resizable()
@@ -52,3 +52,42 @@ func activityCell(for activity: Activity) -> some View {
     .cornerRadius(16)
     .listRowBackground(Color.clear)
 }
+
+func eventCell(for event: EventDTO) -> some View {
+    HStack {
+        VStack(alignment: .leading) {
+            Text(event.title)
+                .font(.heading4)
+                .foregroundColor(.gray1)
+                .padding(.bottom, 8)
+            
+            HStack {
+                Text(event.start + " ~ ")
+                    .font(.paragraph2)
+                    .foregroundColor(.gray3)
+                
+                Text(event.end)
+                    .font(.paragraph2)
+                    .foregroundColor(.gray3)
+                    .padding(.trailing, 24)
+                
+                Text(event.place)
+                    .font(.paragraph2)
+                    .foregroundColor(.gray3)
+            }
+            .padding(.bottom, 8)
+            
+            Text(event.content)
+                .font(.paragraph2)
+                .foregroundColor(.gray5)
+        }
+        
+        Spacer()
+    }
+    .padding(.horizontal, 16)
+    .padding(.vertical, 12)
+    .background(Color(.black2))
+    .cornerRadius(16)
+    .listRowBackground(Color.clear)
+}
+

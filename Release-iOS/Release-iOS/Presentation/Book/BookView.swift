@@ -7,38 +7,24 @@
 
 import SwiftUI
 
-struct Book: Identifiable {
-    let id = UUID()
-    let image: String
-    let status: String
-    let title: String
-    let author: String
-    let year: String
-    let publisher: String
-}
-
 struct BookView: View {
     
-    var navigationTitle: String
-    @Binding var isTabBarHidden: Bool
+    @EnvironmentObject var tabBarState: TabBarState
     
-    @State private var bookData: [Book] = book1
+    @State private var bookData: [BookDTO] = book1
     
     var body: some View {
         NavigationView {
             VStack {
                 
-                leadingNavigationView(for: navigationTitle)
+                leadingNavigationView(for: StringLiterals.Navigation.book)
                 
                 List(bookData) { book in
                     ZStack {
-                        NavigationLink(destination:
-                                        BookDetailView(
-                                            book: book,
-                                            isTabBarHidden: $isTabBarHidden)) {
-                                                EmptyView()
-                                            }
-                                            .opacity(0.0)
+                        NavigationLink(destination: BookDetailView(book: book)) {
+                            EmptyView()
+                        }
+                        .opacity(0.0)
                         bookCell(for: book)
                     }
                     .listRowBackground(Color.black1)
@@ -47,7 +33,7 @@ struct BookView: View {
             }
             .background(Color.black1)
             .onAppear {
-                isTabBarHidden = false
+                tabBarState.isTabBarHidden = false
             }
         }
     }

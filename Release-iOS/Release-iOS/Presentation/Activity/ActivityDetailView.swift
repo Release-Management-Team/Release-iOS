@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ActivityDetailView: View {
     
-    let activity: Activity
+    @EnvironmentObject var tabBarState: TabBarState
+    
+    let activity: ActivityDTO
     @Environment(\.presentationMode) var presentationMode
-    @Binding var isTabBarHidden: Bool
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -63,13 +64,14 @@ struct ActivityDetailView: View {
                         .padding(.horizontal, 24)
                     }
                     .background(Color.black1)
+                    .padding(.bottom, 114 + 10)
                 }
                 
                 VStack(alignment: .center) {  
                     Button(action: {
                         print("버튼 탭💖\n")
                     }) {
-                        Text("신청하기")
+                        Text(StringLiterals.Activity.join)
                             .font(.heading4)
                             .foregroundColor(.black2)
                             .padding(.horizontal, 68)
@@ -77,14 +79,13 @@ struct ActivityDetailView: View {
                             .background(Color.primary1)
                             .cornerRadius(16)
                     }
-                    .padding(.top, 13)
-                    
-                    Spacer()
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 13)
+                    .background(Color.white)
+                    .shadow(color: Color.black1.opacity(0.2), radius: 16, x: 0, y: 4)
                 }
-                .frame(width: UIScreen.main.bounds.width, height: 114)
-                .background(Color.black2)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                .shadow(color: Color.gray1.opacity(0.2), radius: 10, x: 0, y: 5)
+                .frame(height: 114)
+                .background(Color.clear)
             }
             
             Button(action: {
@@ -99,12 +100,14 @@ struct ActivityDetailView: View {
             .padding(.leading, 24)
             .padding(.top, 13)
         }
-        .ignoresSafeArea(edges: .bottom)
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .background(Color.black1)
         .onAppear {
-            isTabBarHidden = true
+            tabBarState.isTabBarHidden = true
+        }
+        .onDisappear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }

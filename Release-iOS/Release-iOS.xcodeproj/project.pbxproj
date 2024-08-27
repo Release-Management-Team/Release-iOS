@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1DC1542C79AE8900EB92DF /* HomeNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC1532C79AE8900EB92DF /* HomeNoticeView.swift */; };
+		2C1DC1562C79AEB000EB92DF /* NoticeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC1552C79AEB000EB92DF /* NoticeDTO.swift */; };
+		2C1DC1582C79AF6C00EB92DF /* HomeNoticeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC1572C79AF6C00EB92DF /* HomeNoticeViewCell.swift */; };
 		2C6E4E322C6A5D1800E60363 /* Release_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6E4E312C6A5D1800E60363 /* Release_iOSApp.swift */; };
 		2C6E4E342C6A5D1800E60363 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6E4E332C6A5D1800E60363 /* ContentView.swift */; };
 		2C6E4E362C6A5D1A00E60363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6E4E352C6A5D1A00E60363 /* Assets.xcassets */; };
@@ -32,9 +35,18 @@
 		2CC6A9C92C76A5C0008DB5F1 /* MyInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */; };
 		2CC6A9CB2C76ACBA008DB5F1 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */; };
 		2CC6A9CD2C76B3D8008DB5F1 /* MyPasswordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */; };
+		2CC6A9D22C772986008DB5F1 /* ActivityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9D12C772986008DB5F1 /* ActivityDTO.swift */; };
+		2CC6A9D42C772998008DB5F1 /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9D32C772998008DB5F1 /* EventDTO.swift */; };
+		2CC6A9D82C7729D1008DB5F1 /* BookDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9D72C7729D1008DB5F1 /* BookDTO.swift */; };
+		2CC6A9DA2C7729FB008DB5F1 /* MyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9D92C7729FB008DB5F1 /* MyDTO.swift */; };
+		2CC6A9DC2C772A0E008DB5F1 /* WeeklyEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9DB2C772A0E008DB5F1 /* WeeklyEventDTO.swift */; };
+		2CC6A9DE2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6A9DD2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1DC1532C79AE8900EB92DF /* HomeNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoticeView.swift; sourceTree = "<group>"; };
+		2C1DC1552C79AEB000EB92DF /* NoticeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDTO.swift; sourceTree = "<group>"; };
+		2C1DC1572C79AF6C00EB92DF /* HomeNoticeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoticeViewCell.swift; sourceTree = "<group>"; };
 		2C6E4E2E2C6A5D1800E60363 /* Release-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Release-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6E4E312C6A5D1800E60363 /* Release_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Release_iOSApp.swift; sourceTree = "<group>"; };
 		2C6E4E332C6A5D1800E60363 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +74,12 @@
 		2CC6A9C82C76A5C0008DB5F1 /* MyInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditView.swift; sourceTree = "<group>"; };
 		2CC6A9CA2C76ACBA008DB5F1 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPasswordEditView.swift; sourceTree = "<group>"; };
+		2CC6A9D12C772986008DB5F1 /* ActivityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDTO.swift; sourceTree = "<group>"; };
+		2CC6A9D32C772998008DB5F1 /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
+		2CC6A9D72C7729D1008DB5F1 /* BookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDTO.swift; sourceTree = "<group>"; };
+		2CC6A9D92C7729FB008DB5F1 /* MyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDTO.swift; sourceTree = "<group>"; };
+		2CC6A9DB2C772A0E008DB5F1 /* WeeklyEventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyEventDTO.swift; sourceTree = "<group>"; };
+		2CC6A9DD2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWeeklyEmptyViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				2C6E4E352C6A5D1A00E60363 /* Assets.xcassets */,
-				2C97236E2C6DD431007F2C3D /* String.swift */,
+				2CC6A9DF2C772AA3008DB5F1 /* Constant */,
 				2C6E4E482C6A5FFA00E60363 /* Extension */,
 				2C6E4E472C6A5FEF00E60363 /* Font */,
 			);
@@ -144,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				2C9723702C6E251F007F2C3D /* Dummy.swift */,
+				2CC6A9D02C772945008DB5F1 /* DTO */,
 				2CC6A9C32C76896D008DB5F1 /* My */,
 				2CC6A9BA2C76640E008DB5F1 /* Home */,
 				2CBC76AE2C75F04D00C0D3EC /* Book */,
@@ -179,7 +198,10 @@
 			children = (
 				2C6E4E4B2C6A705400E60363 /* HomeView.swift */,
 				2CC6A9BF2C7669CD008DB5F1 /* HomeWeeklyView.swift */,
+				2C1DC1532C79AE8900EB92DF /* HomeNoticeView.swift */,
+				2C1DC1572C79AF6C00EB92DF /* HomeNoticeViewCell.swift */,
 				2CC6A9C12C7669D8008DB5F1 /* HomeWeeklyViewCell.swift */,
+				2CC6A9DD2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -194,6 +216,27 @@
 				2CC6A9CC2C76B3D8008DB5F1 /* MyPasswordEditView.swift */,
 			);
 			path = My;
+			sourceTree = "<group>";
+		};
+		2CC6A9D02C772945008DB5F1 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6A9D12C772986008DB5F1 /* ActivityDTO.swift */,
+				2CC6A9D32C772998008DB5F1 /* EventDTO.swift */,
+				2CC6A9D72C7729D1008DB5F1 /* BookDTO.swift */,
+				2CC6A9D92C7729FB008DB5F1 /* MyDTO.swift */,
+				2CC6A9DB2C772A0E008DB5F1 /* WeeklyEventDTO.swift */,
+				2C1DC1552C79AEB000EB92DF /* NoticeDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		2CC6A9DF2C772AA3008DB5F1 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2C97236E2C6DD431007F2C3D /* String.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +311,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CC6A9D22C772986008DB5F1 /* ActivityDTO.swift in Sources */,
+				2C1DC1562C79AEB000EB92DF /* NoticeDTO.swift in Sources */,
+				2CC6A9DC2C772A0E008DB5F1 /* WeeklyEventDTO.swift in Sources */,
 				2C9723732C6E27E0007F2C3D /* ActivityDetailView.swift in Sources */,
+				2CC6A9D82C7729D1008DB5F1 /* BookDTO.swift in Sources */,
 				2C6E4E532C6A70EE00E60363 /* MyView.swift in Sources */,
 				2C6E4E4A2C6A600A00E60363 /* Font+.swift in Sources */,
 				2C9723712C6E251F007F2C3D /* Dummy.swift in Sources */,
@@ -282,13 +329,18 @@
 				2C6E4E572C6A788E00E60363 /* CustomTabView.swift in Sources */,
 				2C6E4E342C6A5D1800E60363 /* ContentView.swift in Sources */,
 				2CC6A9C52C7699A0008DB5F1 /* MyActivityView.swift in Sources */,
+				2C1DC1542C79AE8900EB92DF /* HomeNoticeView.swift in Sources */,
 				2C6E4E512C6A70D600E60363 /* BookView.swift in Sources */,
 				2C6E4E4F2C6A70B600E60363 /* ActivityView.swift in Sources */,
 				2C92FEE12C6F57D70044920F /* ActivityCell.swift in Sources */,
+				2C1DC1582C79AF6C00EB92DF /* HomeNoticeViewCell.swift in Sources */,
 				2CC6A9C02C7669CD008DB5F1 /* HomeWeeklyView.swift in Sources */,
 				2C6E4E322C6A5D1800E60363 /* Release_iOSApp.swift in Sources */,
 				2CC6A9C92C76A5C0008DB5F1 /* MyInfoEditView.swift in Sources */,
+				2CC6A9DE2C772A26008DB5F1 /* HomeWeeklyEmptyViewCell.swift in Sources */,
+				2CC6A9DA2C7729FB008DB5F1 /* MyDTO.swift in Sources */,
 				2CC6A9C72C76A4C1008DB5F1 /* MyBookView.swift in Sources */,
+				2CC6A9D42C772998008DB5F1 /* EventDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +483,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,9 +491,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "sogang.Release-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -461,6 +518,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,9 +526,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "sogang.Release-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

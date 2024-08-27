@@ -9,24 +9,22 @@ import SwiftUI
 
 struct MyActivityView: View {
     
-    var navigationTitle: String
-    @Binding var isTabBarHidden: Bool
+    @EnvironmentObject var tabBarState: TabBarState
     @Environment(\.presentationMode) var presentationMode
-    @State private var activityData: [Activity] = activities1
+    
+    @State private var activityData: [ActivityDTO] = activities1
     
     var body: some View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.activityCheck,
-                                 presentationMode: presentationMode,
-                                 isTabBarHidden: $isTabBarHidden)
+                                 presentationMode: presentationMode)
             
             List(activityData) { activity in
                 ZStack {
                     NavigationLink(
                         destination: ActivityDetailView(
-                            activity: activity,
-                            isTabBarHidden: $isTabBarHidden)) {
+                            activity: activity)) {
                                 EmptyView()
                             }
                             .opacity(0.0)
@@ -40,7 +38,10 @@ struct MyActivityView: View {
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .onAppear {
-            isTabBarHidden = true
+            tabBarState.isTabBarHidden = true
+        }
+        .onDisappear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }

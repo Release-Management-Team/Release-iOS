@@ -9,24 +9,22 @@ import SwiftUI
 
 struct MyBookView: View {
     
-    var navigationTitle: String
-    @Binding var isTabBarHidden: Bool
+    @EnvironmentObject var tabBarState: TabBarState
     @Environment(\.presentationMode) var presentationMode
-    @State private var book: [Book] = book1
+    
+    @State private var book: [BookDTO] = book1
     
     var body: some View {
         VStack {
             
             centerNavigationView(for: StringLiterals.Navigation.bookCheck,
-                                 presentationMode: presentationMode,
-                                 isTabBarHidden: $isTabBarHidden)
+                                 presentationMode: presentationMode)
             
             List(book) { book in
                 ZStack {
                     NavigationLink(
                         destination: BookDetailView(
-                            book: book,
-                            isTabBarHidden: $isTabBarHidden)) {
+                            book: book)) {
                                 EmptyView()
                             }
                             .opacity(0.0)
@@ -40,7 +38,10 @@ struct MyBookView: View {
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .onAppear {
-            isTabBarHidden = true
+            tabBarState.isTabBarHidden = true
+        }
+        .onDisappear {
+            tabBarState.isTabBarHidden = false
         }
     }
 }

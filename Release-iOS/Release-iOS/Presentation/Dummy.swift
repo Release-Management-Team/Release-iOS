@@ -8,32 +8,37 @@
 import Foundation
 
 let activities1 = [
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icRing", category: "세미나", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
 ]
 
 let activities2 = [
-    Activity(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
-    Activity(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
+    ActivityDTO(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원"),
+    ActivityDTO(image: "icHome", category: "스터디", status: "모집 중", title: "쿠로미 원정대", content: "Kolin, Food, Tteokbokki", person: "신지원")
+]
+
+let event1 = [
+    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
+    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
+    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
+    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management")
 ]
 
 let book1 = [
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래,인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래,", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스"),
-    Book(image: "kuromiDummy", status: "대여 가능", title: "인공지능과 빅데이터의 융합: 현대 컴퓨팅의 미래", author: "신지원", year: "2024", publisher: "테크노프레스")
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.rented.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.unavailable.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰"),
+    BookDTO(image: "kuromiDummy", status: BookStatus(rawValue: BookStatus.available.rawValue)!, title: "Release Management Project", author: "신지원", tag: "#지원 #신지원 #알라뷰")
 ]
 
 let weekly1 = [
@@ -70,3 +75,11 @@ let weekEmpty = [
 ]
 
 let my1 = My(name: "신지원", staff: true, status: "나는 쿠로미 짱짱짱짱 대뻥", studentNumber: 20211547, major: "컴퓨터공학과", period: "2016.03 ~ NOW", email: "00000@sogang.ac.kr", phone: "010-0000-0000")
+
+let notice1 = [
+Notice(title: "지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원", content: "⛔️ 16:00 ~ 18:00  랩실 출입 통제됩니다", date: "24.00.00"),
+Notice(title: "지원지원지원", content: "⛔️ 16:00 ~ 18:00  랩실 출입 통제됩니다지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원지원", date: "24.00.00"),
+Notice(title: "지원지원지원", content: "⛔️ 16:00 ~ 18:00  랩실 출입 통제됩니다", date: "24.00.00"),
+Notice(title: "지원지원지원", content: "⛔️ 16:00 ~ 18:00  랩실 출입 통제됩니다", date: "24.00.00"),
+Notice(title: "지원지원지원", content: "⛔️ 16:00 ~ 18:00  랩실 출입 통제됩니다", date: "24.00.00")
+]

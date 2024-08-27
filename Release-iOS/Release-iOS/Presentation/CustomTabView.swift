@@ -34,7 +34,7 @@ struct CustomTabView: View {
             .frame(width: UIScreen.main.bounds.width, height: 114)
             .background(Color.black2)
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(color: Color.gray1.opacity(0.15), radius: 10, x: 0, y: 10)
+            .shadow(color: Color.black1.opacity(0.3), radius: 16, x: 0, y: 4)
         }
         .frame(width: UIScreen.main.bounds.width, height: 114)
     }
@@ -71,12 +71,10 @@ func leadingNavigationView(for title: String) -> some View {
     .frame(width: UIScreen.main.bounds.width, height: 72)
 }
 
-func centerNavigationView(for title: String, presentationMode: Binding<PresentationMode>, isTabBarHidden: Binding<Bool>) -> some View {
+func centerNavigationView(for title: String, presentationMode: Binding<PresentationMode>) -> some View {
     HStack(alignment: .center) {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
-            isTabBarHidden.wrappedValue = false
-            
         }) {
             Image("icArrow")
                 .foregroundColor(.white)
