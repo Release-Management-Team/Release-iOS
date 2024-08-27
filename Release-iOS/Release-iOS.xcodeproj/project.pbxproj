@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C044A532C7E5C74005A26C7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C044A522C7E5C74005A26C7 /* LoginView.swift */; };
 		2C1DC1542C79AE8900EB92DF /* HomeNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC1532C79AE8900EB92DF /* HomeNoticeView.swift */; };
 		2C1DC1562C79AEB000EB92DF /* NoticeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC1552C79AEB000EB92DF /* NoticeDTO.swift */; };
 		2C1DC1582C79AF6C00EB92DF /* HomeNoticeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DC1572C79AF6C00EB92DF /* HomeNoticeViewCell.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C044A522C7E5C74005A26C7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2C1DC1532C79AE8900EB92DF /* HomeNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoticeView.swift; sourceTree = "<group>"; };
 		2C1DC1552C79AEB000EB92DF /* NoticeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDTO.swift; sourceTree = "<group>"; };
 		2C1DC1572C79AF6C00EB92DF /* HomeNoticeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoticeViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C044A512C7E5C46005A26C7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2C044A522C7E5C74005A26C7 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		2C6E4E252C6A5D1800E60363 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +171,7 @@
 		2C6E4E4D2C6A706000E60363 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2C044A512C7E5C46005A26C7 /* Login */,
 				2C9723702C6E251F007F2C3D /* Dummy.swift */,
 				2CC6A9D02C772945008DB5F1 /* DTO */,
 				2CC6A9C32C76896D008DB5F1 /* My */,
@@ -333,6 +344,7 @@
 				2C6E4E512C6A70D600E60363 /* BookView.swift in Sources */,
 				2C6E4E4F2C6A70B600E60363 /* ActivityView.swift in Sources */,
 				2C92FEE12C6F57D70044920F /* ActivityCell.swift in Sources */,
+				2C044A532C7E5C74005A26C7 /* LoginView.swift in Sources */,
 				2C1DC1582C79AF6C00EB92DF /* HomeNoticeViewCell.swift in Sources */,
 				2CC6A9C02C7669CD008DB5F1 /* HomeWeeklyView.swift in Sources */,
 				2C6E4E322C6A5D1800E60363 /* Release_iOSApp.swift in Sources */,

@@ -34,7 +34,8 @@ struct MyPasswordEditView: View {
                         .foregroundColor(.gray3)
                         .padding(.bottom, 16)
                     
-                    CustomSecureTextField(text: $currentPassword)
+                    CustomSecureTextField(text: $currentPassword,
+                                          placeholder: "")
                 }
                 .padding(.bottom, 32)
                 
@@ -52,7 +53,8 @@ struct MyPasswordEditView: View {
                     }
                     .padding(.bottom, 16)
                     
-                    CustomSecureTextField(text: $newPassword)
+                    CustomSecureTextField(text: $newPassword,
+                                          placeholder: "")
                         .border(.primary4, width: passwordIsNotValid ? 1 : 0)
                         .padding(.bottom, 16)
                     
@@ -75,7 +77,8 @@ struct MyPasswordEditView: View {
                         .foregroundColor(.gray3)
                         .padding(.bottom, 16)
                     
-                    CustomSecureTextField(text: $checkPassword)
+                    CustomSecureTextField(text: $checkPassword,
+                                          placeholder: "")
                         .border(.primary4, width: passwordIsNotSame ? 1 : 0)
                         .padding(.bottom, 16)
                     
@@ -117,7 +120,6 @@ struct MyPasswordEditView: View {
         }
         .background(Color.black1)
         .ignoresSafeArea(edges: .bottom)
-        .background(Color.black1)
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .onAppear {

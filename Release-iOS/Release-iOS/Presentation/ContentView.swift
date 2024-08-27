@@ -43,5 +43,7 @@ struct ContentView: View {
         .edgesIgnoringSafeArea(.bottom)
         .background(Color.black1)
         .environmentObject(tabBarState)
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .tabBar)
     }
 }

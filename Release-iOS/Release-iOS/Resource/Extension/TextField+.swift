@@ -33,9 +33,15 @@ struct CustomTextField: View {
 
 struct CustomSecureTextField: View {
     @Binding var text: String
+    var placeholder: String
 
     var body: some View {
         ZStack(alignment: .leading) {
+            if text.isEmpty {
+                Text(placeholder)
+                    .font(.paragraph1)
+                    .foregroundColor(.gray4)
+            }
             SecureField("", text: $text)
                 .font(.paragraph1)
                 .foregroundColor(.gray4)
