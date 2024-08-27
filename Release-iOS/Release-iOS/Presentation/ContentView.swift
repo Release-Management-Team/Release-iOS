@@ -7,41 +7,24 @@
 
 import SwiftUI
 
-class TabBarState: ObservableObject {
-    @Published var isTabBarHidden: Bool = false
-}
-
 struct ContentView: View {
     
-    @State private var selectedTab: Tab = .home
-    @StateObject private var tabBarState = TabBarState()
+    @State private var isAnimationCompleted = false
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            Spacer()
-            
-            switch selectedTab {
-            case .home:
-                HomeView()
-                    .padding(.bottom, tabBarState.isTabBarHidden ? 0 : 114+10)
-            case .activity:
-                ActivityView()
-            case .book:
-                BookView()
-                    .padding(.bottom, tabBarState.isTabBarHidden ? 0 : 114+10)
-            case .my:
-                MyView(my: my1)
-                    .padding(.bottom, tabBarState.isTabBarHidden ? 0 : 114+10)
-            }
-            
-            Spacer()
-            
-            if !tabBarState.isTabBarHidden {
-                CustomTabView(selectedTab: $selectedTab)
+        ZStack {
+            if isAnimationCompleted {
+                LoginView()
+                    .transition(.opacity)
+            } else {
+                SplashView(onAnimationCompleted: {
+                    withAnimation {
+                        isAnimationCompleted = true
+                    }
+                })
+                .background(Color.black1)
+                .transition(.opacity)
             }
         }
-        .edgesIgnoringSafeArea(.bottom)
-        .background(Color.black1)
-        .environmentObject(tabBarState)
     }
 }
