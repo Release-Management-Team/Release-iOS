@@ -36,7 +36,7 @@ struct LoginView: View {
                 .padding(.bottom, 48)
                 
                 NavigationLink(
-                    destination: ContentView()) {
+                    destination: TabBarView()) {
                         Text(StringLiterals.Login.buttonTitle)
                             .font(.heading4)
                             .foregroundColor(.black2)
@@ -47,7 +47,7 @@ struct LoginView: View {
                     }
                     .padding(.horizontal, 24)
                 
-                Spacer()
+                    Spacer()
                 
             }
             .background(Color.black1)

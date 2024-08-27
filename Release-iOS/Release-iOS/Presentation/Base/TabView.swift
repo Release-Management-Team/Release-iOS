@@ -11,7 +11,7 @@ class TabBarState: ObservableObject {
     @Published var isTabBarHidden: Bool = false
 }
 
-struct TabView: View {
+struct TabBarView: View {
     
     @State private var selectedTab: Tab = .home
     @StateObject private var tabBarState = TabBarState()

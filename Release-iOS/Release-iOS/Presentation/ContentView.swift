@@ -9,6 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var isAnimationCompleted = false
+    
     var body: some View {
+        ZStack {
+            if isAnimationCompleted {
+                LoginView()
+                    .transition(.opacity)
+            } else {
+                SplashView(onAnimationCompleted: {
+                    withAnimation {
+                        isAnimationCompleted = true
+                    }
+                })
+                .background(Color.black1)
+                .transition(.opacity)
+            }
+        }
     }
 }
