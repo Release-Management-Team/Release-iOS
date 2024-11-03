@@ -26,6 +26,9 @@ final class LoginViewController: UIViewController {
             string: StringLiterals.Login.id,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray5]
         )
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 24, height: $0.frame.height))
+        $0.leftView = paddingView
+        $0.leftViewMode = .always
     }
     
     private let passwordTextField = UITextField().then {
@@ -38,6 +41,9 @@ final class LoginViewController: UIViewController {
             string: StringLiterals.Login.password,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray5]
         )
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 24, height: $0.frame.height))
+        $0.leftView = paddingView
+        $0.leftViewMode = .always
     }
     
     private let loginButton = UIButton(type: .system).then {
@@ -123,7 +129,6 @@ final class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    
     private func login(id: String, password: String, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: Config.baseURL + "/auth/login") else { return }
         
@@ -159,8 +164,20 @@ extension LoginViewController {
                 return
             }
             
-            completion(true)
-        }
-        .resume()
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let accessToken = json["access"] as? String,
+                   let refreshToken = json["refresh"] as? String {
+                    UserDefaults.standard.set(accessToken, forKey: "accessToken")
+                    UserDefaults.standard.set(refreshToken, forKey: "refreshToken")
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            } catch {
+                print("Failed to parse JSON: \(error)")
+                completion(false)
+            }
+        }.resume()
     }
 }
