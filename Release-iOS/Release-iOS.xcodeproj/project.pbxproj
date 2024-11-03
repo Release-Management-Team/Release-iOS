@@ -23,9 +23,18 @@
 		2C8670052CD7C9EF00A78039 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670042CD7C9EF00A78039 /* Font+.swift */; };
 		2C8670092CD7CA9700A78039 /* ReleaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670082CD7CA9700A78039 /* ReleaseTabBarController.swift */; };
 		2C86700B2CD7CBBB00A78039 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C86700A2CD7CBBB00A78039 /* SplashView.swift */; };
-		2C86700D2CD7CC5700A78039 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C86700C2CD7CC5700A78039 /* LoginView.swift */; };
+		2C86700D2CD7CC5700A78039 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C86700C2CD7CC5700A78039 /* LoginViewController.swift */; };
 		2C86700F2CD7CF3200A78039 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C86700E2CD7CF3200A78039 /* HomeViewController.swift */; };
-		2C8670112CD7E0D600A78039 /* isSE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670102CD7E0D600A78039 /* isSE.swift */; };
+		2C8670112CD7E0D600A78039 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670102CD7E0D600A78039 /* Extension.swift */; };
+		2C8670132CD7E8DE00A78039 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */; };
+		2C86701B2CD7E8FA00A78039 /* ActivityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670142CD7E8FA00A78039 /* ActivityDTO.swift */; };
+		2C86701C2CD7E8FA00A78039 /* BookDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670152CD7E8FA00A78039 /* BookDTO.swift */; };
+		2C86701D2CD7E8FA00A78039 /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670162CD7E8FA00A78039 /* EventDTO.swift */; };
+		2C86701E2CD7E8FA00A78039 /* MyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670172CD7E8FA00A78039 /* MyDTO.swift */; };
+		2C86701F2CD7E8FA00A78039 /* NoticeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670182CD7E8FA00A78039 /* NoticeDTO.swift */; };
+		2C8670202CD7E8FA00A78039 /* WeeklyEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670192CD7E8FA00A78039 /* WeeklyEventDTO.swift */; };
+		2C8670222CD7E94100A78039 /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */; };
+		2C8670242CD7E99E00A78039 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670232CD7E99E00A78039 /* Dummy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +53,18 @@
 		2C8670062CD7CA1800A78039 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2C8670082CD7CA9700A78039 /* ReleaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseTabBarController.swift; sourceTree = "<group>"; };
 		2C86700A2CD7CBBB00A78039 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		2C86700C2CD7CC5700A78039 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2C86700C2CD7CC5700A78039 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2C86700E2CD7CF3200A78039 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		2C8670102CD7E0D600A78039 /* isSE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isSE.swift; sourceTree = "<group>"; };
+		2C8670102CD7E0D600A78039 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		2C8670142CD7E8FA00A78039 /* ActivityDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDTO.swift; sourceTree = "<group>"; };
+		2C8670152CD7E8FA00A78039 /* BookDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDTO.swift; sourceTree = "<group>"; };
+		2C8670162CD7E8FA00A78039 /* EventDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
+		2C8670172CD7E8FA00A78039 /* MyDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDTO.swift; sourceTree = "<group>"; };
+		2C8670182CD7E8FA00A78039 /* NoticeDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDTO.swift; sourceTree = "<group>"; };
+		2C8670192CD7E8FA00A78039 /* WeeklyEventDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyEventDTO.swift; sourceTree = "<group>"; };
+		2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
+		2C8670232CD7E99E00A78039 /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dummy.swift; path = "../../../Release-iOS 복사본/Release-iOS/Presentation/Dummy.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +101,10 @@
 		2C866FD62CD7C8D800A78039 /* Release-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				2C8670102CD7E0D600A78039 /* isSE.swift */,
+				2C8670232CD7E99E00A78039 /* Dummy.swift */,
+				2C8670102CD7E0D600A78039 /* Extension.swift */,
+				2C8670252CD7E9F200A78039 /* ViewController */,
+				2C86701A2CD7E8FA00A78039 /* DTO */,
 				2C8670072CD7CA8400A78039 /* View */,
 				2C8670032CD7C9EF00A78039 /* Font */,
 				2C866FFD2CD7C99C00A78039 /* Constant */,
@@ -123,10 +144,33 @@
 			children = (
 				2C8670082CD7CA9700A78039 /* ReleaseTabBarController.swift */,
 				2C86700A2CD7CBBB00A78039 /* SplashView.swift */,
-				2C86700C2CD7CC5700A78039 /* LoginView.swift */,
-				2C86700E2CD7CF3200A78039 /* HomeViewController.swift */,
+				2C86700C2CD7CC5700A78039 /* LoginViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2C86701A2CD7E8FA00A78039 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				2C8670142CD7E8FA00A78039 /* ActivityDTO.swift */,
+				2C8670152CD7E8FA00A78039 /* BookDTO.swift */,
+				2C8670162CD7E8FA00A78039 /* EventDTO.swift */,
+				2C8670172CD7E8FA00A78039 /* MyDTO.swift */,
+				2C8670182CD7E8FA00A78039 /* NoticeDTO.swift */,
+				2C8670192CD7E8FA00A78039 /* WeeklyEventDTO.swift */,
+			);
+			name = DTO;
+			path = "../../../Release-iOS 복사본/Release-iOS/Presentation/DTO";
+			sourceTree = "<group>";
+		};
+		2C8670252CD7E9F200A78039 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C86700E2CD7CF3200A78039 /* HomeViewController.swift */,
+				2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */,
+				2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,17 +255,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8670112CD7E0D600A78039 /* isSE.swift in Sources */,
+				2C86701B2CD7E8FA00A78039 /* ActivityDTO.swift in Sources */,
+				2C8670112CD7E0D600A78039 /* Extension.swift in Sources */,
+				2C8670242CD7E99E00A78039 /* Dummy.swift in Sources */,
 				2C866FDC2CD7C8D800A78039 /* ViewController.swift in Sources */,
+				2C86701D2CD7E8FA00A78039 /* EventDTO.swift in Sources */,
+				2C86701F2CD7E8FA00A78039 /* NoticeDTO.swift in Sources */,
+				2C8670202CD7E8FA00A78039 /* WeeklyEventDTO.swift in Sources */,
 				2C866FFE2CD7C99C00A78039 /* Config.swift in Sources */,
 				2C8670052CD7C9EF00A78039 /* Font+.swift in Sources */,
 				2C866FD82CD7C8D800A78039 /* AppDelegate.swift in Sources */,
+				2C8670222CD7E94100A78039 /* ActivityDetailViewController.swift in Sources */,
 				2C8670092CD7CA9700A78039 /* ReleaseTabBarController.swift in Sources */,
 				2C8670002CD7C99C00A78039 /* String.swift in Sources */,
 				2C866FFF2CD7C99C00A78039 /* HttpMethod.swift in Sources */,
 				2C86700B2CD7CBBB00A78039 /* SplashView.swift in Sources */,
-				2C86700D2CD7CC5700A78039 /* LoginView.swift in Sources */,
+				2C86701E2CD7E8FA00A78039 /* MyDTO.swift in Sources */,
+				2C86701C2CD7E8FA00A78039 /* BookDTO.swift in Sources */,
+				2C86700D2CD7CC5700A78039 /* LoginViewController.swift in Sources */,
 				2C866FDA2CD7C8D800A78039 /* SceneDelegate.swift in Sources */,
+				2C8670132CD7E8DE00A78039 /* ActivityViewController.swift in Sources */,
 				2C8670012CD7C99C00A78039 /* URL.swift in Sources */,
 				2C86700F2CD7CF3200A78039 /* HomeViewController.swift in Sources */,
 			);
@@ -243,6 +296,7 @@
 /* Begin XCBuildConfiguration section */
 		2C866FE62CD7C8DA00A78039 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C8670062CD7CA1800A78039 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -362,6 +416,7 @@
 		};
 		2C866FE92CD7C8DA00A78039 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C8670062CD7CA1800A78039 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

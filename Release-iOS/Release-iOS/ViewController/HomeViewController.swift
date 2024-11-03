@@ -62,6 +62,12 @@ final class HomeViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        showTabBar()
+    }
+    
     private func setupUI() {
         view.backgroundColor = .black1
         view.addSubview(logoImageView)
