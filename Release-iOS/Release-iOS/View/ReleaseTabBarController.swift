@@ -149,7 +149,7 @@ enum ReleaseTabBarItem: CaseIterable {
             return ActivityViewController()
             
         case .feed:
-            return HomeViewController()
+            return BookViewController()
             
         case .myPage:
             return HomeViewController()
