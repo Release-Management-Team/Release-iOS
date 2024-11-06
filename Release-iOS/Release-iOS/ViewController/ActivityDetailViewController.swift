@@ -163,7 +163,8 @@ final class ActivityDetailViewController: UIViewController {
         print("참여하기 버튼 탭")
     }
     
-    @objc private func backButtonTapped() {
+    @objc
+    private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
 }

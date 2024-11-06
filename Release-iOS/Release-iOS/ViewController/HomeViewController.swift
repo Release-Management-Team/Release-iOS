@@ -18,6 +18,7 @@ final class HomeViewController: UIViewController {
     
     private let notificationButton = UIButton().then {
         $0.setImage(UIImage(named: "icRing"), for: .normal)
+        $0.addTarget(self, action: #selector(noticeButtonTapped), for: .touchUpInside)
     }
     
     private let profileImageView = UIImageView(image: UIImage(named: "kuromiDummy")).then {
@@ -121,5 +122,11 @@ final class HomeViewController: UIViewController {
             make.top.equalTo(noticeView.snp.bottom).offset(32)
             make.leading.equalToSuperview().offset(24)
         }
+    }
+    
+    @objc
+    private func noticeButtonTapped() {
+        let vc = NoticeViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

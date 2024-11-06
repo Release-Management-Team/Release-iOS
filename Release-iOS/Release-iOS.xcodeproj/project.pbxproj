@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C31A24D2CD9126400FBFF15 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A24C2CD9126400FBFF15 /* BookViewController.swift */; };
+		2C31A24F2CDAF09000FBFF15 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A24E2CDAF09000FBFF15 /* NoticeViewController.swift */; };
 		2C866FD82CD7C8D800A78039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C866FD72CD7C8D800A78039 /* AppDelegate.swift */; };
 		2C866FDA2CD7C8D800A78039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C866FD92CD7C8D800A78039 /* SceneDelegate.swift */; };
 		2C866FDC2CD7C8D800A78039 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C866FDB2CD7C8D800A78039 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		2C31A24C2CD9126400FBFF15 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		2C31A24E2CDAF09000FBFF15 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		2C866FD42CD7C8D800A78039 /* Release-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Release-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C866FD72CD7C8D800A78039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C866FD92CD7C8D800A78039 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */,
 				2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */,
 				2C31A24C2CD9126400FBFF15 /* BookViewController.swift */,
+				2C31A24E2CDAF09000FBFF15 /* NoticeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				2C866FDA2CD7C8D800A78039 /* SceneDelegate.swift in Sources */,
 				2C8670132CD7E8DE00A78039 /* ActivityViewController.swift in Sources */,
 				2C8670012CD7C99C00A78039 /* URL.swift in Sources */,
+				2C31A24F2CDAF09000FBFF15 /* NoticeViewController.swift in Sources */,
 				2C86700F2CD7CF3200A78039 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
