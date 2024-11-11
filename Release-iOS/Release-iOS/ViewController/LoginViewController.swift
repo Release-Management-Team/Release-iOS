@@ -166,8 +166,8 @@ extension LoginViewController {
             
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let accessToken = json["access"] as? String,
-                   let refreshToken = json["refresh"] as? String {
+                   let accessToken = json["access_token"] as? String,
+                   let refreshToken = json["refresh_token"] as? String {
                     UserDefaults.standard.set(accessToken, forKey: "accessToken")
                     UserDefaults.standard.set(refreshToken, forKey: "refreshToken")
                     completion(true)

@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     }
     
     private let notificationButton = UIButton().then {
-        $0.setImage(UIImage(named: "icRing"), for: .normal)
+        $0.setImage(.icRing, for: .normal)
         $0.addTarget(self, action: #selector(noticeButtonTapped), for: .touchUpInside)
     }
     

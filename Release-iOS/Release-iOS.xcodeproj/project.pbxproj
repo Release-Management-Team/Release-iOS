@@ -148,7 +148,6 @@
 			children = (
 				2C8670082CD7CA9700A78039 /* ReleaseTabBarController.swift */,
 				2C86700A2CD7CBBB00A78039 /* SplashView.swift */,
-				2C86700C2CD7CC5700A78039 /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +169,7 @@
 		2C8670252CD7E9F200A78039 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2C86700C2CD7CC5700A78039 /* LoginViewController.swift */,
 				2C86700E2CD7CF3200A78039 /* HomeViewController.swift */,
 				2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */,
 				2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */,

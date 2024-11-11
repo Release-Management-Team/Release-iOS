@@ -39,4 +39,20 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = left != nil ? UIBarButtonItem(customView: left!) : nil
         self.navigationItem.rightBarButtonItem = right != nil ? UIBarButtonItem(customView: right!) : nil
     }
+    
+    func setSmallFontNavigationBar(title: String, left: UIButton?, right: UIButton?) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.title = title
+        
+        if let navigationBar = self.navigationController?.navigationBar {
+            let titleTextAttributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.heading4,
+                .foregroundColor: UIColor.gray1
+            ]
+            navigationBar.titleTextAttributes = titleTextAttributes
+        }
+        
+        self.navigationItem.leftBarButtonItem = left != nil ? UIBarButtonItem(customView: left!) : nil
+        self.navigationItem.rightBarButtonItem = right != nil ? UIBarButtonItem(customView: right!) : nil
+    }
 }

@@ -8,11 +8,12 @@
 import UIKit
 
 import SnapKit
+import Then
 
 final class NoticeViewController: UIViewController {
     
     private var tableView: UITableView!
-    private var noticeData: [Notice] = []
+    private var noticeData: [Notice] = notice1
     private let backButton = UIButton().then {
         $0.setImage(.icArrow, for: .normal)
         $0.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
@@ -28,7 +29,7 @@ final class NoticeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        setNavigationBar(title:"공지", left: backButton, right: nil)
+        setSmallFontNavigationBar(title:"공지", left: backButton, right: nil)
         hideTabBar()
     }
     
@@ -53,7 +54,7 @@ final class NoticeViewController: UIViewController {
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().inset(20)
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview()
         }

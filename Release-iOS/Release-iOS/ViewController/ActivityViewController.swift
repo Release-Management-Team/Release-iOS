@@ -193,18 +193,18 @@ class ActivityCell: UITableViewCell {
         }
         
         activityImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(96)
+            make.size.equalTo(96)
             make.leading.equalToSuperview().offset(16)
             make.centerY.equalToSuperview()
         }
         
         categoryLabel.snp.makeConstraints { make in
             make.leading.equalTo(activityImageView.snp.trailing).offset(16)
-            make.top.equalToSuperview().offset(12)
+            make.top.equalToSuperview().offset(16)
         }
         
         statusLabel.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-16)
+            make.trailing.equalToSuperview().inset(16)
             make.centerY.equalTo(categoryLabel)
             make.height.equalTo(24)
             make.width.equalTo(68)
@@ -212,19 +212,20 @@ class ActivityCell: UITableViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalTo(categoryLabel)
-            make.trailing.equalTo(statusLabel.snp.leading).offset(-8)
-            make.top.equalTo(categoryLabel.snp.bottom).offset(5)
+            make.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(categoryLabel.snp.bottom).offset(8)
         }
         
         contentLabel.snp.makeConstraints { make in
-            make.leading.equalTo(categoryLabel)
-            make.trailing.equalToSuperview().offset(-16)
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.leading.equalTo(titleLabel)
+            make.trailing.equalToSuperview().inset(16)
         }
         
         personLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentLabel).offset(8)
             make.leading.equalTo(categoryLabel)
-            make.bottom.equalToSuperview().offset(-12)
+            make.bottom.equalToSuperview().inset(16)
         }
     }
 }
