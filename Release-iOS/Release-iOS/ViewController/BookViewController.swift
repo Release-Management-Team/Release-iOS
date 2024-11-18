@@ -13,6 +13,8 @@ final class BookViewController: UIViewController {
     
     private var tableView: UITableView!
     private var bookData: [BookDTO] = []
+    private let navigationLabel = UILabel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +26,22 @@ final class BookViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        setNavigationBar(title: "도서", left: nil, right: nil)
         showTabBar()
     }
     
     private func setupUI() {
         view.backgroundColor = .black1
+        
+        view.addSubview(navigationLabel)
+        navigationLabel.do {
+            $0.text = "도서"
+            $0.font = .heading3
+            $0.textColor = .gray1
+        }
+        navigationLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(19)
+            $0.leading.equalToSuperview().inset(24)
+        }
     }
     
     private func setupTableView() {
@@ -45,7 +57,7 @@ final class BookViewController: UIViewController {
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalTo(navigationLabel.snp.bottom).offset(19)
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview()
         }

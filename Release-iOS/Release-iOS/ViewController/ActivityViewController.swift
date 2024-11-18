@@ -17,7 +17,9 @@ final class ActivityViewController: UIViewController {
     
     private var tableView: UITableView!
     private var isStudy = true
-    private var activityData: [ActivityDTO] = activities1
+    private var activityData: [ActivityDTO] = activitiesData
+    private var eventData: [EventDTO] = eventsData
+    private let navigationLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,20 +32,30 @@ final class ActivityViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        setNavigationBar(title: "활동", left: nil, right: nil)
         showTabBar()
     }
     
     private func setupUI() {
         view.backgroundColor = .black1
+        view.addSubview(navigationLabel)
         view.addSubview(segmentedControl)
+        
+        navigationLabel.do {
+            $0.text = "활동"
+            $0.font = .heading3
+            $0.textColor = .gray1
+        }
+        navigationLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(19)
+            $0.leading.equalToSuperview().inset(24)
+        }
         
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
         
         segmentedControl.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(24)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.top.equalTo(navigationLabel.snp.bottom).offset(19)
             make.height.equalTo(40)
         }
     }
@@ -72,6 +84,7 @@ final class ActivityViewController: UIViewController {
             $0.separatorStyle = .none
             $0.showsVerticalScrollIndicator = false
             $0.register(ActivityCell.self, forCellReuseIdentifier: "ActivityCell")
+            $0.register(EventCell.self, forCellReuseIdentifier: "EventCell")
             $0.backgroundColor = .black1
         }
         
@@ -92,14 +105,20 @@ final class ActivityViewController: UIViewController {
 
 extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activityData.count
+        return isStudy ? activityData.count : eventData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityCell
-        cell.configure(with: activityData[indexPath.row])
-        
-        return cell
+        if isStudy {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityCell
+            cell.configure(with: activityData[indexPath.row])
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
+            cell.configure(with: eventData[indexPath.row])
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -112,129 +131,6 @@ extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 134
-    }
-}
-
-class ActivityCell: UITableViewCell {
-    
-    private let cellView = UIView().then {
-        $0.backgroundColor = .black2
-        $0.layer.cornerRadius = 16
-    }
-    
-    private let activityImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-    }
-    
-    private let categoryLabel = UILabel().then {
-        $0.font = UIFont.paragraph3
-        $0.textColor = UIColor.gray5
-        $0.numberOfLines = 1
-    }
-    
-    private let statusLabel = UILabel().then {
-        $0.font = UIFont.paragraph3
-        $0.textColor = UIColor.black2
-        $0.backgroundColor = UIColor.primary1
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-        $0.textAlignment = .center
-        $0.numberOfLines = 1
-    }
-    
-    private let titleLabel = UILabel().then {
-        $0.font = UIFont.heading4
-        $0.textColor = UIColor.gray1
-        $0.numberOfLines = 1
-    }
-    
-    private let contentLabel = UILabel().then {
-        $0.font = UIFont.paragraph3
-        $0.textColor = UIColor.gray3
-        $0.numberOfLines = 1
-    }
-    
-    private let personLabel = UILabel().then {
-        $0.font = UIFont.paragraph2
-        $0.textColor = UIColor.gray3
-        $0.numberOfLines = 1
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = UIColor.black1
-        
-        setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(with activity: ActivityDTO) {
-        activityImageView.image = UIImage(named: activity.image)
-        categoryLabel.text = activity.category
-        statusLabel.text = activity.status
-        titleLabel.text = activity.title
-        contentLabel.text = activity.content
-        personLabel.text = activity.person
-        
-        if statusLabel.text == "모집 중" {
-            statusLabel.backgroundColor = .primary1
-        } else {
-            statusLabel.backgroundColor = .primary2
-        }
-    }
-    
-    private func setupLayout() {
-        contentView.addSubview(cellView)
-        cellView.addSubview(activityImageView)
-        cellView.addSubview(categoryLabel)
-        cellView.addSubview(statusLabel)
-        cellView.addSubview(titleLabel)
-        cellView.addSubview(contentLabel)
-        cellView.addSubview(personLabel)
-        
-        cellView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(8)
-        }
-        
-        activityImageView.snp.makeConstraints { make in
-            make.size.equalTo(96)
-            make.leading.equalToSuperview().offset(16)
-            make.centerY.equalToSuperview()
-        }
-        
-        statusLabel.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(16)
-            make.top.equalToSuperview().inset(16)
-            make.height.equalTo(24)
-            make.width.equalTo(68)
-        }
-        
-        categoryLabel.snp.makeConstraints { make in
-            make.leading.equalTo(activityImageView.snp.trailing).offset(16)
-            make.centerY.equalTo(statusLabel)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(categoryLabel)
-            make.trailing.equalToSuperview().inset(16)
-            make.top.equalTo(categoryLabel.snp.bottom).offset(8)
-        }
-        
-        contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom)
-            make.leading.equalTo(titleLabel)
-            make.trailing.equalToSuperview().inset(16)
-        }
-        
-        personLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentLabel.snp.bottom).offset(8)
-            make.leading.equalTo(categoryLabel)
-            make.bottom.equalToSuperview().inset(16)
-        }
+        isStudy ? 134 : 166
     }
 }

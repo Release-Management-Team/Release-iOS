@@ -23,7 +23,7 @@ final class ReleaseTabBarController: UITabBarController, UITabBarControllerDeleg
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        var tabBarHeight: CGFloat = 80 + view.safeAreaInsets.bottom
+        var tabBarHeight: CGFloat = 96 + view.safeAreaInsets.bottom
         if UIScreen.isSE {
             tabBarHeight += 5
         }
@@ -44,9 +44,9 @@ final class ReleaseTabBarController: UITabBarController, UITabBarControllerDeleg
             $0.layer.addSublayer(border)
             $0.isTranslucent = false
             $0.itemPositioning = .centered
-            $0.layer.masksToBounds = true
             $0.tintColor = .primary1
             $0.unselectedItemTintColor = .gray3
+            $0.layer.masksToBounds = true
         }
     }
     

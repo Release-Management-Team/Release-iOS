@@ -7,7 +7,7 @@
 
 import Foundation
 
-let activities1: [ActivityDTO] = [
+let activitiesData: [ActivityDTO] = [
     ActivityDTO(
         image: "dummyLogo",
         category: "스터디",
@@ -65,11 +65,42 @@ let activities1: [ActivityDTO] = [
 ]
 
 
-let event1 = [
-    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
-    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
-    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management"),
-    EventDTO(title: "이벤트", start: "20:00", end: "22:00", place: "AS 10층", content: "Release Management")
+let eventsData: [EventDTO] = [
+    EventDTO(
+        title: "개강 총회",
+        start: "24.00.00 18:00",
+        end: "24.00.00 21:00",
+        place: "AS관 1016호",
+        content: "개강총회는 학기 시작을 맞아 학과 전체가 모여 일정과 계획을 공유하는 모임입니다."
+    ),
+    EventDTO(
+        title: "중간고사 대비 스터디",
+        start: "24.04.10 10:00",
+        end: "24.04.10 13:00",
+        place: "도서관 5층 스터디룸",
+        content: "중간고사를 대비하여 학과 학생들이 모여 주요 과목 스터디를 진행합니다."
+    ),
+    EventDTO(
+        title: "학과 체육대회",
+        start: "24.05.20 09:00",
+        end: "24.05.20 18:00",
+        place: "체육관 A구역",
+        content: "학과 체육대회에서는 다양한 종목의 경기와 즐거운 이벤트가 준비되어 있습니다."
+    ),
+    EventDTO(
+        title: "프로그래밍 해커톤",
+        start: "24.06.15 10:00",
+        end: "24.06.16 10:00",
+        place: "컴퓨터공학과 PC실습실",
+        content: "프로그래밍 해커톤은 24시간 동안 팀 프로젝트를 진행하며 실력을 겨루는 대회입니다."
+    ),
+    EventDTO(
+        title: "종강파티",
+        start: "24.06.30 19:00",
+        end: "24.06.30 22:00",
+        place: "학생회관 대강당",
+        content: "종강을 기념하여 학과 학생들이 모여 즐겁게 한 학기를 마무리하는 행사입니다."
+    )
 ]
 
 let weekly1 = [
