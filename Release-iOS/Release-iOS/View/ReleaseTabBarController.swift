@@ -7,9 +7,11 @@
 
 import UIKit
 
-import Then
-
-final class ReleaseTabBarController: UITabBarController {
+final class ReleaseTabBarController: UITabBarController, UITabBarControllerDelegate {
+    
+    //MARK: - Properties
+    
+    //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,23 +29,12 @@ final class ReleaseTabBarController: UITabBarController {
         }
         tabBar.frame.size.height = tabBarHeight
         tabBar.frame.origin.y = view.frame.height - tabBarHeight
-        
-        let itemWidth: CGFloat = 30
-        let itemSpacing: CGFloat = (tabBar.bounds.width - (itemWidth * CGFloat(tabBar.items?.count ?? 0))) / CGFloat(tabBar.items?.count ?? 1 + 1)
-        var xOffset = itemSpacing
-        
-        for itemView in tabBar.subviews where itemView is UIControl {
-            itemView.frame = CGRect(x: xOffset, y: itemView.frame.origin.y, width: itemWidth, height: itemView.frame.height)
-            xOffset += itemWidth + itemSpacing
-        }
     }
     
     //MARK: - UI
     
     private func setUI() {
-        view.do {
-            $0.backgroundColor = .black2
-        }
+        view.backgroundColor = .black2
         
         tabBar.do {
             let border = CALayer()
@@ -59,7 +50,7 @@ final class ReleaseTabBarController: UITabBarController {
         }
     }
     
-    //MARK: - Custom Method
+    //MARK: - Custom Methods
     
     private func setTabBarController() {
         var navigationControllers = [UINavigationController]()
@@ -94,65 +85,5 @@ final class ReleaseTabBarController: UITabBarController {
         navigationController.tabBarItem = item
         
         return navigationController
-    }
-}
-
-enum ReleaseTabBarItem: CaseIterable {
-    
-    case home, search, feed, myPage
-    
-    var normalItemImage: UIImage {
-        switch self {
-        case .home:
-            return .icHome.withTintColor(.gray3, renderingMode: .alwaysTemplate)
-        case .search:
-            return .icStudy.withTintColor(.gray3, renderingMode: .alwaysTemplate)
-        case .feed:
-            return .icBook.withTintColor(.gray3, renderingMode: .alwaysTemplate)
-        case .myPage:
-            return .icProfile.withTintColor(.gray3, renderingMode: .alwaysTemplate)
-        }
-    }
-    
-    var selectedItemImage: UIImage {
-        switch self {
-        case .home:
-            return .icHome.withTintColor(.primary1, renderingMode: .alwaysTemplate)
-        case .search:
-            return .icStudy.withTintColor(.primary1, renderingMode: .alwaysTemplate)
-        case .feed:
-            return .icBook.withTintColor(.primary1, renderingMode: .alwaysTemplate)
-        case .myPage:
-            return .icProfile.withTintColor(.primary1, renderingMode: .alwaysTemplate)
-        }
-    }
-    
-    var itemTitle: String {
-        switch self {
-        case .home:
-            return "홈"
-        case .search:
-            return "활동"
-        case .feed:
-            return "도서"
-        case .myPage:
-            return "마이"
-        }
-    }
-    
-    func itemViewController() -> UIViewController {
-        switch self {
-        case .home:
-            return HomeViewController()
-            
-        case .search:
-            return ActivityViewController()
-            
-        case .feed:
-            return BookViewController()
-            
-        case .myPage:
-            return HomeViewController()
-        }
     }
 }

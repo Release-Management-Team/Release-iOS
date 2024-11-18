@@ -12,61 +12,17 @@ final class ActivityDetailViewController: UIViewController {
     
     private let activity: ActivityDTO
     
-    private let stackView = UIStackView().then {
-        $0.axis = .vertical
-    }
-    
-    private let contentView = UIView().then {
-        $0.backgroundColor = .black1
-    }
-    
-    private let backButton = UIButton().then {
-        $0.setImage(.icArrow, for: .normal)
-        $0.layer.cornerRadius = 16
-        $0.backgroundColor = .gray2.withAlphaComponent(0.7)
-    }
-    
-    private let activityImageView = UIImageView(image: UIImage(named: "kuromiDummy")).then {
-        $0.contentMode = .scaleAspectFit
-    }
-    
-    private let categoryLabel = UILabel().then {
-        $0.font = UIFont.paragraph2
-        $0.textColor = UIColor.gray5
-    }
-    
-    private let statusLabel = UILabel().then {
-        $0.font = UIFont.paragraph3
-        $0.textColor = UIColor.black2
-        $0.backgroundColor = UIColor.primary1
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-        $0.textAlignment = .center
-    }
-    
-    private let titleLabel = UILabel().then {
-        $0.font = UIFont.heading4
-        $0.textColor = UIColor.gray1
-    }
-    
-    private let contentLabel = UILabel().then {
-        $0.font = UIFont.paragraph1
-        $0.textColor = UIColor.gray3
-        $0.numberOfLines = 0
-    }
-    
-    private let personLabel = UILabel().then {
-        $0.font = UIFont.paragraph1
-        $0.textColor = UIColor.gray3
-    }
-    
-    private let joinButton = UIButton().then {
-        $0.setTitle(StringLiterals.Activity.join, for: .normal)
-        $0.titleLabel?.font = UIFont.heading4
-        $0.backgroundColor = UIColor.primary1
-        $0.setTitleColor(.black2, for: .normal)
-        $0.layer.cornerRadius = 16
-    }
+    private let stackView = UIStackView()
+    private let contentView = UIView()
+    private let backButton = UIButton()
+    private let activityImageView = UIImageView()
+    private let categoryLabel = UILabel()
+    private let statusLabel = UILabel()
+    private let titleLabel = UILabel()
+    private let contentLabel = UILabel()
+    private let personLabel = UILabel()
+    private let descriptionLabel = UILabel()
+    private let joinButton = UIButton()
     
     init(activity: ActivityDTO) {
         self.activity = activity
@@ -79,36 +35,115 @@ final class ActivityDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
         
-        hideTabBar()
-        navigationController?.isNavigationBarHidden = true
+        setUI()
+        setupLayout()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+        hideTabBar()
+    }
+    
+    private func setUI() {
+        view.backgroundColor = .black1
+        
+        stackView.do {
+            $0.axis = .vertical
+            $0.alignment = .fill
+            $0.spacing = 0
+        }
+        
+        contentView.do {
+            $0.backgroundColor = .black1
+        }
+        
+        backButton.do {
+            $0.setImage(.icArrow, for: .normal)
+            $0.layer.cornerRadius = 16
+            $0.backgroundColor = .gray2.withAlphaComponent(0.7)
+        }
+        
+        activityImageView.do {
+            $0.image = UIImage(named: activity.image)
+            $0.contentMode = .scaleAspectFit
+        }
+        
+        categoryLabel.do {
+            $0.text = activity.category
+            $0.font = UIFont.paragraph2
+            $0.textColor = .gray5
+        }
+        
+        statusLabel.do {
+            $0.text = activity.status
+            $0.font = UIFont.paragraph3
+            $0.textColor = .black2
+            $0.backgroundColor = statusLabel.text == "모집 중" ? .primary1 : .primary2
+            $0.layer.cornerRadius = 8
+            $0.clipsToBounds = true
+            $0.textAlignment = .center
+        }
+        
+        titleLabel.do {
+            $0.text = activity.title
+            $0.font = UIFont.heading3
+            $0.textColor = .gray1
+        }
+        
+        contentLabel.do {
+            $0.text = activity.content
+            $0.font = UIFont.paragraph1
+            $0.textColor = .gray3
+            $0.numberOfLines = 0
+        }
+        
+        personLabel.do {
+            $0.text = activity.person
+            $0.font = UIFont.paragraph1
+            $0.textColor = .gray3
+        }
+        
+        descriptionLabel.do {
+            $0.text = activity.description
+            $0.font = UIFont.paragraph1
+            $0.textColor = .gray5
+            $0.numberOfLines = 0
+        }
+        
+        joinButton.do {
+            $0.setTitle(StringLiterals.Activity.join, for: .normal)
+            $0.titleLabel?.font = UIFont.heading4
+            $0.backgroundColor = .primary1
+            $0.setTitleColor(.black2, for: .normal)
+            $0.layer.cornerRadius = 16
+            $0.isHidden = statusLabel.text != "모집 중"
+        }
+    }
+    
     
     private func setupLayout() {
         view.backgroundColor = UIColor.black1
         view.addSubview(stackView)
-        view.addSubview(joinButton)
         view.addSubview(backButton)
         
         stackView.addArrangedSubview(activityImageView)
         stackView.addArrangedSubview(contentView)
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(activityImageView.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.bottom.equalToSuperview()
         }
 
         activityImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(view.frame.width)
+            make.height.equalTo(activityImageView.snp.width).priority(.high)
         }
         
-        joinButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview()
-            make.height.equalTo(55)
-            make.width.equalTo(193)
+        contentView.snp.makeConstraints() {
+            $0.width.equalToSuperview()
         }
         
         backButton.snp.makeConstraints { make in
@@ -116,15 +151,28 @@ final class ActivityDetailViewController: UIViewController {
             make.leading.equalToSuperview().inset(24)
             make.size.equalTo(48)
         }
-        
-        joinButton.addTarget(self, action: #selector(joinButtonTapped), for: .touchUpInside)
+    
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        
+        if statusLabel.text == "모집 중" {
+            view.addSubview(joinButton)
+            
+            joinButton.snp.makeConstraints { make in
+                make.bottom.equalToSuperview()
+                make.height.equalTo(55)
+                make.width.equalTo(193)
+            }
+            
+            joinButton.addTarget(self, action: #selector(joinButtonTapped), for: .touchUpInside)
+            
+        }
         
         contentView.addSubview(categoryLabel)
         contentView.addSubview(statusLabel)
         contentView.addSubview(titleLabel)
         contentView.addSubview(contentLabel)
         contentView.addSubview(personLabel)
+        contentView.addSubview(descriptionLabel)
         
         
         categoryLabel.snp.makeConstraints { make in
@@ -145,16 +193,20 @@ final class ActivityDetailViewController: UIViewController {
             make.trailing.equalToSuperview().inset(24)
         }
         
-        personLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentLabel.snp.bottom).offset(32)
-            make.leading.equalTo(contentLabel)
-            make.bottom.equalToSuperview().inset(16)
-        }
-        
         contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(personLabel.snp.bottom).offset(32)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview().inset(24)
+        }
+        
+        personLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentLabel.snp.bottom).offset(32)
+            make.leading.trailing.equalToSuperview().inset(24)
+        }
+        
+        descriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(personLabel.snp.bottom).offset(48)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
     }
     

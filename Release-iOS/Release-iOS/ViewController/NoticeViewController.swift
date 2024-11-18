@@ -14,14 +14,12 @@ final class NoticeViewController: UIViewController {
     
     private var tableView: UITableView!
     private var noticeData: [Notice] = notice1
-    private let backButton = UIButton().then {
-        $0.setImage(.icArrow, for: .normal)
-        $0.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-    }
+    private let backButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideTabBar()
         setupUI()
         setupTableView()
     }
@@ -30,11 +28,15 @@ final class NoticeViewController: UIViewController {
         super.viewWillAppear(true)
         
         setSmallFontNavigationBar(title:"공지", left: backButton, right: nil)
-        hideTabBar()
     }
     
     private func setupUI() {
         view.backgroundColor = .black1
+        
+        backButton.do {
+            $0.setImage(.icArrow, for: .normal)
+            $0.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        }
         
         backButton.snp.makeConstraints {
             $0.size.equalTo(24)

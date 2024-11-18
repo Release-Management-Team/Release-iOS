@@ -91,7 +91,6 @@ final class ActivityViewController: UIViewController {
 }
 
 extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activityData.count
     }
@@ -131,6 +130,7 @@ class ActivityCell: UITableViewCell {
     private let categoryLabel = UILabel().then {
         $0.font = UIFont.paragraph3
         $0.textColor = UIColor.gray5
+        $0.numberOfLines = 1
     }
     
     private let statusLabel = UILabel().then {
@@ -140,22 +140,25 @@ class ActivityCell: UITableViewCell {
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
         $0.textAlignment = .center
+        $0.numberOfLines = 1
     }
     
     private let titleLabel = UILabel().then {
         $0.font = UIFont.heading4
         $0.textColor = UIColor.gray1
+        $0.numberOfLines = 1
     }
     
     private let contentLabel = UILabel().then {
         $0.font = UIFont.paragraph3
         $0.textColor = UIColor.gray3
-        $0.numberOfLines = 2
+        $0.numberOfLines = 1
     }
     
     private let personLabel = UILabel().then {
         $0.font = UIFont.paragraph2
         $0.textColor = UIColor.gray3
+        $0.numberOfLines = 1
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -176,6 +179,12 @@ class ActivityCell: UITableViewCell {
         titleLabel.text = activity.title
         contentLabel.text = activity.content
         personLabel.text = activity.person
+        
+        if statusLabel.text == "모집 중" {
+            statusLabel.backgroundColor = .primary1
+        } else {
+            statusLabel.backgroundColor = .primary2
+        }
     }
     
     private func setupLayout() {
@@ -198,16 +207,16 @@ class ActivityCell: UITableViewCell {
             make.centerY.equalToSuperview()
         }
         
-        categoryLabel.snp.makeConstraints { make in
-            make.leading.equalTo(activityImageView.snp.trailing).offset(16)
-            make.top.equalToSuperview().offset(16)
-        }
-        
         statusLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(16)
-            make.centerY.equalTo(categoryLabel)
+            make.top.equalToSuperview().inset(16)
             make.height.equalTo(24)
             make.width.equalTo(68)
+        }
+        
+        categoryLabel.snp.makeConstraints { make in
+            make.leading.equalTo(activityImageView.snp.trailing).offset(16)
+            make.centerY.equalTo(statusLabel)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -217,13 +226,13 @@ class ActivityCell: UITableViewCell {
         }
         
         contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.top.equalTo(titleLabel.snp.bottom)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview().inset(16)
         }
         
         personLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentLabel).offset(8)
+            make.top.equalTo(contentLabel.snp.bottom).offset(8)
             make.leading.equalTo(categoryLabel)
             make.bottom.equalToSuperview().inset(16)
         }
