@@ -32,6 +32,7 @@ final class ActivityViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        navigationController?.isNavigationBarHidden = true
         showTabBar()
     }
     
