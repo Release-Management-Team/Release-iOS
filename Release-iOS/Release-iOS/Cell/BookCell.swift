@@ -70,6 +70,8 @@ final class BookCell: UITableViewCell {
         } else {
             bookImageView.kfSetImage(url: book.image)
         }
+        
+        print(book.availability)
         if let status = BookStatus(rawValue: book.availability) {
             statusLabel.text = status.rawValue
         }
