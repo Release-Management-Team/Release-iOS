@@ -21,6 +21,7 @@ final class BookViewController: UIViewController {
         
         setupUI()
         setupTableView()
+        getBookData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,111 +88,78 @@ extension BookViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-class BookCell: UITableViewCell {
-    
-    private let cellView = UIView().then {
-        $0.backgroundColor = .black2
-        $0.layer.cornerRadius = 16
+extension BookViewController {
+    private func getBookData() {
+        getBookList { [weak self] success in
+            DispatchQueue.main.async {
+                if success {
+                    print("Successfully fetched book list!")
+                } else {
+                    print("Failed to fetch book list.")
+                }
+            }
+        }
     }
     
-    private let bookImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-    }
-    
-    private let statusLabel = UILabel().then {
-        $0.font = UIFont.paragraph3
-        $0.textColor = UIColor.black2
-        $0.backgroundColor = UIColor.primary1
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-        $0.textAlignment = .center
-    }
-    
-    private let titleLabel = UILabel().then {
-        $0.font = UIFont.heading4
-        $0.textColor = UIColor.gray1
-        $0.numberOfLines = 2
-    }
-    
-    private let contentLabel = UILabel().then {
-        $0.font = UIFont.paragraph3
-        $0.textColor = UIColor.gray3
-        $0.numberOfLines = 2
-    }
-    
-    private let personLabel = UILabel().then {
-        $0.font = UIFont.paragraph2
-        $0.textColor = UIColor.gray3
-    }
-    
-    private let tagLabel = UILabel().then {
-        $0.font = UIFont.paragraph3
-        $0.textColor = UIColor.gray3
-        $0.numberOfLines = 1
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = UIColor.black1
+    private func getBookList(completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: Config.baseURL + "/book") else { return }
         
-        setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(with book: BookDTO) {
-        bookImageView.image = UIImage(named: book.image)
-        statusLabel.text = book.availability
-        titleLabel.text = book.title
-        personLabel.text = book.author
-        tagLabel.text = book.tags.joined(separator: ", ")
-    }
-    
-    private func setupLayout() {
-        contentView.addSubview(cellView)
-        cellView.addSubview(bookImageView)
-        cellView.addSubview(statusLabel)
-        cellView.addSubview(titleLabel)
-        cellView.addSubview(personLabel)
-        cellView.addSubview(tagLabel)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
         
-        cellView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(8)
+        if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+            request.addValue("Bearer \(String(describing: accessToken))", forHTTPHeaderField: "Access")
+        } else {
+            print("Access Token is missing")
         }
         
-        bookImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(96)
-            make.leading.equalToSuperview().offset(16)
-            make.centerY.equalToSuperview()
-        }
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Request failed with error: \(error)")
+                completion(false)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error: No data received.")
+                completion(false)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Error: Response is not HTTPURLResponse. Response: \(String(describing: response))")
+                completion(false)
+                return
+            }
+            
+            guard httpResponse.statusCode == 200 else {
+                print("Error: HTTP Status Code is \(httpResponse.statusCode)")
+                completion(false)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let bookData = try decoder.decode(BooksResponse.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.bindBookCells(books: bookData)
+                    completion(true)
+                }
+            } catch {
+                print("Failed to parse JSON: \(error)")
+                completion(false)
+            }
+        }.resume()
+    }
+    
+    private func bindBookCells(books: BooksResponse) {
+        self.bookData = books.books
         
-        statusLabel.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(24)
-            make.width.equalTo(68)
-        }
-        
-        titleLabel.snp.makeConstraints { 
-            $0.top.equalTo(statusLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(bookImageView.snp.trailing).offset(10)
-            $0.trailing.equalToSuperview().inset(16)
-        }
-        
-        
-        personLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(bookImageView.snp.trailing).offset(10)
-            $0.trailing.equalToSuperview().inset(16)
-        }
-        
-        tagLabel.snp.makeConstraints {
-            $0.top.equalTo(personLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(bookImageView.snp.trailing).offset(10)
-            $0.trailing.equalToSuperview().inset(16)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 }
-

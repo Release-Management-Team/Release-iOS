@@ -41,6 +41,7 @@
 		E4AE8EC42CEB41A900AA84DD /* ReleaseTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC32CEB41A900AA84DD /* ReleaseTabBarItem.swift */; };
 		E4AE8EC72CEB4F6800AA84DD /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */; };
 		E4AE8EC92CEB4FB400AA84DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */; };
+		E4AE8ECB2CED7E0800AA84DD /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		E4AE8EC32CEB41A900AA84DD /* ReleaseTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseTabBarItem.swift; sourceTree = "<group>"; };
 		E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			children = (
 				E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */,
 				E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */,
+				E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				E4AE8EC72CEB4F6800AA84DD /* ActivityCell.swift in Sources */,
 				2C866FDA2CD7C8D800A78039 /* SceneDelegate.swift in Sources */,
 				2C8670132CD7E8DE00A78039 /* ActivityViewController.swift in Sources */,
+				E4AE8ECB2CED7E0800AA84DD /* BookCell.swift in Sources */,
 				2C31A24F2CDAF09000FBFF15 /* NoticeViewController.swift in Sources */,
 				2C86700F2CD7CF3200A78039 /* HomeViewController.swift in Sources */,
 				E4AE8EC42CEB41A900AA84DD /* ReleaseTabBarItem.swift in Sources */,

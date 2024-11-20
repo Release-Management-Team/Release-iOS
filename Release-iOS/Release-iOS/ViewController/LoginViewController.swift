@@ -168,8 +168,6 @@ extension LoginViewController {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                    let accessToken = json["access_token"] as? String,
                    let refreshToken = json["refresh_token"] as? String {
-                    print(accessToken, "😁")
-                    print(refreshToken, "😁")
                     UserDefaults.standard.set(accessToken, forKey: "accessToken")
                     UserDefaults.standard.set(refreshToken, forKey: "refreshToken")
                     completion(true)
@@ -181,5 +179,16 @@ extension LoginViewController {
                 completion(false)
             }
         }.resume()
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        passwordTextField.resignFirstResponder()
+        return true
     }
 }

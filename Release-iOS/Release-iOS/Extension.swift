@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Kingfisher
+
 extension UIScreen {
     static var isSE: Bool { UIScreen.main.bounds.height < 680 }
 }
@@ -54,5 +56,20 @@ extension UIViewController {
         
         self.navigationItem.leftBarButtonItem = left != nil ? UIBarButtonItem(customView: left!) : nil
         self.navigationItem.rightBarButtonItem = right != nil ? UIBarButtonItem(customView: right!) : nil
+    }
+}
+
+extension UIImageView{
+    func kfSetImage(url : String?){
+        
+        guard let url = url else { return }
+        
+        if let url = URL(string: url) {
+            kf.indicatorType = .activity
+            kf.setImage(with: url,
+                        placeholder: nil,
+                        options: [.transition(.fade(1.0))],
+                        progressBlock: nil)
+        }
     }
 }
