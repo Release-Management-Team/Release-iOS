@@ -19,9 +19,3 @@ struct BookDTO: Codable, Identifiable {
     let tags: [String]
     let image: String
 }
-
-enum BookStatus: String, CaseIterable {
-    case available = "대여 가능"
-    case rented = "대여 중"
-    case unavailable = "대여 불가"
-}

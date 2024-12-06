@@ -13,7 +13,7 @@ import Then
 final class NoticeViewController: UIViewController {
     
     private var tableView: UITableView!
-    private var noticeData: [Notice] = notice1
+    private var noticeData: [NoticeDTO] = []
     private let backButton = UIButton()
     
     override func viewDidLoad() {
@@ -22,6 +22,8 @@ final class NoticeViewController: UIViewController {
         hideTabBar()
         setupUI()
         setupTableView()
+        
+        getNoticeData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,73 +92,79 @@ extension NoticeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-class NoticeCell: UITableViewCell {
-    
-    private let cellView = UIView().then {
-        $0.backgroundColor = .black2
-        $0.layer.cornerRadius = 16
+extension NoticeViewController {
+    private func getNoticeData() {
+        getNoticeList { [weak self] success in
+            DispatchQueue.main.async {
+                if success {
+                    print("Successfully fetched notice list!")
+                } else {
+                    print("Failed to fetch notice list.")
+                }
+            }
+        }
     }
     
-    private let titleLabel = UILabel().then {
-        $0.font = UIFont.heading4
-        $0.textColor = UIColor.gray1
-        $0.numberOfLines = 1
-    }
-    
-    private let contentLabel = UILabel().then {
-        $0.font = UIFont.paragraph2
-        $0.textColor = UIColor.gray1
-        $0.numberOfLines = 1
-    }
-    
-    private let dateLabel = UILabel().then {
-        $0.font = UIFont.paragraph2
-        $0.textColor = UIColor.gray5
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = UIColor.black1
+    private func getNoticeList(completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: Config.baseURL + "/notice/list") else { return }
         
-        setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(with notice: Notice) {
-        titleLabel.text = notice.title
-        contentLabel.text = notice.content
-        dateLabel.text = notice.date
-    }
-    
-    private func setupLayout() {
-        contentView.addSubview(cellView)
-        cellView.addSubview(titleLabel)
-        cellView.addSubview(contentLabel)
-        cellView.addSubview(dateLabel)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
         
-        cellView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(8)
+        if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+            request.addValue("Bearer \(String(describing: accessToken))", forHTTPHeaderField: "Access")
+        } else {
+            print("Access Token is missing")
         }
         
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(12)
-            $0.leading.trailing.equalToSuperview().inset(16)
-        }
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Request failed with error: \(error)")
+                completion(false)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error: No data received.")
+                completion(false)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Error: Response is not HTTPURLResponse. Response: \(String(describing: response))")
+                completion(false)
+                return
+            }
+            
+            guard httpResponse.statusCode == 200 else {
+                print("Error: HTTP Status Code is \(httpResponse.statusCode)")
+                completion(false)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let noticeData = try decoder.decode(NoticesResponse.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.bindNoticeCell(notices: noticeData)
+                    completion(true)
+                }
+            } catch {
+                print("Failed to parse JSON: \(error)")
+                completion(false)
+            }
+        }.resume()
+    }
+    
+    private func bindNoticeCell(notices: NoticesResponse) {
+        self.noticeData = notices.notices
         
-        contentLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
-            $0.leading.trailing.equalToSuperview().inset(16)
-        }
-        
-        dateLabel.snp.makeConstraints {
-            $0.top.equalTo(contentLabel.snp.bottom).offset(8)
-            $0.trailing.leading.equalToSuperview().inset(16)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 }
-
 

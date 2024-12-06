@@ -23,10 +23,11 @@ final class ReleaseTabBarController: UITabBarController, UITabBarControllerDeleg
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        var tabBarHeight: CGFloat = 96 + view.safeAreaInsets.bottom
+        var tabBarHeight: CGFloat = 96
         if UIScreen.isSE {
             tabBarHeight += 5
         }
+        
         tabBar.frame.size.height = tabBarHeight
         tabBar.frame.origin.y = view.frame.height - tabBarHeight
     }

@@ -71,10 +71,16 @@ final class BookCell: UITableViewCell {
             bookImageView.kfSetImage(url: book.image)
         }
         
-        print(book.availability)
-        if let status = BookStatus(rawValue: book.availability) {
-            statusLabel.text = status.rawValue
+        let status = book.availability
+        if status == "available" {
+            statusLabel.text = "대여 가능"
+        } else if status == "unavailable" {
+            statusLabel.text = "대여 불가"
+        } else if status == "rented" {statusLabel.text = "대여 중"
+        } else {
+            statusLabel.text = ""
         }
+        
         statusLabel.backgroundColor = book.availability == "available" ? .primary1 : .primary2
         titleLabel.text = book.title
         personLabel.text = book.author
@@ -90,14 +96,14 @@ final class BookCell: UITableViewCell {
         cellView.addSubview(tagLabel)
         
         cellView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().inset(8)
         }
         
         bookImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(96)
             make.leading.equalToSuperview().offset(16)
             make.centerY.equalToSuperview()
+            make.size.equalTo(96)
         }
         
         statusLabel.snp.makeConstraints { make in
@@ -122,7 +128,7 @@ final class BookCell: UITableViewCell {
         tagLabel.snp.makeConstraints {
             $0.top.equalTo(personLabel.snp.bottom).offset(8)
             $0.leading.equalTo(bookImageView.snp.trailing).offset(10)
-            $0.trailing.equalToSuperview().inset(16)
+            $0.trailing.bottom.equalToSuperview().inset(16)
         }
     }
 }

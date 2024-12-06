@@ -17,8 +17,8 @@ final class ActivityViewController: UIViewController {
     
     private var tableView: UITableView!
     private var isStudy = true
-    private var activityData: [ActivityDTO] = activitiesData
-    private var eventData: [EventDTO] = eventsData
+    private var activityData: ActivityResult = ActivityResult(activity: [])
+    private var eventData: [EventDTO]  = []
     private let navigationLabel = UILabel()
     
     override func viewDidLoad() {
@@ -27,12 +27,14 @@ final class ActivityViewController: UIViewController {
         setupUI()
         setupSegmentedControl()
         setupTableView()
+        
+        getProjectData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.isHidden = true
         showTabBar()
     }
     
@@ -106,13 +108,13 @@ final class ActivityViewController: UIViewController {
 
 extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isStudy ? activityData.count : eventData.count
+        return isStudy ? activityData.activity.count: eventData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isStudy {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityCell
-            cell.configure(with: activityData[indexPath.row])
+            cell.configure(with: activityData.activity[indexPath.row].fields)
             
             return cell
         } else {
@@ -126,7 +128,8 @@ extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if isStudy {
-            let detailVC = ActivityDetailViewController(activity: activityData[indexPath.row])
+            let detailVC = ActivityDetailViewController(activity: activityData.activity[indexPath.row].fields)
+            detailVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
@@ -135,3 +138,155 @@ extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
         isStudy ? 134 : 166
     }
 }
+
+extension ActivityViewController {
+    private func getProjectData() {
+        getProjectList { [weak self] success in
+            DispatchQueue.main.async {
+                if success {
+                    print("Successfully fetched event list!")
+                } else {
+                    print("Failed to fetch event list.")
+                }
+            }
+        }
+    }
+    
+    private func getProjectList(completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: Config.baseURL + "/activity") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
+        
+        if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+            request.addValue("Bearer \(String(describing: accessToken))", forHTTPHeaderField: "Access")
+        } else {
+            print("Access Token is missing")
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Request failed with error: \(error)")
+                completion(false)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error: No data received.")
+                completion(false)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Error: Response is not HTTPURLResponse. Response: \(String(describing: response))")
+                completion(false)
+                return
+            }
+            
+            guard httpResponse.statusCode == 200 else {
+                print("Error: HTTP Status Code is \(httpResponse.statusCode)")
+                completion(false)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let activityData = try decoder.decode(ActivityResult.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.bindProjectCell(activities: activityData)
+                    completion(true)
+                }
+            } catch {
+                print("Failed to parse JSON: \(error)")
+                completion(false)
+            }
+        }.resume()
+    }
+    
+    private func bindProjectCell(activities: ActivityResult) {
+        self.activityData = activities
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func getEventData() {
+        getEventList { [weak self] success in
+            DispatchQueue.main.async {
+                if success {
+                    print("Successfully fetched event list!")
+                } else {
+                    print("Failed to fetch event list.")
+                }
+            }
+        }
+    }
+    
+    private func getEventList(completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: Config.baseURL + "/activity/event") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
+        
+        if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+            request.addValue("Bearer \(String(describing: accessToken))", forHTTPHeaderField: "Access")
+        } else {
+            print("Access Token is missing")
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Request failed with error: \(error)")
+                completion(false)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error: No data received.")
+                completion(false)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Error: Response is not HTTPURLResponse. Response: \(String(describing: response))")
+                completion(false)
+                return
+            }
+            
+            guard httpResponse.statusCode == 200 else {
+                print("Error: HTTP Status Code is \(httpResponse.statusCode)")
+                completion(false)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let eventData = try decoder.decode(EventResponse.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.bindEventCell(events: eventData)
+                    completion(true)
+                }
+            } catch {
+                print("Failed to parse JSON: \(error)")
+                completion(false)
+            }
+        }.resume()
+    }
+    
+    private func bindEventCell(events: EventResponse) {
+        self.eventData = events.evets
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
+
+

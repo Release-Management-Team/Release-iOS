@@ -26,6 +26,12 @@
 		2C8670112CD7E0D600A78039 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670102CD7E0D600A78039 /* Extension.swift */; };
 		2C8670132CD7E8DE00A78039 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */; };
 		2C8670222CD7E94100A78039 /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */; };
+		E430A75A2D02068F00100F40 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E430A7592D02068F00100F40 /* MyPageViewController.swift */; };
+		E430A75C2D020A0D00100F40 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E430A75B2D020A0D00100F40 /* MyPageView.swift */; };
+		E45C14E32D022A1200716D03 /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C14E22D022A1200716D03 /* ProfileDTO.swift */; };
+		E45F9E432D02767A007E2AB6 /* MyPageChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */; };
+		E45F9E452D027815007E2AB6 /* MyPageChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F9E442D027815007E2AB6 /* MyPageChangePasswordView.swift */; };
+		E4780BEC2CEE11FD005F9EBF /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */; };
 		E4AE8EB02CEB128900AA84DD /* MyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAB2CEB128900AA84DD /* MyDTO.swift */; };
 		E4AE8EB12CEB128900AA84DD /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAF2CEB128900AA84DD /* Dummy.swift */; };
 		E4AE8EB22CEB128900AA84DD /* NoticeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */; };
@@ -62,6 +68,12 @@
 		2C8670102CD7E0D600A78039 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
+		E430A7592D02068F00100F40 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		E430A75B2D020A0D00100F40 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		E45C14E22D022A1200716D03 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
+		E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangePasswordViewController.swift; sourceTree = "<group>"; };
+		E45F9E442D027815007E2AB6 /* MyPageChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangePasswordView.swift; sourceTree = "<group>"; };
+		E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 		E4AE8EA82CEB128900AA84DD /* ActivityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDTO.swift; sourceTree = "<group>"; };
 		E4AE8EA92CEB128900AA84DD /* BookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDTO.swift; sourceTree = "<group>"; };
 		E4AE8EAA2CEB128900AA84DD /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
@@ -147,6 +159,8 @@
 				2C8670082CD7CA9700A78039 /* ReleaseTabBarController.swift */,
 				E4AE8EC32CEB41A900AA84DD /* ReleaseTabBarItem.swift */,
 				2C86700A2CD7CBBB00A78039 /* SplashView.swift */,
+				E430A75B2D020A0D00100F40 /* MyPageView.swift */,
+				E45F9E442D027815007E2AB6 /* MyPageChangePasswordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +174,8 @@
 				2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */,
 				2C31A24C2CD9126400FBFF15 /* BookViewController.swift */,
 				2C31A24E2CDAF09000FBFF15 /* NoticeViewController.swift */,
+				E430A7592D02068F00100F40 /* MyPageViewController.swift */,
+				E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -173,6 +189,7 @@
 				E4AE8EAB2CEB128900AA84DD /* MyDTO.swift */,
 				E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */,
 				E4AE8EAD2CEB128900AA84DD /* WeeklyEventDTO.swift */,
+				E45C14E22D022A1200716D03 /* ProfileDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -202,6 +219,7 @@
 				E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */,
 				E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */,
 				E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */,
+				E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -292,6 +310,7 @@
 				2C8670112CD7E0D600A78039 /* Extension.swift in Sources */,
 				E4AE8EB02CEB128900AA84DD /* MyDTO.swift in Sources */,
 				E4AE8EB12CEB128900AA84DD /* Dummy.swift in Sources */,
+				E45C14E32D022A1200716D03 /* ProfileDTO.swift in Sources */,
 				E4AE8EB22CEB128900AA84DD /* NoticeDTO.swift in Sources */,
 				E4AE8EB32CEB128900AA84DD /* BookDTO.swift in Sources */,
 				E4AE8EB42CEB128900AA84DD /* ActivityDTO.swift in Sources */,
@@ -307,13 +326,18 @@
 				E4AE8EC02CEB12C400AA84DD /* String.swift in Sources */,
 				2C866FD82CD7C8D800A78039 /* AppDelegate.swift in Sources */,
 				2C8670222CD7E94100A78039 /* ActivityDetailViewController.swift in Sources */,
+				E4780BEC2CEE11FD005F9EBF /* NoticeCell.swift in Sources */,
 				2C8670092CD7CA9700A78039 /* ReleaseTabBarController.swift in Sources */,
 				2C86700B2CD7CBBB00A78039 /* SplashView.swift in Sources */,
 				2C86700D2CD7CC5700A78039 /* LoginViewController.swift in Sources */,
+				E45F9E432D02767A007E2AB6 /* MyPageChangePasswordViewController.swift in Sources */,
 				E4AE8EC72CEB4F6800AA84DD /* ActivityCell.swift in Sources */,
+				E430A75C2D020A0D00100F40 /* MyPageView.swift in Sources */,
 				2C866FDA2CD7C8D800A78039 /* SceneDelegate.swift in Sources */,
 				2C8670132CD7E8DE00A78039 /* ActivityViewController.swift in Sources */,
+				E430A75A2D02068F00100F40 /* MyPageViewController.swift in Sources */,
 				E4AE8ECB2CED7E0800AA84DD /* BookCell.swift in Sources */,
+				E45F9E452D027815007E2AB6 /* MyPageChangePasswordView.swift in Sources */,
 				2C31A24F2CDAF09000FBFF15 /* NoticeViewController.swift in Sources */,
 				2C86700F2CD7CF3200A78039 /* HomeViewController.swift in Sources */,
 				E4AE8EC42CEB41A900AA84DD /* ReleaseTabBarItem.swift in Sources */,

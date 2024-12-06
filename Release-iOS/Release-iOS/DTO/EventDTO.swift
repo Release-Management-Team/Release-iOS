@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct EventDTO: Identifiable {
-    let id = UUID()
-    let title: String
-    let start: String
-    let end: String
+struct EventResponse: Decodable {
+    let evets: [EventDTO]
+}
+
+struct EventDTO: Codable {
+    let name: String
+    let start_time: String
+    let end_time: String
     let place: String
-    let content: String
 }

@@ -67,16 +67,20 @@ class ActivityCell: UITableViewCell {
     }
     
     func configure(with activity: ActivityDTO) {
-        activityImageView.image = UIImage(named: activity.image)
-        categoryLabel.text = activity.category
-        statusLabel.text = activity.status
-        titleLabel.text = activity.title
-        contentLabel.text = activity.content
-        personLabel.text = activity.person
+//        activityImageView.kfSetImage(url: activity.image)
+//        categoryLabel.text = activity.
+        titleLabel.text = activity.name
+        contentLabel.text = activity.tags.joined(separator: ", ")
+        personLabel.text = activity.leader
         
-        if statusLabel.text == "모집 중" {
+        if activity.state == "recruiting" {
+            statusLabel.text = "모집 중"
             statusLabel.backgroundColor = .primary1
-        } else {
+        } else if activity.state == "before_recruit" {
+            statusLabel.text = "모집 예정"
+            statusLabel.backgroundColor = .primary2
+        } else if activity.state == "running" {
+            statusLabel.text = "모집 마감"
             statusLabel.backgroundColor = .primary2
         }
     }

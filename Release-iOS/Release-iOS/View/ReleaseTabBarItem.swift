@@ -9,7 +9,7 @@ import UIKit
 
 enum ReleaseTabBarItem: CaseIterable {
     
-    case home, search, feed
+    case home, search, feed, myPage
     
     var normalItemImage: UIImage {
         switch self {
@@ -19,8 +19,8 @@ enum ReleaseTabBarItem: CaseIterable {
             return .icStudy.withTintColor(.gray3, renderingMode: .alwaysTemplate)
         case .feed:
             return .icBook.withTintColor(.gray3, renderingMode: .alwaysTemplate)
-//        case .myPage:
-//            return .icProfile.withTintColor(.gray3, renderingMode: .alwaysTemplate)
+        case .myPage:
+            return .icProfile.withTintColor(.gray3, renderingMode: .alwaysTemplate)
         }
     }
     
@@ -32,8 +32,8 @@ enum ReleaseTabBarItem: CaseIterable {
             return .icStudy.withTintColor(.primary1, renderingMode: .alwaysTemplate)
         case .feed:
             return .icBook.withTintColor(.primary1, renderingMode: .alwaysTemplate)
-//        case .myPage:
-//            return .icProfile.withTintColor(.primary1, renderingMode: .alwaysTemplate)
+        case .myPage:
+            return .icProfile.withTintColor(.primary1, renderingMode: .alwaysTemplate)
         }
     }
     
@@ -45,8 +45,8 @@ enum ReleaseTabBarItem: CaseIterable {
             return "활동"
         case .feed:
             return "도서"
-//        case .myPage:
-//            return "마이"
+        case .myPage:
+            return "마이"
         }
     }
     
@@ -58,8 +58,8 @@ enum ReleaseTabBarItem: CaseIterable {
             return ActivityViewController()
         case .feed:
             return BookViewController()
-//        case .myPage:
-//            return HomeViewController()
+        case .myPage:
+            return MyPageViewController()
         }
     }
 }

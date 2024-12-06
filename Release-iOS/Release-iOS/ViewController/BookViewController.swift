@@ -27,7 +27,7 @@ final class BookViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.isHidden = true
         showTabBar()
     }
     
@@ -54,7 +54,6 @@ final class BookViewController: UIViewController {
             $0.separatorStyle = .none
             $0.showsVerticalScrollIndicator = false
             $0.register(BookCell.self, forCellReuseIdentifier: "BookCell")
-            $0.backgroundColor = .black1
         }
         
         view.addSubview(tableView)
@@ -81,10 +80,6 @@ extension BookViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 161
     }
 }
 

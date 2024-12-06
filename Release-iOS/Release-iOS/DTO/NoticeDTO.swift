@@ -7,9 +7,13 @@
 
 import Foundation
 
-struct Notice: Identifiable {
-    let id = UUID()
+struct NoticesResponse: Decodable {
+    let notices: [NoticeDTO]
+}
+
+struct NoticeDTO: Codable {
     let title: String
     let content: String
     let date: String
+    let important: Bool
 }

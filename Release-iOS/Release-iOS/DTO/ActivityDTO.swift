@@ -7,13 +7,23 @@
 
 import Foundation
 
-struct ActivityDTO: Identifiable {
-    let id = UUID()
-    let image: String
-    let category: String
-    let status: String
-    let title: String
-    let content: String
-    let person: String
+struct ActivityResult: Decodable {
+    let activity: [Activity]
+}
+
+struct Activity: Codable {
+    let model: String
+    let pk: Int
+    let fields: ActivityDTO
+}
+    
+struct ActivityDTO: Codable {
+    let name: String
     let description: String
+    let leader: String
+    let members: [String]
+    let tags: [String]
+    let state: String
+    let image: Bool
+    let link: String?
 }

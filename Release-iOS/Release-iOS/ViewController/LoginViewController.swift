@@ -170,6 +170,7 @@ extension LoginViewController {
                    let refreshToken = json["refresh_token"] as? String {
                     UserDefaults.standard.set(accessToken, forKey: "accessToken")
                     UserDefaults.standard.set(refreshToken, forKey: "refreshToken")
+                    UserDefaults.standard.set(password, forKey: "password")
                     completion(true)
                 } else {
                     completion(false)
@@ -188,7 +189,11 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        passwordTextField.resignFirstResponder()
+        if textField == idTextField {
+          passwordTextField.becomeFirstResponder()
+        } else {
+          passwordTextField.resignFirstResponder()
+        }
         return true
     }
 }

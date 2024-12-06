@@ -43,7 +43,7 @@ final class ActivityDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.isHidden = true
         hideTabBar()
     }
     
@@ -67,41 +67,52 @@ final class ActivityDetailViewController: UIViewController {
         }
         
         activityImageView.do {
-            $0.image = UIImage(named: activity.image)
+//            $0.image = UIImage(named: activity.image)
             $0.contentMode = .scaleAspectFit
         }
         
         categoryLabel.do {
-            $0.text = activity.category
+            $0.text = "프로젝트"
             $0.font = UIFont.paragraph2
             $0.textColor = .gray5
         }
         
         statusLabel.do {
-            $0.text = activity.status
+            if activity.state == "recruiting" {
+                statusLabel.text = "모집 중"
+                $0.backgroundColor = .primary1
+            } else if activity.state == "before_recruit" {
+                statusLabel.text = "모집 예정"
+                $0.backgroundColor = .primary2
+            } else if activity.state == "running" {
+                statusLabel.text = "모집 마감"
+                $0.backgroundColor = .primary2
+            }
+            
+            $0.text = activity.state
             $0.font = UIFont.paragraph3
             $0.textColor = .black2
-            $0.backgroundColor = statusLabel.text == "모집 중" ? .primary1 : .primary2
             $0.layer.cornerRadius = 8
             $0.clipsToBounds = true
             $0.textAlignment = .center
         }
         
         titleLabel.do {
-            $0.text = activity.title
+            $0.text = activity.name
             $0.font = UIFont.heading3
             $0.textColor = .gray1
         }
         
         contentLabel.do {
-            $0.text = activity.content
+            $0.text = activity.tags.joined(separator: ", ")
             $0.font = UIFont.paragraph1
             $0.textColor = .gray3
             $0.numberOfLines = 0
         }
         
         personLabel.do {
-            $0.text = activity.person
+            let memberCount = activity.members.count
+            $0.text = activity.leader + " 외 \(memberCount)명"
             $0.font = UIFont.paragraph1
             $0.textColor = .gray3
         }
