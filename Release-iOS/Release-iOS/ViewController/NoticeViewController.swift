@@ -19,7 +19,6 @@ final class NoticeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hideTabBar()
         setupUI()
         setupTableView()
         
@@ -29,6 +28,7 @@ final class NoticeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        hideTabBar()
         navigationController?.navigationBar.isHidden = false
         setSmallFontNavigationBar(title:"공지", left: backButton, right: nil)
     }

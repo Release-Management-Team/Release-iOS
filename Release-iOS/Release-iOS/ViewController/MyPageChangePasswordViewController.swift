@@ -28,6 +28,7 @@ final class MyPageChangePasswordViewController: UIViewController {
         super.viewWillAppear(true)
         
         hideTabBar()
+        navigationController?.navigationBar.isHidden = false
         setSmallFontNavigationBar(title:"비밀번호 변경", left: self.rootView.backButton, right: nil)
     }
     
