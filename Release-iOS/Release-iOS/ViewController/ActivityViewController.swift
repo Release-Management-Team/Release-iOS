@@ -17,8 +17,8 @@ final class ActivityViewController: UIViewController {
     
     private var tableView: UITableView!
     private var isStudy = true
-    private var activityData: ActivityResult = ActivityResult(activity: [])
-    private var eventData: [EventDTO]  = []
+    private var activityData: [ActivityDTO] = dummyActivityResult.activities
+    private var eventData: [EventDTO]  = dummyEventResponse.evets
     private let navigationLabel = UILabel()
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ final class ActivityViewController: UIViewController {
         setupSegmentedControl()
         setupTableView()
         
-        getProjectData()
+//        getProjectData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,13 +108,13 @@ final class ActivityViewController: UIViewController {
 
 extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isStudy ? activityData.activity.count: eventData.count
+        return isStudy ? activityData.count: eventData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isStudy {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityCell
-            cell.configure(with: activityData.activity[indexPath.row].fields)
+            cell.configure(with: activityData[indexPath.row])
             
             return cell
         } else {
@@ -128,7 +128,7 @@ extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if isStudy {
-            let detailVC = ActivityDetailViewController(activity: activityData.activity[indexPath.row].fields)
+            let detailVC = ActivityDetailViewController(activity: activityData[indexPath.row])
             detailVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(detailVC, animated: true)
         }
@@ -187,6 +187,7 @@ extension ActivityViewController {
             
             guard httpResponse.statusCode == 200 else {
                 print("Error: HTTP Status Code is \(httpResponse.statusCode)")
+                print("Error: HTTP Status Code is \(httpResponse.description)")
                 completion(false)
                 return
             }
@@ -207,7 +208,7 @@ extension ActivityViewController {
     }
     
     private func bindProjectCell(activities: ActivityResult) {
-        self.activityData = activities
+        self.activityData = activities.activities
         
         DispatchQueue.main.async {
             self.tableView.reloadData()

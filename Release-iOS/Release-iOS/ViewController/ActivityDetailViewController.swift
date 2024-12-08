@@ -67,7 +67,7 @@ final class ActivityDetailViewController: UIViewController {
         }
         
         activityImageView.do {
-//            $0.image = UIImage(named: activity.image)
+            $0.image = .dummyLogo
             $0.contentMode = .scaleAspectFit
         }
         

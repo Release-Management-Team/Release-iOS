@@ -109,6 +109,7 @@ class EventCell: UITableViewCell {
     
     func configure(with data: EventDTO) {
         titleLabel.text = data.name
+        descriptionLabel.text = data.description
         var start_time = ""
         var end_time = ""
         if let formattedStartDate = convertDate(data.start_time) {

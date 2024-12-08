@@ -68,7 +68,7 @@ class ActivityCell: UITableViewCell {
     
     func configure(with activity: ActivityDTO) {
 //        activityImageView.kfSetImage(url: activity.image)
-//        categoryLabel.text = activity.
+        activityImageView.image = .dummyLogo
         titleLabel.text = activity.name
         contentLabel.text = activity.tags.joined(separator: ", ")
         personLabel.text = activity.leader

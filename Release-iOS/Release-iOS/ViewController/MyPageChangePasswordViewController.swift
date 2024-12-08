@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyPagePasswordViewController: UIViewController {
+final class MyPageChangePasswordViewController: UIViewController {
     
     private let rootView = MyPageChangePasswordView()
     
@@ -50,7 +50,7 @@ final class MyPagePasswordViewController: UIViewController {
     }
 }
 
-extension MyPagePasswordViewController: UITextFieldDelegate {
+extension MyPageChangePasswordViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -61,12 +61,15 @@ extension MyPagePasswordViewController: UITextFieldDelegate {
     }
 }
 
-extension MyPagePasswordViewController {
+extension MyPageChangePasswordViewController {
     private func changePassword(old_password: String, new_password: String) {
         postChangePassword(old_password: old_password, new_password: new_password) { success in
             DispatchQueue.main.async {
                 if success {
                     print("Successfully change password!")
+                    UserDefaults.standard.removeObject(forKey: "password")
+                    UserDefaults.standard.set(new_password, forKey: "password")
+                    self.navigationController?.popViewController(animated: true)
                 } else {
                     print("Failed to change password.")
                 }
@@ -76,7 +79,6 @@ extension MyPagePasswordViewController {
     
     private func postChangePassword(old_password: String, new_password: String, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: Config.baseURL + "/member/change-password") else { return }
-        
         let parameters: [String: Any] = [
             "old_password": old_password,
             "new_password": new_password
@@ -126,10 +128,9 @@ extension MyPagePasswordViewController {
                 return
             }
             
+            
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let password = json["new_password"] as? String {
-                    UserDefaults.standard.set(password, forKey: "password")
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     completion(true)
                 } else {
                     completion(false)

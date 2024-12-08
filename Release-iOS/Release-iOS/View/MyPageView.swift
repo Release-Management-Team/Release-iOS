@@ -44,7 +44,7 @@ final class MyPageView: UIView {
     private let changeInfoView = UIView()
     
     private let passwordTitle = UILabel()
-    private let passwordButton = UIButton()
+    let passwordButton = UIButton()
     private let passwordButtonLabel = UILabel()
     private let passwordButtonImageView = UIImageView()
     
@@ -77,7 +77,7 @@ final class MyPageView: UIView {
         }
         
         profileImageView.do {
-            $0.image = .kuromiDummy
+            $0.image = .dummyLogo
             $0.layer.masksToBounds = true
             $0.layer.cornerRadius = 96/2
         }
@@ -193,7 +193,6 @@ final class MyPageView: UIView {
         passwordButton.do {
             $0.layer.cornerRadius = 16
             $0.layer.backgroundColor = UIColor.black2.cgColor
-            $0.addTarget(self, action: #selector(passwordButtonTapped), for: .touchUpInside)
             
             passwordButtonLabel.do {
                 $0.text = "비밀번호 변경"
@@ -323,11 +322,6 @@ final class MyPageView: UIView {
         }
     }
     
-    @objc
-    private func passwordButtonTapped() {
-        //        navigationController?.popViewController(animated: true)
-    }
-    
     func bindData(data: ProfileDTO) {
         profileNameLabel.text = data.name
         statusMessageLabel.text = data.message ?? "상태메세지"
@@ -339,13 +333,13 @@ final class MyPageView: UIView {
         if data.state == 0 || data.state == 1 {
             status = " ~ NOW"
         } else if data.state == 2 {
-            status = " ~ END"
+            periodTitleLabel.text = "가입시기"
         }
         
         periodLabel.text = data.joined_semester + status
         emailLabel.text = data.email
         
-        roleView.isHidden = data.role == 1
+        roleView.isHidden = data.role != 1
         phoneLabel.text = data.phone.replacingOccurrences(
             of: "(\\d{3})(\\d{4})(\\d{4})",
             with: "$1-$2-$3",

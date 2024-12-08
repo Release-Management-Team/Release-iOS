@@ -22,12 +22,25 @@ final class MyPageViewController: UIViewController {
         super.viewDidLoad()
         
         getNoticeData()
+        setButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        navigationController?.navigationBar.isHidden = true
         showTabBar()
+    }
+    
+    private func setButton() {
+        self.rootView.passwordButton.addTarget(self, action: #selector(passwordButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    private func passwordButtonTapped() {
+        let vc = MyPageChangePasswordViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

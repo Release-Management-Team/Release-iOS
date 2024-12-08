@@ -147,7 +147,7 @@ final class MyPageChangePasswordView: UIView {
                          changePasswordTextField,
                          changeWarningLabel,
                          checkTitle,
-                         changePasswordTextField,
+                         checkPasswordTextField,
                          checkWarningLabel,
                          changeButtonView)
         changeButtonView.addSubview(changeButton)
@@ -155,13 +155,13 @@ final class MyPageChangePasswordView: UIView {
     
     private func setLayout() {
         currentTitle.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(37)
+            $0.top.equalTo(self.safeAreaLayoutGuide).offset(37)
             $0.leading.equalToSuperview().inset(32)
         }
         
         currentPasswordTextField.snp.makeConstraints {
             $0.top.equalTo(currentTitle.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().inset(24)
+            $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(64)
         }
         
@@ -177,7 +177,7 @@ final class MyPageChangePasswordView: UIView {
         
         changePasswordTextField.snp.makeConstraints {
             $0.top.equalTo(changeTitle.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().inset(24)
+            $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(64)
         }
         
@@ -186,14 +186,14 @@ final class MyPageChangePasswordView: UIView {
             $0.leading.equalTo(changePasswordTextField.snp.leading).offset(8)
         }
         
-        changeTitle.snp.makeConstraints {
+        checkTitle.snp.makeConstraints {
             $0.top.equalTo(changePasswordTextField.snp.bottom).offset(57)
             $0.leading.equalToSuperview().inset(32)
         }
         
         checkPasswordTextField.snp.makeConstraints {
-            $0.top.equalTo(changeTitle.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().inset(24)
+            $0.top.equalTo(checkTitle.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(64)
         }
         
@@ -235,6 +235,7 @@ final class MyPageChangePasswordView: UIView {
             let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
         
         if !predicate.evaluate(with: changePasswordTextField.text) {
+            changePasswordTextField.layer.borderWidth = 1
             changeWarningLabel.isHidden = false
             return false
         } else {
@@ -243,6 +244,7 @@ final class MyPageChangePasswordView: UIView {
         }
         
         if changePasswordTextField.text != checkPasswordTextField.text {
+            checkPasswordTextField.layer.borderWidth = 1
             checkWarningLabel.isHidden = false
             return false
         } else {

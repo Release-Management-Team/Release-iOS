@@ -29,6 +29,7 @@ final class NoticeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        navigationController?.navigationBar.isHidden = false
         setSmallFontNavigationBar(title:"공지", left: backButton, right: nil)
     }
     

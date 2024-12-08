@@ -8,22 +8,17 @@
 import Foundation
 
 struct ActivityResult: Decodable {
-    let activity: [Activity]
-}
-
-struct Activity: Codable {
-    let model: String
-    let pk: Int
-    let fields: ActivityDTO
+    let activities: [ActivityDTO]
 }
     
 struct ActivityDTO: Codable {
+    let type: String
     let name: String
     let description: String
     let leader: String
     let members: [String]
     let tags: [String]
     let state: String
-    let image: Bool
-    let link: String?
+    let image: String
+    let link: String
 }

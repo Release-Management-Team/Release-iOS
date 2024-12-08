@@ -13,6 +13,7 @@ struct EventResponse: Decodable {
 
 struct EventDTO: Codable {
     let name: String
+    let description: String
     let start_time: String
     let end_time: String
     let place: String
