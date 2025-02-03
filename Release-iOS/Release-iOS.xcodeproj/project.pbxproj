@@ -34,6 +34,7 @@
 		E4780BEC2CEE11FD005F9EBF /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */; };
 		E49AC0F22D4E04850018F74B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E49AC0F12D4E04850018F74B /* GoogleService-Info.plist */; };
 		E49AC0F82D4E057E0018F74B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E49AC0F72D4E057E0018F74B /* FirebaseMessaging */; };
+		E49AC0FB2D4E07930018F74B /* PushNotificationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AC0FA2D4E07930018F74B /* PushNotificationDTO.swift */; };
 		E4AE8EB02CEB128900AA84DD /* MyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAB2CEB128900AA84DD /* MyDTO.swift */; };
 		E4AE8EB12CEB128900AA84DD /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAF2CEB128900AA84DD /* Dummy.swift */; };
 		E4AE8EB22CEB128900AA84DD /* NoticeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */; };
@@ -50,6 +51,7 @@
 		E4AE8EC72CEB4F6800AA84DD /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */; };
 		E4AE8EC92CEB4FB400AA84DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */; };
 		E4AE8ECB2CED7E0800AA84DD /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */; };
+		E4DCA2452D50F77100A87BF8 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCA2442D50F77100A87BF8 /* FCMManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,7 @@
 		E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 		E49AC0F12D4E04850018F74B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E49AC0F92D4E05D30018F74B /* Release-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Release-iOS.entitlements"; sourceTree = "<group>"; };
+		E49AC0FA2D4E07930018F74B /* PushNotificationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationDTO.swift; sourceTree = "<group>"; };
 		E4AE8EA82CEB128900AA84DD /* ActivityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDTO.swift; sourceTree = "<group>"; };
 		E4AE8EA92CEB128900AA84DD /* BookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDTO.swift; sourceTree = "<group>"; };
 		E4AE8EAA2CEB128900AA84DD /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 		E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		E4DCA2442D50F77100A87BF8 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				E49AC0F92D4E05D30018F74B /* Release-iOS.entitlements */,
 				2C8670102CD7E0D600A78039 /* Extension.swift */,
 				E4AE8EAF2CEB128900AA84DD /* Dummy.swift */,
+				E4DCA2432D50F76000A87BF8 /* Manager */,
 				E4AE8EAE2CEB128900AA84DD /* DTO */,
 				E4AE8EC52CEB4F5C00AA84DD /* Cell */,
 				2C8670252CD7E9F200A78039 /* ViewController */,
@@ -197,6 +202,7 @@
 				E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */,
 				E4AE8EAD2CEB128900AA84DD /* WeeklyEventDTO.swift */,
 				E45C14E22D022A1200716D03 /* ProfileDTO.swift */,
+				E49AC0FA2D4E07930018F74B /* PushNotificationDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -229,6 +235,14 @@
 				E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E4DCA2432D50F76000A87BF8 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E4DCA2442D50F77100A87BF8 /* FCMManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +335,8 @@
 				E4AE8EB02CEB128900AA84DD /* MyDTO.swift in Sources */,
 				E4AE8EB12CEB128900AA84DD /* Dummy.swift in Sources */,
 				E45C14E32D022A1200716D03 /* ProfileDTO.swift in Sources */,
+				E4DCA2452D50F77100A87BF8 /* FCMManager.swift in Sources */,
+				E49AC0FB2D4E07930018F74B /* PushNotificationDTO.swift in Sources */,
 				E4AE8EB22CEB128900AA84DD /* NoticeDTO.swift in Sources */,
 				E4AE8EB32CEB128900AA84DD /* BookDTO.swift in Sources */,
 				E4AE8EB42CEB128900AA84DD /* ActivityDTO.swift in Sources */,
