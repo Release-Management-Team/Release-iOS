@@ -32,6 +32,9 @@
 		E45F9E432D02767A007E2AB6 /* MyPageChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */; };
 		E45F9E452D027815007E2AB6 /* MyPageChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F9E442D027815007E2AB6 /* MyPageChangePasswordView.swift */; };
 		E4780BEC2CEE11FD005F9EBF /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */; };
+		E49AC0F22D4E04850018F74B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E49AC0F12D4E04850018F74B /* GoogleService-Info.plist */; };
+		E49AC0F82D4E057E0018F74B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E49AC0F72D4E057E0018F74B /* FirebaseMessaging */; };
+		E49AC0FB2D4E07930018F74B /* PushNotificationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AC0FA2D4E07930018F74B /* PushNotificationDTO.swift */; };
 		E4AE8EB02CEB128900AA84DD /* MyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAB2CEB128900AA84DD /* MyDTO.swift */; };
 		E4AE8EB12CEB128900AA84DD /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAF2CEB128900AA84DD /* Dummy.swift */; };
 		E4AE8EB22CEB128900AA84DD /* NoticeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */; };
@@ -48,6 +51,7 @@
 		E4AE8EC72CEB4F6800AA84DD /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */; };
 		E4AE8EC92CEB4FB400AA84DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */; };
 		E4AE8ECB2CED7E0800AA84DD /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */; };
+		E4DCA2452D50F77100A87BF8 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCA2442D50F77100A87BF8 /* FCMManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +78,9 @@
 		E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangePasswordViewController.swift; sourceTree = "<group>"; };
 		E45F9E442D027815007E2AB6 /* MyPageChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangePasswordView.swift; sourceTree = "<group>"; };
 		E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
+		E49AC0F12D4E04850018F74B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E49AC0F92D4E05D30018F74B /* Release-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Release-iOS.entitlements"; sourceTree = "<group>"; };
+		E49AC0FA2D4E07930018F74B /* PushNotificationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationDTO.swift; sourceTree = "<group>"; };
 		E4AE8EA82CEB128900AA84DD /* ActivityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDTO.swift; sourceTree = "<group>"; };
 		E4AE8EA92CEB128900AA84DD /* BookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDTO.swift; sourceTree = "<group>"; };
 		E4AE8EAA2CEB128900AA84DD /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
@@ -90,6 +97,7 @@
 		E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		E4DCA2442D50F77100A87BF8 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 			files = (
 				2C866FED2CD7C8F100A78039 /* Kingfisher in Frameworks */,
 				2C866FF32CD7C8FF00A78039 /* Then in Frameworks */,
+				E49AC0F82D4E057E0018F74B /* FirebaseMessaging in Frameworks */,
 				2C866FF02CD7C8F900A78039 /* SnapKit in Frameworks */,
 				2C866FF62CD7C90600A78039 /* Lottie in Frameworks */,
 			);
@@ -126,8 +135,10 @@
 		2C866FD62CD7C8D800A78039 /* Release-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E49AC0F92D4E05D30018F74B /* Release-iOS.entitlements */,
 				2C8670102CD7E0D600A78039 /* Extension.swift */,
 				E4AE8EAF2CEB128900AA84DD /* Dummy.swift */,
+				E4DCA2432D50F76000A87BF8 /* Manager */,
 				E4AE8EAE2CEB128900AA84DD /* DTO */,
 				E4AE8EC52CEB4F5C00AA84DD /* Cell */,
 				2C8670252CD7E9F200A78039 /* ViewController */,
@@ -141,6 +152,7 @@
 				2C866FE22CD7C8DA00A78039 /* LaunchScreen.storyboard */,
 				2C866FE52CD7C8DA00A78039 /* Info.plist */,
 				E4AE8EC12CEB130200AA84DD /* Config.xcconfig */,
+				E49AC0F12D4E04850018F74B /* GoogleService-Info.plist */,
 			);
 			path = "Release-iOS";
 			sourceTree = "<group>";
@@ -190,6 +202,7 @@
 				E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */,
 				E4AE8EAD2CEB128900AA84DD /* WeeklyEventDTO.swift */,
 				E45C14E22D022A1200716D03 /* ProfileDTO.swift */,
+				E49AC0FA2D4E07930018F74B /* PushNotificationDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -224,6 +237,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E4DCA2432D50F76000A87BF8 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E4DCA2442D50F77100A87BF8 /* FCMManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -245,6 +266,7 @@
 				2C866FEF2CD7C8F900A78039 /* SnapKit */,
 				2C866FF22CD7C8FF00A78039 /* Then */,
 				2C866FF52CD7C90600A78039 /* Lottie */,
+				E49AC0F72D4E057E0018F74B /* FirebaseMessaging */,
 			);
 			productName = "Release-iOS";
 			productReference = 2C866FD42CD7C8D800A78039 /* Release-iOS.app */;
@@ -279,6 +301,7 @@
 				2C866FEE2CD7C8F900A78039 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2C866FF12CD7C8FF00A78039 /* XCRemoteSwiftPackageReference "Then" */,
 				2C866FF42CD7C90600A78039 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				E49AC0F62D4E057E0018F74B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2C866FD52CD7C8D800A78039 /* Products */;
 			projectDirPath = "";
@@ -295,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C866FE12CD7C8DA00A78039 /* Assets.xcassets in Resources */,
+				E49AC0F22D4E04850018F74B /* GoogleService-Info.plist in Resources */,
 				E4AE8EC22CEB130200AA84DD /* Config.xcconfig in Resources */,
 				2C866FE42CD7C8DA00A78039 /* Base in Resources */,
 			);
@@ -311,6 +335,8 @@
 				E4AE8EB02CEB128900AA84DD /* MyDTO.swift in Sources */,
 				E4AE8EB12CEB128900AA84DD /* Dummy.swift in Sources */,
 				E45C14E32D022A1200716D03 /* ProfileDTO.swift in Sources */,
+				E4DCA2452D50F77100A87BF8 /* FCMManager.swift in Sources */,
+				E49AC0FB2D4E07930018F74B /* PushNotificationDTO.swift in Sources */,
 				E4AE8EB22CEB128900AA84DD /* NoticeDTO.swift in Sources */,
 				E4AE8EB32CEB128900AA84DD /* BookDTO.swift in Sources */,
 				E4AE8EB42CEB128900AA84DD /* ActivityDTO.swift in Sources */,
@@ -485,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Release-iOS/Release-iOS.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2024120801;
@@ -523,6 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Release-iOS/Release-iOS.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2024120801;
@@ -611,6 +639,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		E49AC0F62D4E057E0018F74B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -633,6 +669,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C866FF42CD7C90600A78039 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		E49AC0F72D4E057E0018F74B /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49AC0F62D4E057E0018F74B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

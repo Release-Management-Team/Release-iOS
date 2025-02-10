@@ -29,6 +29,8 @@ class SplashViewController: UIViewController {
     private func setupUI() {
         view.addSubview(animationView)
         
+        view.backgroundColor = .black1
+        
         animationView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
