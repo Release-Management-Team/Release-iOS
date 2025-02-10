@@ -1,5 +1,5 @@
 //
-//  NoticeDTO.swift
+//  NoticesResponse.swift
 //  Release-iOS
 //
 //  Created by 신지원 on 8/24/24.

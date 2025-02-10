@@ -1,5 +1,5 @@
 //
-//  EventDTO.swift
+//  EventResponse.swift
 //  Release-iOS
 //
 //  Created by 신지원 on 8/22/24.

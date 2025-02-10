@@ -1,5 +1,5 @@
 //
-//  MyDTO.swift
+//  MyResponse.swift
 //  Release-iOS
 //
 //  Created by 신지원 on 8/22/24.
@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct My: Identifiable {
-    let id = UUID()
+struct MyResponse: Decodable {
     let name: String
     let staff: Bool
     let status: String

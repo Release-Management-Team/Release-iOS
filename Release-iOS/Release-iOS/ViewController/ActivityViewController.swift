@@ -194,7 +194,7 @@ extension ActivityViewController {
             
             do {
                 let decoder = JSONDecoder()
-                let activityData = try decoder.decode(ActivityResult.self, from: data)
+                let activityData = try decoder.decode(ActivityResponse.self, from: data)
                 
                 DispatchQueue.main.async {
                     self.bindProjectCell(activities: activityData)
@@ -207,7 +207,7 @@ extension ActivityViewController {
         }.resume()
     }
     
-    private func bindProjectCell(activities: ActivityResult) {
+    private func bindProjectCell(activities: ActivityResponse) {
         self.activityData = activities.activities
         
         DispatchQueue.main.async {
