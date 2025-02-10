@@ -1,5 +1,5 @@
 //
-//  ProfileDTO.swift
+//  ProfileResponse.swift
 //  Release-iOS
 //
 //  Created by 신지원 on 12/6/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProfileDTO: Codable {
+struct ProfileResponse: Decodable {
     let id: String
     let name: String
     let department: String

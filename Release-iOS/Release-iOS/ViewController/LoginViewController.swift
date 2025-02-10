@@ -113,7 +113,8 @@ final class LoginViewController: UIViewController {
             return
         }
         
-        login(id: id, password: password) { [weak self] success in
+        let loginData = LoginRequest(id: id, password: password)
+        login(loginData: loginData) { [weak self] success in
             DispatchQueue.main.async {
                 if success {
                     self?.errorLabel.isHidden = true
@@ -129,12 +130,12 @@ final class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    private func login(id: String, password: String, completion: @escaping (Bool) -> Void) {
+    private func login(loginData: LoginRequest, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: Config.baseURL + "/auth/login") else { return }
         
         let parameters: [String: Any] = [
-            "id": id,
-            "password": password
+            LoginRequest.CodingKeys.id.rawValue: loginData.id,
+            LoginRequest.CodingKeys.password.rawValue: loginData.password
         ]
         
         var request = URLRequest(url: url)
@@ -170,7 +171,7 @@ extension LoginViewController {
                    let refreshToken = json["refresh_token"] as? String {
                     UserDefaults.standard.set(accessToken, forKey: "accessToken")
                     UserDefaults.standard.set(refreshToken, forKey: "refreshToken")
-                    UserDefaults.standard.set(password, forKey: "password")
+                    UserDefaults.standard.set(loginData.password, forKey: "password")
                     completion(true)
                 } else {
                     completion(false)

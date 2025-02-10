@@ -1,5 +1,5 @@
 //
-//  ActivityDTO.swift
+//  ActivityResponse.swift
 //  Release-iOS
 //
 //  Created by 신지원 on 8/22/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ActivityResult: Decodable {
+struct ActivityResponse: Decodable {
     let activities: [ActivityDTO]
 }
     

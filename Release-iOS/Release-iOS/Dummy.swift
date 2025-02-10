@@ -7,7 +7,7 @@
 
 import Foundation
 
-let dummyActivityResult = ActivityResult(activities: [
+let dummyActivityResult = ActivityResponse(activities: [
     ActivityDTO(
         type: "Sports",
         name: "Morning Yoga",

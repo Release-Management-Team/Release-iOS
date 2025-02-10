@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,17 +28,10 @@
 		2C8670222CD7E94100A78039 /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */; };
 		E430A75A2D02068F00100F40 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E430A7592D02068F00100F40 /* MyPageViewController.swift */; };
 		E430A75C2D020A0D00100F40 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E430A75B2D020A0D00100F40 /* MyPageView.swift */; };
-		E45C14E32D022A1200716D03 /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C14E22D022A1200716D03 /* ProfileDTO.swift */; };
 		E45F9E432D02767A007E2AB6 /* MyPageChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */; };
 		E45F9E452D027815007E2AB6 /* MyPageChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F9E442D027815007E2AB6 /* MyPageChangePasswordView.swift */; };
 		E4780BEC2CEE11FD005F9EBF /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */; };
-		E4AE8EB02CEB128900AA84DD /* MyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAB2CEB128900AA84DD /* MyDTO.swift */; };
 		E4AE8EB12CEB128900AA84DD /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAF2CEB128900AA84DD /* Dummy.swift */; };
-		E4AE8EB22CEB128900AA84DD /* NoticeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */; };
-		E4AE8EB32CEB128900AA84DD /* BookDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EA92CEB128900AA84DD /* BookDTO.swift */; };
-		E4AE8EB42CEB128900AA84DD /* ActivityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EA82CEB128900AA84DD /* ActivityDTO.swift */; };
-		E4AE8EB52CEB128900AA84DD /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAA2CEB128900AA84DD /* EventDTO.swift */; };
-		E4AE8EB62CEB128900AA84DD /* WeeklyEventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EAD2CEB128900AA84DD /* WeeklyEventDTO.swift */; };
 		E4AE8EBD2CEB12C400AA84DD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EB82CEB12C400AA84DD /* Config.swift */; };
 		E4AE8EBE2CEB12C400AA84DD /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EB92CEB12C400AA84DD /* HttpMethod.swift */; };
 		E4AE8EBF2CEB12C400AA84DD /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EBB2CEB12C400AA84DD /* URL.swift */; };
@@ -70,16 +63,9 @@
 		2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
 		E430A7592D02068F00100F40 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		E430A75B2D020A0D00100F40 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
-		E45C14E22D022A1200716D03 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
 		E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangePasswordViewController.swift; sourceTree = "<group>"; };
 		E45F9E442D027815007E2AB6 /* MyPageChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangePasswordView.swift; sourceTree = "<group>"; };
 		E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
-		E4AE8EA82CEB128900AA84DD /* ActivityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDTO.swift; sourceTree = "<group>"; };
-		E4AE8EA92CEB128900AA84DD /* BookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDTO.swift; sourceTree = "<group>"; };
-		E4AE8EAA2CEB128900AA84DD /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
-		E4AE8EAB2CEB128900AA84DD /* MyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDTO.swift; sourceTree = "<group>"; };
-		E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDTO.swift; sourceTree = "<group>"; };
-		E4AE8EAD2CEB128900AA84DD /* WeeklyEventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyEventDTO.swift; sourceTree = "<group>"; };
 		E4AE8EAF2CEB128900AA84DD /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		E4AE8EB82CEB12C400AA84DD /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E4AE8EB92CEB12C400AA84DD /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
@@ -91,6 +77,10 @@
 		E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		E4AE8ECA2CED7E0800AA84DD /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E420DDCD2D59CCCB009828BE /* DTO */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DTO; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2C866FD12CD7C8D800A78039 /* Frameworks */ = {
@@ -127,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				2C8670102CD7E0D600A78039 /* Extension.swift */,
+				E420DDCD2D59CCCB009828BE /* DTO */,
 				E4AE8EAF2CEB128900AA84DD /* Dummy.swift */,
-				E4AE8EAE2CEB128900AA84DD /* DTO */,
 				E4AE8EC52CEB4F5C00AA84DD /* Cell */,
 				2C8670252CD7E9F200A78039 /* ViewController */,
 				2C8670072CD7CA8400A78039 /* View */,
@@ -180,20 +170,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		E4AE8EAE2CEB128900AA84DD /* DTO */ = {
-			isa = PBXGroup;
-			children = (
-				E4AE8EA82CEB128900AA84DD /* ActivityDTO.swift */,
-				E4AE8EA92CEB128900AA84DD /* BookDTO.swift */,
-				E4AE8EAA2CEB128900AA84DD /* EventDTO.swift */,
-				E4AE8EAB2CEB128900AA84DD /* MyDTO.swift */,
-				E4AE8EAC2CEB128900AA84DD /* NoticeDTO.swift */,
-				E4AE8EAD2CEB128900AA84DD /* WeeklyEventDTO.swift */,
-				E45C14E22D022A1200716D03 /* ProfileDTO.swift */,
-			);
-			path = DTO;
-			sourceTree = "<group>";
-		};
 		E4AE8EB72CEB12C400AA84DD /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +214,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E420DDCD2D59CCCB009828BE /* DTO */,
 			);
 			name = "Release-iOS";
 			packageProductDependencies = (
@@ -308,14 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C8670112CD7E0D600A78039 /* Extension.swift in Sources */,
-				E4AE8EB02CEB128900AA84DD /* MyDTO.swift in Sources */,
 				E4AE8EB12CEB128900AA84DD /* Dummy.swift in Sources */,
-				E45C14E32D022A1200716D03 /* ProfileDTO.swift in Sources */,
-				E4AE8EB22CEB128900AA84DD /* NoticeDTO.swift in Sources */,
-				E4AE8EB32CEB128900AA84DD /* BookDTO.swift in Sources */,
-				E4AE8EB42CEB128900AA84DD /* ActivityDTO.swift in Sources */,
-				E4AE8EB52CEB128900AA84DD /* EventDTO.swift in Sources */,
-				E4AE8EB62CEB128900AA84DD /* WeeklyEventDTO.swift in Sources */,
 				2C866FDC2CD7C8D800A78039 /* ViewController.swift in Sources */,
 				2C31A24D2CD9126400FBFF15 /* BookViewController.swift in Sources */,
 				E4AE8EC92CEB4FB400AA84DD /* EventCell.swift in Sources */,
