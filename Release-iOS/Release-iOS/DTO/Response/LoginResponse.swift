@@ -6,6 +6,6 @@
 //
 
 struct LoginResponse: Decodable {
-    let acessToken: String
+    let accessToken: String
     let refreshToken: String
 }

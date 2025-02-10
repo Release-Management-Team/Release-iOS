@@ -166,16 +166,14 @@ extension LoginViewController {
             }
             
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let accessToken = json["access_token"] as? String,
-                   let refreshToken = json["refresh_token"] as? String {
-                    UserDefaults.standard.set(accessToken, forKey: "accessToken")
-                    UserDefaults.standard.set(refreshToken, forKey: "refreshToken")
-                    UserDefaults.standard.set(loginData.password, forKey: "password")
-                    completion(true)
-                } else {
-                    completion(false)
-                }
+                let decoder = JSONDecoder()
+                let loginResponse = try decoder.decode(LoginResponse.self, from: data)
+                
+                UserDefaults.standard.set(loginResponse.accessToken, forKey: "accessToken")
+                UserDefaults.standard.set(loginResponse.refreshToken, forKey: "refreshToken")
+                UserDefaults.standard.set(loginData.password, forKey: "password")
+                
+                completion(true)
             } catch {
                 print("Failed to parse JSON: \(error)")
                 completion(false)
@@ -191,9 +189,9 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == idTextField {
-          passwordTextField.becomeFirstResponder()
+            passwordTextField.becomeFirstResponder()
         } else {
-          passwordTextField.resignFirstResponder()
+            passwordTextField.resignFirstResponder()
         }
         return true
     }
