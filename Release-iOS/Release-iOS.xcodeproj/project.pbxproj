@@ -19,7 +19,6 @@
 		2C866FF32CD7C8FF00A78039 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2C866FF22CD7C8FF00A78039 /* Then */; };
 		2C866FF62CD7C90600A78039 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2C866FF52CD7C90600A78039 /* Lottie */; };
 		2C8670052CD7C9EF00A78039 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670042CD7C9EF00A78039 /* Font+.swift */; };
-		2C86700D2CD7CC5700A78039 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C86700C2CD7CC5700A78039 /* LoginViewController.swift */; };
 		2C86700F2CD7CF3200A78039 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C86700E2CD7CF3200A78039 /* HomeViewController.swift */; };
 		2C8670112CD7E0D600A78039 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670102CD7E0D600A78039 /* Extension.swift */; };
 		2C8670132CD7E8DE00A78039 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */; };
@@ -27,10 +26,6 @@
 		E430A75A2D02068F00100F40 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E430A7592D02068F00100F40 /* MyPageViewController.swift */; };
 		E45F9E432D02767A007E2AB6 /* MyPageChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */; };
 		E4780BEC2CEE11FD005F9EBF /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */; };
-		E4AE8EBD2CEB12C400AA84DD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EB82CEB12C400AA84DD /* Config.swift */; };
-		E4AE8EBE2CEB12C400AA84DD /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EB92CEB12C400AA84DD /* HttpMethod.swift */; };
-		E4AE8EBF2CEB12C400AA84DD /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EBB2CEB12C400AA84DD /* URL.swift */; };
-		E4AE8EC02CEB12C400AA84DD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EBA2CEB12C400AA84DD /* String.swift */; };
 		E4AE8EC22CEB130200AA84DD /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E4AE8EC12CEB130200AA84DD /* Config.xcconfig */; };
 		E4AE8EC72CEB4F6800AA84DD /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */; };
 		E4AE8EC92CEB4FB400AA84DD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */; };
@@ -48,7 +43,6 @@
 		2C866FE32CD7C8DA00A78039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C866FE52CD7C8DA00A78039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C8670042CD7C9EF00A78039 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
-		2C86700C2CD7CC5700A78039 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2C86700E2CD7CF3200A78039 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2C8670102CD7E0D600A78039 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -56,10 +50,6 @@
 		E430A7592D02068F00100F40 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangePasswordViewController.swift; sourceTree = "<group>"; };
 		E4780BEB2CEE11FD005F9EBF /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
-		E4AE8EB82CEB12C400AA84DD /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		E4AE8EB92CEB12C400AA84DD /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
-		E4AE8EBA2CEB12C400AA84DD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		E4AE8EBB2CEB12C400AA84DD /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		E4AE8EC12CEB130200AA84DD /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E4AE8EC62CEB4F6800AA84DD /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		E4AE8EC82CEB4FB400AA84DD /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -68,7 +58,9 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E420DDCD2D59CCCB009828BE /* DTO */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DTO; sourceTree = "<group>"; };
-		E420DDFE2D59D0C7009828BE /* View */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = View; sourceTree = "<group>"; };
+		E420DDFE2D59D0C7009828BE /* Feature */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Feature; sourceTree = "<group>"; };
+		E4B539C02D5F43BA00F5D479 /* Service */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Service; sourceTree = "<group>"; };
+		E4B539C72D5F456500F5D479 /* Constant */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Constant; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +97,12 @@
 		2C866FD62CD7C8D800A78039 /* Release-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E4B539C02D5F43BA00F5D479 /* Service */,
 				2C8670102CD7E0D600A78039 /* Extension.swift */,
 				E420DDCD2D59CCCB009828BE /* DTO */,
 				E4AE8EC52CEB4F5C00AA84DD /* Cell */,
 				2C8670252CD7E9F200A78039 /* ViewController */,
-				E4AE8EBC2CEB12C400AA84DD /* Constant */,
+				E4B539C72D5F456500F5D479 /* Constant */,
 				2C8670032CD7C9EF00A78039 /* Font */,
 				2C866FD72CD7C8D800A78039 /* AppDelegate.swift */,
 				2C866FD92CD7C8D800A78039 /* SceneDelegate.swift */,
@@ -118,7 +111,7 @@
 				2C866FE22CD7C8DA00A78039 /* LaunchScreen.storyboard */,
 				2C866FE52CD7C8DA00A78039 /* Info.plist */,
 				E4AE8EC12CEB130200AA84DD /* Config.xcconfig */,
-				E420DDFE2D59D0C7009828BE /* View */,
+				E420DDFE2D59D0C7009828BE /* Feature */,
 			);
 			path = "Release-iOS";
 			sourceTree = "<group>";
@@ -134,7 +127,6 @@
 		2C8670252CD7E9F200A78039 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2C86700C2CD7CC5700A78039 /* LoginViewController.swift */,
 				2C86700E2CD7CF3200A78039 /* HomeViewController.swift */,
 				2C8670212CD7E94100A78039 /* ActivityDetailViewController.swift */,
 				2C8670122CD7E8DE00A78039 /* ActivityViewController.swift */,
@@ -144,25 +136,6 @@
 				E45F9E422D02767A007E2AB6 /* MyPageChangePasswordViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		E4AE8EB72CEB12C400AA84DD /* Font */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
-		E4AE8EBC2CEB12C400AA84DD /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-				E4AE8EB72CEB12C400AA84DD /* Font */,
-				E4AE8EB82CEB12C400AA84DD /* Config.swift */,
-				E4AE8EB92CEB12C400AA84DD /* HttpMethod.swift */,
-				E4AE8EBA2CEB12C400AA84DD /* String.swift */,
-				E4AE8EBB2CEB12C400AA84DD /* URL.swift */,
-			);
-			path = Constant;
 			sourceTree = "<group>";
 		};
 		E4AE8EC52CEB4F5C00AA84DD /* Cell */ = {
@@ -193,7 +166,9 @@
 			);
 			fileSystemSynchronizedGroups = (
 				E420DDCD2D59CCCB009828BE /* DTO */,
-				E420DDFE2D59D0C7009828BE /* View */,
+				E420DDFE2D59D0C7009828BE /* Feature */,
+				E4B539C02D5F43BA00F5D479 /* Service */,
+				E4B539C72D5F456500F5D479 /* Constant */,
 			);
 			name = "Release-iOS";
 			packageProductDependencies = (
@@ -268,14 +243,9 @@
 				2C31A24D2CD9126400FBFF15 /* BookViewController.swift in Sources */,
 				E4AE8EC92CEB4FB400AA84DD /* EventCell.swift in Sources */,
 				2C8670052CD7C9EF00A78039 /* Font+.swift in Sources */,
-				E4AE8EBD2CEB12C400AA84DD /* Config.swift in Sources */,
-				E4AE8EBE2CEB12C400AA84DD /* HttpMethod.swift in Sources */,
-				E4AE8EBF2CEB12C400AA84DD /* URL.swift in Sources */,
-				E4AE8EC02CEB12C400AA84DD /* String.swift in Sources */,
 				2C866FD82CD7C8D800A78039 /* AppDelegate.swift in Sources */,
 				2C8670222CD7E94100A78039 /* ActivityDetailViewController.swift in Sources */,
 				E4780BEC2CEE11FD005F9EBF /* NoticeCell.swift in Sources */,
-				2C86700D2CD7CC5700A78039 /* LoginViewController.swift in Sources */,
 				E45F9E432D02767A007E2AB6 /* MyPageChangePasswordViewController.swift in Sources */,
 				E4AE8EC72CEB4F6800AA84DD /* ActivityCell.swift in Sources */,
 				2C866FDA2CD7C8D800A78039 /* SceneDelegate.swift in Sources */,

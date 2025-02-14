@@ -8,6 +8,12 @@
 import Foundation
 
 struct StringLiterals {
+    enum UserDefault {
+        static let accessToken = "accessToken"
+        static let refreshToken = "refreshToken"
+        static let password = "password"
+    }
+    
     enum Login {
         static let id = "학번"
         static let password = "비밀번호"
