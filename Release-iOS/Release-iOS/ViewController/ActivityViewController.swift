@@ -17,8 +17,8 @@ final class ActivityViewController: UIViewController {
     
     private var tableView: UITableView!
     private var isStudy = true
-    private var activityData: [ActivityDTO] = dummyActivityResult.activities
-    private var eventData: [EventDTO]  = dummyEventResponse.evets
+    private var activityData: [ActivityDTO] = []
+    private var eventData: [EventDTO]  = []
     private let navigationLabel = UILabel()
     
     override func viewDidLoad() {
@@ -141,7 +141,7 @@ extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ActivityViewController {
     private func getProjectData() {
-        getProjectList { [weak self] success in
+        getProjectList { success in
             DispatchQueue.main.async {
                 if success {
                     print("Successfully fetched event list!")

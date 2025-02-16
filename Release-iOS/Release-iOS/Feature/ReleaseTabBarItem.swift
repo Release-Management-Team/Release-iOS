@@ -53,7 +53,7 @@ enum ReleaseTabBarItem: CaseIterable {
     func itemViewController() -> UIViewController {
         switch self {
         case .home:
-            return HomeViewController()
+            return HomeViewController(service: DefaultNoticeService())
         case .search:
             return ActivityViewController()
         case .feed:

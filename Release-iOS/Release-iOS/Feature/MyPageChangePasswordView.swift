@@ -255,7 +255,7 @@ final class MyPageChangePasswordView: UIView {
         return true
     }
     
-    func bindData(data: ProfileDTO) {
-        
-    }
+//    func bindData(data: ProfileResponse) {
+//        
+//    }
 }

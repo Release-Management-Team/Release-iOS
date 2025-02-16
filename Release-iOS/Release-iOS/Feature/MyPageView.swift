@@ -322,7 +322,7 @@ final class MyPageView: UIView {
         }
     }
     
-    func bindData(data: ProfileDTO) {
+    func bindData(data: ProfileResponse) {
         profileNameLabel.text = data.name
         statusMessageLabel.text = data.message ?? "상태메세지"
         studentNumberLabel.text = data.id

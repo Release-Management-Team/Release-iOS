@@ -12,6 +12,9 @@ final class LoginViewController: UIViewController {
     //MARK: - Properties
     
     private var service: AuthService
+    
+    //MARK: - UI Components
+    
     private let rootView = LoginView()
     
     //MARK: - Initializer

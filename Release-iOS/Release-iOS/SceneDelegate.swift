@@ -16,21 +16,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = scene as? UIWindowScene else { return }
         
-        let splashVC = SplashViewController()
-        splashVC.onAnimationCompleted = {
-            self.showMainScreen()
-        }
+//        let splashVC = SplashViewController()
+//        splashVC.onAnimationCompleted = {
+//            self.showMainScreen()
+//        }
         
         window = UIWindow(windowScene: windowScene)
-//                let navigationController = UINavigationController(rootViewController: ReleaseTabBarController())
-//                navigationController.isNavigationBarHidden = true
-//                window?.rootViewController = navigationController
-        window?.rootViewController = splashVC
+                let navigationController = UINavigationController(rootViewController: ReleaseTabBarController())
+                navigationController.isNavigationBarHidden = true
+                window?.rootViewController = navigationController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
     
     private func showMainScreen() {
-        let navigationController = UINavigationController(rootViewController: LoginViewController())
+        let navigationController = UINavigationController(rootViewController: LoginViewController(service: DefaultAuthService()))
         
         DispatchQueue.main.async {
             self.window?.rootViewController = navigationController

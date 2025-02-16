@@ -12,6 +12,6 @@ enum Config {
     static let testAccessToken = Bundle.main.infoDictionary?["TEST_ACCESS_TOKEN"] as! String
     static let testRefreshToken = Bundle.main.infoDictionary?["TEST_REFRESH_TOKEN"] as! String
     
-    static let refreshToken = UserDefaults.standard.string(forKey: "refreshToken")
-    static let accessToken = UserDefaults.standard.string(forKey: "accessToken")
+    static let accessToken = UserDefaults.standard.string(forKey: StringLiterals.UserDefault.accessToken)
+    static let refreshToken = UserDefaults.standard.string(forKey: StringLiterals.UserDefault.refreshToken)
 }

@@ -98,7 +98,7 @@ extension MyPageViewController {
             
             do {
                 let decoder = JSONDecoder()
-                let profileData = try decoder.decode(ProfileDTO.self, from: data)
+                let profileData = try decoder.decode(ProfileResponse.self, from: data)
                 
                 DispatchQueue.main.async {
                     self.rootView.bindData(data: profileData)

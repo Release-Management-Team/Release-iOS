@@ -10,15 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-protocol LoginViewDelegate: AnyObject {
-    func loginButtonTapped(id: String, password: String)
-}
-
 final class LoginView: UIView {
-    
-    //MARK: - Properties
-    
-    weak var loginDelegate: LoginViewDelegate?
     
     //MARK: - UI Components
     
