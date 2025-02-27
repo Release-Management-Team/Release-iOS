@@ -83,6 +83,11 @@ extension BookViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let bookID = bookListData[indexPath.row].id
+        let bookDetailVC = BookDetailViewController(bookId: bookID, service: DefaultBookService())
+        bookDetailVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(bookDetailVC, animated: true)
     }
 }
 
@@ -131,7 +136,8 @@ extension BookViewController {
             statusColor = .clear
         }
         
-        return BookEntity(imageURL: response.image,
+        return BookEntity(id: response.id,
+                          imageURL: response.image,
                           title: response.title,
                           author: response.author,
                           tags: tags,

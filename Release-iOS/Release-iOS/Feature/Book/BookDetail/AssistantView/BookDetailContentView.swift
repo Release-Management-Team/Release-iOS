@@ -1,8 +1,8 @@
 //
-//  BookCell.swift
+//  BookDetailContentView.swift
 //  Release-iOS
 //
-//  Created by 신지원 on 11/20/24.
+//  Created by 신지원 on 2/28/25.
 //
 
 import UIKit
@@ -10,26 +10,22 @@ import UIKit
 import SnapKit
 import Then
 
-final class BookCell: UITableViewCell {
-    
-    //MARK: - Properties
-    
-    static let identifier = "BookCell"
+final class BookDetailContentView: UIView {
     
     //MARK: - UI Components
     
-    private let cellView = UIView()
+    private let stackView = UIStackView()
     private let bookImageView = UIImageView()
     private let statusLabel = UILabel()
     private let titleLabel = UILabel()
-    private let contentLabel = UILabel()
     private let personLabel = UILabel()
     private let tagLabel = UILabel()
+    private let paddingView = UIView()
     
     //MARK: - Initializer
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setUI()
         setHierarchy()
@@ -43,11 +39,11 @@ final class BookCell: UITableViewCell {
     //MARK: - Setup UI
     
     private func setUI() {
-        contentView.backgroundColor = .black1
-        
-        cellView.do {
-            $0.backgroundColor = .black2
-            $0.layer.cornerRadius = 16
+        self.backgroundColor = .black1
+
+        stackView.do {
+            $0.axis = .vertical
+            $0.alignment = .leading
         }
         
         bookImageView.do {
@@ -64,76 +60,71 @@ final class BookCell: UITableViewCell {
         }
         
         titleLabel.do {
-            $0.font = .heading4
+            $0.font = .heading3
             $0.textColor = .gray1
             $0.numberOfLines = 2
         }
         
-        contentLabel.do {
-            $0.font = .paragraph3
-            $0.textColor = .gray3
-            $0.numberOfLines = 2
-        }
-        
         personLabel.do {
-            $0.font = .paragraph2
+            $0.font = .paragraph1
             $0.textColor = .gray3
             $0.numberOfLines = 2
         }
         
         tagLabel.do {
-            $0.font = .paragraph3
+            $0.font = .paragraph1
             $0.textColor = .gray3
             $0.numberOfLines = 1
         }
     }
     
     private func setHierarchy() {
-        contentView.addSubview(cellView)
+        addSubview(stackView)
         [bookImageView,
          statusLabel,
          titleLabel,
          personLabel,
-         tagLabel].forEach {
-            cellView.addSubview($0)
+         tagLabel,
+         paddingView].forEach {
+            stackView.addArrangedSubview($0)
         }
     }
     
     private func setLayout() {
-        cellView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(8)
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
         bookImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(16)
-            $0.centerY.equalToSuperview()
-            $0.size.equalTo(96)
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(UIScreen.main.bounds.width)
         }
         
+        stackView.setCustomSpacing(32, after: bookImageView)
         statusLabel.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(16)
+            $0.leading.equalToSuperview().inset(24)
             $0.height.equalTo(24)
             $0.width.equalTo(68)
         }
         
+        stackView.setCustomSpacing(24, after: statusLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(statusLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(bookImageView.snp.trailing).offset(10)
-            $0.trailing.equalToSuperview().inset(16)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
         
-        
+        stackView.setCustomSpacing(16, after: titleLabel)
         personLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(bookImageView.snp.trailing).offset(10)
-            $0.trailing.equalToSuperview().inset(16)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
         
+        stackView.setCustomSpacing(16, after: personLabel)
         tagLabel.snp.makeConstraints {
-            $0.top.equalTo(personLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(bookImageView.snp.trailing).offset(10)
-            $0.trailing.bottom.equalToSuperview().inset(16)
+            $0.leading.trailing.equalToSuperview().inset(24)
+        }
+        
+        paddingView.snp.makeConstraints {
+            $0.top.equalTo(tagLabel.snp.bottom)
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -149,7 +140,6 @@ final class BookCell: UITableViewCell {
         statusLabel.backgroundColor = book.statusColor
         statusLabel.text = book.statusText
         titleLabel.text = book.title
-        contentLabel.text = book.statusText
         personLabel.text = book.author
         tagLabel.text = book.tags
     }

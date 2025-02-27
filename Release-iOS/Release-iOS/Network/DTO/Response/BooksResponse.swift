@@ -11,6 +11,10 @@ struct BooksResponse: Decodable {
     let books: [BookDTO]
 }
 
+struct BookResponse: Decodable {
+    let book: BookDTO
+}
+
 struct BookDTO: Decodable {
     let id: String
     let title: String

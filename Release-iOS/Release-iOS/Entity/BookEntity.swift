@@ -8,6 +8,7 @@
 import UIKit
 
 struct BookEntity {
+    let id: String
     let imageURL: String
     let title: String
     let author: String

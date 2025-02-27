@@ -26,10 +26,15 @@ struct ReleaseURL {
     
     enum book {
         static let book = "/book"
-        static let info = book + "/info"
-        static let borrow = book + "/borrow"
-        static let bookReturn = book + "/return"
-        static let borrowing = book + "/borrowing"
+        static func bookRead(bookId: String) -> String {
+            return "\(book)/\(bookId)"
+        }
+        static func bookBorrow(bookId: String) -> String {
+            return "\(book)/\(bookId)/borrow"
+        }
+        static func bookReturn(bookId: String) -> String {
+            return "\(book)/\(bookId)/return"
+        }
     }
     
     enum notice {
