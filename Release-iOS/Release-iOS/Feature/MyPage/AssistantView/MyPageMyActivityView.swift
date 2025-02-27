@@ -56,8 +56,7 @@ final class MyPageMyActivityView: UIView {
             }
             
             myActivityButtonImageView.do {
-                $0.image = .icRightArrow
-                $0.image?.withRenderingMode(.alwaysTemplate).withTintColor(.black2)
+                $0.image = .icRightArrow.withRenderingMode(.alwaysTemplate).withTintColor(.black2)
                 $0.isUserInteractionEnabled = false
             }
         }

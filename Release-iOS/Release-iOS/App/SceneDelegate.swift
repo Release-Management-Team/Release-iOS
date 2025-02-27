@@ -22,9 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         window = UIWindow(windowScene: windowScene)
-//                let navigationController = UINavigationController(rootViewController: ReleaseTabBarController())
-//                navigationController.isNavigationBarHidden = true
-//                window?.rootViewController = navigationController
         window?.rootViewController = splashVC
         window?.makeKeyAndVisible()
     }
