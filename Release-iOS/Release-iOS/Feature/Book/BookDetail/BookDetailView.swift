@@ -95,8 +95,8 @@ final class BookDetailView: UIView {
     
     //MARK: - Bind Data
     
-    func isBorrowable(isAbled: Bool) {
-        borrowButton.setTitle(isAbled ? StringLiterals.Book.avaliable : StringLiterals.Book.unavaliable, for: .normal)
+    func isBorrowable(buttonLabelText: String, isAbled: Bool) {
+        borrowButton.setTitle(buttonLabelText, for: .normal)
         borrowButton.backgroundColor = isAbled ? .primary1 : .black1
         borrowButton.isEnabled = isAbled
     }

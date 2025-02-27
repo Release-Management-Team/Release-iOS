@@ -7,10 +7,16 @@
 
 import UIKit
 
+enum EntryType {
+    case tabBar
+    case myPage
+}
+
 final class BookDetailViewController: UIViewController {
     
     //MARK: - Properties
     
+    private var entryType: EntryType
     private var bookId: String
     private var service: BookService
     
@@ -20,7 +26,8 @@ final class BookDetailViewController: UIViewController {
     
     //MARK: - Initializer
     
-    init(bookId: String, service: BookService) {
+    init(entryType: EntryType, bookId: String, service: BookService) {
+        self.entryType = entryType
         self.bookId = bookId
         self.service = service
         
@@ -82,9 +89,9 @@ extension BookDetailViewController {
         do {
             let response = try await service.getBookDetail(id: self.bookId)
             let bookEntities = makeBookEntity(from: response.book)
-            let isBorrowable = checkBookStatus(from: response.book)
+            let bookStatusResponse = checkBookStatus(from: response.book)
             rootView.bookContentView.configure(with: bookEntities)
-            rootView.isBorrowable(isAbled: isBorrowable)
+            rootView.isBorrowable(buttonLabelText: bookStatusResponse.0, isAbled: bookStatusResponse.1)
         } catch {
             print("Failed to get book: \(error)")
         }
@@ -118,14 +125,15 @@ extension BookDetailViewController {
                           statusColor: statusColor)
     }
     
-    private func checkBookStatus(from response: BookDTO) -> Bool {
-        var isBorrowable: Bool = false
-        if response.availability == "available" {
-            isBorrowable = true
+    private func checkBookStatus(from response: BookDTO) -> (String, Bool) {
+        var buttonText: String = ""
+        let isAbled = response.availability == "available"
+        if entryType == .tabBar {
+            buttonText = isAbled ? StringLiterals.Book.avaliable : StringLiterals.Book.unavaliable
         } else {
-            isBorrowable = false
+            buttonText = StringLiterals.Book.returnBook
         }
         
-        return isBorrowable
+        return (buttonText, isAbled)
     }
 }

@@ -17,6 +17,7 @@ final class MyPageView: UIView {
     private let navigationLabel = UILabel()
     private let stackView = UIStackView()
     let profileView = MyPageProfileView()
+    let myActivityView = MyPageMyActivityView()
     let changeInfoView = MyPageChangeInfoView()
     
     //MARK: - Initializer
@@ -59,6 +60,7 @@ final class MyPageView: UIView {
         }
         
         [profileView,
+         myActivityView,
          changeInfoView].forEach {
             stackView.addArrangedSubview($0)
         }
@@ -72,14 +74,15 @@ final class MyPageView: UIView {
         
         stackView.snp.makeConstraints {
             $0.top.equalTo(navigationLabel.snp.bottom).offset(19)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
             
-            profileView.snp.makeConstraints {
-                $0.leading.trailing.equalToSuperview().inset(24)
-            }
-            
-            changeInfoView.snp.makeConstraints {
-                $0.leading.trailing.equalToSuperview().inset(24)
+            [profileView,
+             myActivityView,
+             changeInfoView].forEach {
+                $0.snp.makeConstraints {
+                    $0.leading.trailing.equalToSuperview().inset(24)
+                }
+                stackView.setCustomSpacing(32, after: $0)
             }
         }
     }

@@ -46,6 +46,7 @@ struct StringLiterals {
     enum Book {
         static let avaliable = "대여하기"
         static let unavaliable = "대여 불가"
+        static let returnBook = "반납하기"
     }
     
     enum My {

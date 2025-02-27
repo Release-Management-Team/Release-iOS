@@ -56,9 +56,19 @@ final class MyPageViewController: UIViewController {
     }
     
     private func bindAction() {
+        self.rootView.myActivityView.myActivityButton.addTarget(self,
+                                                                action: #selector(myActivityButtonTapped),
+                                                                for: .touchUpInside)
         self.rootView.changeInfoView.passwordButton.addTarget(self,
                                                action: #selector(passwordButtonTapped),
                                                for: .touchUpInside)
+    }
+    
+    @objc
+    private func myActivityButtonTapped() {
+        let vc = MyPageBorrowingBookViewController(service: DefaultBookService())
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc

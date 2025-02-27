@@ -1,22 +1,22 @@
 //
-//  BookViewController.swift
+//  MyPageBorrowingBookViewController.swift
 //  Release-iOS
 //
-//  Created by 신지원 on 11/4/24.
+//  Created by 신지원 on 2/28/25.
 //
 
 import UIKit
 
-final class BookViewController: UIViewController {
+final class MyPageBorrowingBookViewController: UIViewController {
     
     //MARK: - Properties
     
     private var service: BookService
-    private var bookListData: [BookEntity] = []
+    private var borrowingBookListData: [BookEntity] = []
     
     //MARK: - UI Components
     
-    private let rootView = BookView()
+    private let rootView = MyPageBorrowingBookView()
     
     //MARK: - Initializer
     
@@ -41,6 +41,7 @@ final class BookViewController: UIViewController {
         
         setDelegate()
         setRegister()
+        bindAction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +49,8 @@ final class BookViewController: UIViewController {
         
         viewWillAppearAction()
     }
+    
+    //MARK: - Delegate & Register
     
     private func setDelegate() {
         rootView.tableView.delegate = self
@@ -61,22 +64,34 @@ final class BookViewController: UIViewController {
     //MARK: - Action
     
     private func viewWillAppearAction() {
-        navigationController?.navigationBar.isHidden = true
-        showTabBar()
+        setSmallFontNavigationBar(title: StringLiterals.Navigation.bookCheck,
+                                  left: rootView.backButton, right: nil)
+        hideTabBar()
         fetchBookList()
+    }
+    
+    private func bindAction() {
+        rootView.backButton.addTarget(self,
+                                      action: #selector(backButtonTapped),
+                                      for: .touchUpInside)
+    }
+    
+    @objc
+    private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
 //MARK: - UITableViewDataSource & UITableViewDelegate
 
-extension BookViewController: UITableViewDataSource, UITableViewDelegate {
+extension MyPageBorrowingBookViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookListData.count
+        return borrowingBookListData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BookCell.identifier, for: indexPath) as! BookCell
-        cell.configure(with: bookListData[indexPath.row])
+        cell.configure(with: borrowingBookListData[indexPath.row])
         
         return cell
     }
@@ -84,8 +99,8 @@ extension BookViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let bookID = bookListData[indexPath.row].id
-        let bookDetailVC = BookDetailViewController(entryType: .tabBar,
+        let bookID = borrowingBookListData[indexPath.row].id
+        let bookDetailVC = BookDetailViewController(entryType: .myPage,
                                                     bookId: bookID,
                                                     service: DefaultBookService())
         bookDetailVC.hidesBottomBarWhenPushed = true
@@ -95,7 +110,7 @@ extension BookViewController: UITableViewDataSource, UITableViewDelegate {
 
 //MARK: - API
 
-extension BookViewController {
+extension MyPageBorrowingBookViewController {
     private func fetchBookList() {
         Task {
             await getBookListData()
@@ -104,7 +119,7 @@ extension BookViewController {
     
     private func getBookListData() async {
         do {
-            let response = try await service.getBookList()
+            let response = try await service.getBookBorrowingList()
             let bookEntities = response.books.map { makeBookEntity(from: $0) }
             updateBookList(with: bookEntities)
         } catch {
@@ -114,7 +129,7 @@ extension BookViewController {
     
     private func updateBookList(with books: [BookEntity]) {
         DispatchQueue.main.async {
-            self.bookListData = books
+            self.borrowingBookListData = books
             self.rootView.tableView.reloadData()
         }
     }

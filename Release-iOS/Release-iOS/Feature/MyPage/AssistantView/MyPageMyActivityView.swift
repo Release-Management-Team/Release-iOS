@@ -1,8 +1,8 @@
 //
-//  MyPageChangeInfoView.swift
+//  MyPageMyActivityView.swift
 //  Release-iOS
 //
-//  Created by 신지원 on 2/27/25.
+//  Created by 신지원 on 2/28/25.
 //
 
 import UIKit
@@ -10,14 +10,14 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyPageChangeInfoView: UIView {
+final class MyPageMyActivityView: UIView {
     
     //MARK: - UI Components
     
-    private let passwordTitle = UILabel()
-    let passwordButton = UIButton()
-    private let passwordButtonLabel = UILabel()
-    private let passwordButtonImageView = UIImageView()
+    private let myActivityTitle = UILabel()
+    let myActivityButton = UIButton()
+    private let myActivityButtonLabel = UILabel()
+    private let myActivityButtonImageView = UIImageView()
     
     //MARK: - Initializer
     
@@ -38,59 +38,59 @@ final class MyPageChangeInfoView: UIView {
     private func setUI() {
         backgroundColor = .black1
         
-        passwordTitle.do {
-            $0.text = StringLiterals.My.edit
+        myActivityTitle.do {
+            $0.text = StringLiterals.My.check
             $0.font = .heading4
             $0.textColor = .gray1
         }
         
-        passwordButton.do {
+        myActivityButton.do {
             $0.layer.cornerRadius = 16
-            $0.layer.backgroundColor = UIColor.black2.cgColor
+            $0.layer.backgroundColor = UIColor.primary1.cgColor
             
-            passwordButtonLabel.do {
-                $0.text = StringLiterals.My.passwordEdit
-                $0.textColor = .gray3
+            myActivityButtonLabel.do {
+                $0.text = StringLiterals.My.bookCheck
+                $0.textColor = .black2
                 $0.font = .paragraph1
                 $0.isUserInteractionEnabled = false
             }
             
-            passwordButtonImageView.do {
+            myActivityButtonImageView.do {
                 $0.image = .icRightArrow
-                $0.image?.withRenderingMode(.alwaysTemplate).withTintColor(.gray3)
+                $0.image?.withRenderingMode(.alwaysTemplate).withTintColor(.black2)
                 $0.isUserInteractionEnabled = false
             }
         }
     }
     
     private func setHierarchy() {
-        [passwordTitle,
-         passwordButton].forEach {
+        [myActivityTitle,
+         myActivityButton].forEach {
             addSubview($0)
         }
         
-        [passwordButtonLabel,
-         passwordButtonImageView].forEach {
-            passwordButton.addSubview($0)
+        [myActivityButtonLabel,
+         myActivityButtonImageView].forEach {
+            myActivityButton.addSubview($0)
         }
     }
     
     private func setLayout() {
-        passwordTitle.snp.makeConstraints {
+        myActivityTitle.snp.makeConstraints {
             $0.top.leading.equalToSuperview()
         }
         
-        passwordButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTitle.snp.bottom).offset(8)
+        myActivityButton.snp.makeConstraints {
+            $0.top.equalTo(myActivityTitle.snp.bottom).offset(8)
             $0.leading.trailing.bottom.equalToSuperview()
             $0.height.equalTo(68)
             
-            passwordButtonLabel.snp.makeConstraints {
+            myActivityButtonLabel.snp.makeConstraints {
                 $0.leading.equalToSuperview().inset(16)
                 $0.centerY.equalToSuperview()
             }
             
-            passwordButtonImageView.snp.makeConstraints {
+            myActivityButtonImageView.snp.makeConstraints {
                 $0.trailing.equalToSuperview().inset(16)
                 $0.centerY.equalToSuperview()
                 $0.size.equalTo(24)
