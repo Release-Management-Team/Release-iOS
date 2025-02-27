@@ -51,6 +51,7 @@ final class HomeViewController: UIViewController {
     //MARK: - Action
     
     private func viewWillAppearAction() {
+        navigationController?.navigationBar.isHidden = true
         showTabBar()
         rootView.setupGreetingLabel()
         
@@ -69,7 +70,7 @@ final class HomeViewController: UIViewController {
     
     @objc
     private func noticeButtonTapped() {
-        let noticeViewController = NoticeViewController()
+        let noticeViewController = NoticeViewController(service: DefaultNoticeService())
         noticeViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(noticeViewController, animated: true)
     }
@@ -80,8 +81,8 @@ final class HomeViewController: UIViewController {
 extension HomeViewController {
     private func getNoticeData() async {
         do {
-            let respone = try await service.getNoticeList()
-            bindNoticeCell(notices: respone)
+            let response = try await service.getNoticeList()
+            bindNoticeCell(notices: response)
         } catch {
             print("Failed to get notice: \(error.localizedDescription)")
         }
@@ -96,5 +97,3 @@ extension HomeViewController {
         }
     }
 }
-
-

@@ -1,0 +1,14 @@
+//
+//  Config.xcconfig
+//  Release-iOS
+//
+//  Created by 신지원 on 11/18/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = http:/$()/jinnysoo.iptime.org:8000
+//BASE_URL = http:/$()/10.1.12.49:8000
+ACCESE_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMTQwMDAwIiwidG9rZW5fdHlwZSI6IkFDQ0VTUyIsImV4cCI6MTc0MDkzNDIxMn0.QWxmKxbAI2jaEIJVTyVHATf66Y87sBbT87-EqfWpYmE"
+APP_STORE_ID = 6738337157

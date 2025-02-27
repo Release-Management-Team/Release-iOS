@@ -97,8 +97,7 @@ final class HomeView: UIView {
     private func setHierarchy() {
         [logoImageView,
          notificationButton,
-         combineView,
-         weeklyLabel].forEach {
+         combineView].forEach {
             addSubview($0)
         }
         
@@ -147,11 +146,6 @@ final class HomeView: UIView {
                 $0.top.bottom.equalToSuperview().inset(24)
                 $0.leading.trailing.equalToSuperview().inset(16)
             }
-        }
-        
-        weeklyLabel.snp.makeConstraints {
-            $0.top.equalTo(noticeView.snp.bottom).offset(32)
-            $0.leading.equalToSuperview().offset(24)
         }
     }
     

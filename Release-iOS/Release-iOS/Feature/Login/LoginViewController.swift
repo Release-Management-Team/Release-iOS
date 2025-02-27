@@ -71,7 +71,7 @@ final class LoginViewController: UIViewController {
                     /// 화면 전환
                     self.rootView.loginErrorLabel.isHidden = true
                     let tabBarVC = ReleaseTabBarController()
-                    self.navigationController?.isNavigationBarHidden = true
+                    self.navigationController?.navigationBar.isHidden = true
                     self.navigationController?.pushViewController(tabBarVC, animated: true)
                 }
             } else {
