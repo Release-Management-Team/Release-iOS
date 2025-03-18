@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 74;
+	objectVersion = 76;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,37 +16,31 @@
 
 /* Begin PBXFileReference section */
 		2C866FD42CD7C8D800A78039 /* Release-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Release-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4122BED2D8922F300A98D8F /* Release-iOSRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Release-iOSRelease.entitlements"; sourceTree = "<group>"; };
-		E44E1D322D708CBB00A60201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E4F51F942D708452007F685F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		E4122DED2D89253800A98D8F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				/Localized/LaunchScreen.storyboard,
+				/Localized/App/LaunchScreen.storyboard,
+				Info.plist,
 			);
 			target = 2C866FD32CD7C8D800A78039 /* Release-iOS */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		E4F51F952D708452007F685F /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+		E4122DEE2D89253800A98D8F /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 2C866FD22CD7C8D800A78039 /* Resources */;
 			membershipExceptions = (
-				Base.lproj/LaunchScreen.storyboard,
+				App/Base.lproj/LaunchScreen.storyboard,
 			);
 		};
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		E420DDFE2D59D0C7009828BE /* Feature */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Feature; sourceTree = "<group>"; };
-		E4610B392D7071C100DABF0C /* Entity */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Entity; sourceTree = "<group>"; };
-		E4B539C72D5F456500F5D479 /* Config */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Config; sourceTree = "<group>"; };
-		E4B539D92D5F713300F5D479 /* Util */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Util; sourceTree = "<group>"; };
-		E4F51F752D708395007F685F /* Network */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Network; sourceTree = "<group>"; };
-		E4F51F932D70844B007F685F /* App */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E4F51F942D708452007F685F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E4F51F952D708452007F685F /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = App; sourceTree = "<group>"; };
+		E4122DA42D89253800A98D8F /* Release-iOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E4122DED2D89253800A98D8F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E4122DEE2D89253800A98D8F /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Release-iOS"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +62,7 @@
 		2C866FCB2CD7C8D800A78039 = {
 			isa = PBXGroup;
 			children = (
-				2C866FD62CD7C8D800A78039 /* Release-iOS */,
+				E4122DA42D89253800A98D8F /* Release-iOS */,
 				2C866FD52CD7C8D800A78039 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,21 +73,6 @@
 				2C866FD42CD7C8D800A78039 /* Release-iOS.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2C866FD62CD7C8D800A78039 /* Release-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E4122BED2D8922F300A98D8F /* Release-iOSRelease.entitlements */,
-				E4F51F932D70844B007F685F /* App */,
-				E4F51F752D708395007F685F /* Network */,
-				E4610B392D7071C100DABF0C /* Entity */,
-				E4B539D92D5F713300F5D479 /* Util */,
-				E4B539C72D5F456500F5D479 /* Config */,
-				E420DDFE2D59D0C7009828BE /* Feature */,
-				E44E1D322D708CBB00A60201 /* Info.plist */,
-			);
-			path = "Release-iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,12 +91,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				E420DDFE2D59D0C7009828BE /* Feature */,
-				E4610B392D7071C100DABF0C /* Entity */,
-				E4B539C72D5F456500F5D479 /* Config */,
-				E4B539D92D5F713300F5D479 /* Util */,
-				E4F51F752D708395007F685F /* Network */,
-				E4F51F932D70844B007F685F /* App */,
+				E4122DA42D89253800A98D8F /* Release-iOS */,
 			);
 			name = "Release-iOS";
 			packageProductDependencies = (
@@ -194,8 +168,8 @@
 /* Begin XCBuildConfiguration section */
 		2C866FE62CD7C8DA00A78039 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = E4B539C72D5F456500F5D479 /* Config */;
-			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			baseConfigurationReferenceAnchor = E4122DA42D89253800A98D8F /* Release-iOS */;
+			baseConfigurationReferenceRelativePath = Config/Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -259,8 +233,8 @@
 		};
 		2C866FE72CD7C8DA00A78039 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = E4B539C72D5F456500F5D479 /* Config */;
-			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			baseConfigurationReferenceAnchor = E4122DA42D89253800A98D8F /* Release-iOS */;
+			baseConfigurationReferenceRelativePath = Config/Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -317,8 +291,8 @@
 		};
 		2C866FE92CD7C8DA00A78039 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = E4B539C72D5F456500F5D479 /* Config */;
-			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			baseConfigurationReferenceAnchor = E4122DA42D89253800A98D8F /* Release-iOS */;
+			baseConfigurationReferenceRelativePath = Config/Config.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -356,8 +330,8 @@
 		};
 		2C866FEA2CD7C8DA00A78039 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = E4B539C72D5F456500F5D479 /* Config */;
-			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			baseConfigurationReferenceAnchor = E4122DA42D89253800A98D8F /* Release-iOS */;
+			baseConfigurationReferenceRelativePath = Config/Config.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
