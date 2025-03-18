@@ -11,10 +11,12 @@
 		2C866FF02CD7C8F900A78039 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C866FEF2CD7C8F900A78039 /* SnapKit */; };
 		2C866FF32CD7C8FF00A78039 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2C866FF22CD7C8FF00A78039 /* Then */; };
 		2C866FF62CD7C90600A78039 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2C866FF52CD7C90600A78039 /* Lottie */; };
+		E4122BE42D8921A400A98D8F /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E4122BE32D8921A400A98D8F /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C866FD42CD7C8D800A78039 /* Release-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Release-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4122BED2D8922F300A98D8F /* Release-iOSRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Release-iOSRelease.entitlements"; sourceTree = "<group>"; };
 		E44E1D322D708CBB00A60201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +56,7 @@
 			files = (
 				2C866FED2CD7C8F100A78039 /* Kingfisher in Frameworks */,
 				2C866FF32CD7C8FF00A78039 /* Then in Frameworks */,
+				E4122BE42D8921A400A98D8F /* FirebaseMessaging in Frameworks */,
 				2C866FF02CD7C8F900A78039 /* SnapKit in Frameworks */,
 				2C866FF62CD7C90600A78039 /* Lottie in Frameworks */,
 			);
@@ -81,6 +84,7 @@
 		2C866FD62CD7C8D800A78039 /* Release-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E4122BED2D8922F300A98D8F /* Release-iOSRelease.entitlements */,
 				E4F51F932D70844B007F685F /* App */,
 				E4F51F752D708395007F685F /* Network */,
 				E4610B392D7071C100DABF0C /* Entity */,
@@ -121,6 +125,7 @@
 				2C866FEF2CD7C8F900A78039 /* SnapKit */,
 				2C866FF22CD7C8FF00A78039 /* Then */,
 				2C866FF52CD7C90600A78039 /* Lottie */,
+				E4122BE32D8921A400A98D8F /* FirebaseMessaging */,
 			);
 			productName = "Release-iOS";
 			productReference = 2C866FD42CD7C8D800A78039 /* Release-iOS.app */;
@@ -154,6 +159,7 @@
 				2C866FEE2CD7C8F900A78039 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2C866FF12CD7C8FF00A78039 /* XCRemoteSwiftPackageReference "Then" */,
 				2C866FF42CD7C90600A78039 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				E4122BE22D8921A400A98D8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 56;
 			productRefGroup = 2C866FD52CD7C8D800A78039 /* Products */;
@@ -355,6 +361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Release-iOS/Release-iOSRelease.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2024120801;
@@ -443,6 +450,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		E4122BE22D8921A400A98D8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -465,6 +480,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C866FF42CD7C90600A78039 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		E4122BE32D8921A400A98D8F /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4122BE22D8921A400A98D8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
