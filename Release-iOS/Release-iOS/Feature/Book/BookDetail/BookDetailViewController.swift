@@ -68,11 +68,23 @@ final class BookDetailViewController: UIViewController {
         self.rootView.backButton.addTarget(self,
                                            action: #selector(backButtonTapped),
                                            for: .touchUpInside)
+        self.rootView.borrowButton.addTarget(self,
+                                             action: #selector(borrowButtonTapped),
+                                             for: .touchUpInside)
     }
     
     @objc
     private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func borrowButtonTapped() {
+        let bookQRReaderVC = BookQRReaderController(entryType: entryType,
+                                                    bookId: bookId,
+                                                    service: service)
+        bookQRReaderVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(bookQRReaderVC, animated: true)
     }
 }
 

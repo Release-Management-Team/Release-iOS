@@ -55,4 +55,16 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = left != nil ? UIBarButtonItem(customView: left!) : nil
         self.navigationItem.rightBarButtonItem = right != nil ? UIBarButtonItem(customView: right!) : nil
     }
+    
+    //MARK: - Alert
+    
+    func showAlert(title: String, message: String, okAction: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+            okAction?()
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
