@@ -7,16 +7,10 @@
 
 import UIKit
 
-enum EntryType {
-    case tabBar
-    case myPage
-}
-
 final class BookDetailViewController: UIViewController {
     
     //MARK: - Properties
-    
-    private var entryType: EntryType
+
     private var bookId: String
     private var service: BookService
     
@@ -26,8 +20,7 @@ final class BookDetailViewController: UIViewController {
     
     //MARK: - Initializer
     
-    init(entryType: EntryType, bookId: String, service: BookService) {
-        self.entryType = entryType
+    init( bookId: String, service: BookService) {
         self.bookId = bookId
         self.service = service
         
