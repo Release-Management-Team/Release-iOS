@@ -41,6 +41,8 @@ final class BookQRReaderView: UIView {
         if previewLayer.superlayer == nil {
             layer.insertSublayer(previewLayer, at: 0)
         }
+        
+        updateMask()
     }
     
     //MARK: - Setup UI
@@ -86,9 +88,15 @@ final class BookQRReaderView: UIView {
         }
     }
     
-    //MARK: - Update UI
-    
-    var scanRectInPreviewLayer: CGRect {
-        return previewLayer.metadataOutputRectConverted(fromLayerRect: scanAreaView.frame)
+    private func updateMask() {
+        layoutIfNeeded()
+        
+        let path = UIBezierPath(rect: self.bounds)
+        let scanRect = scanAreaView.frame
+        let transparentPath = UIBezierPath(roundedRect: scanRect, cornerRadius: 0)
+        path.append(transparentPath)
+        path.usesEvenOddFillRule = true
+        
+        dimmedLayer.path = path.cgPath
     }
 }

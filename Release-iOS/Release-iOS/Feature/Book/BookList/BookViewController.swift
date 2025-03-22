@@ -85,8 +85,7 @@ extension BookViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let bookID = bookListData[indexPath.row].id
-        let bookDetailVC = BookDetailViewController(entryType: .tabBar,
-                                                    bookId: bookID,
+        let bookDetailVC = BookDetailViewController(bookId: bookID,
                                                     service: DefaultBookService())
         bookDetailVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(bookDetailVC, animated: true)

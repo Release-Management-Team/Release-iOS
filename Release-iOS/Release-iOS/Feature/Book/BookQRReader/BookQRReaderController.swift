@@ -8,11 +8,16 @@
 import AVFoundation
 import UIKit
 
+enum LibraryOperation {
+    case borrowBook
+    case returnBook
+}
+
 final class BookQRReaderController: UIViewController {
     
     //MARK: - Properties
     
-    private var entryType: EntryType
+    private var libraryOperation: LibraryOperation
     private var bookId: String
     private var service: BookService
     
@@ -25,8 +30,8 @@ final class BookQRReaderController: UIViewController {
     
     //MARK: - Initializer
     
-    init(entryType: EntryType, bookId: String, service: BookService) {
-        self.entryType = entryType
+    init(libraryOperation: LibraryOperation, bookId: String, service: BookService) {
+        self.libraryOperation = libraryOperation
         self.bookId = bookId
         self.service = service
         
@@ -50,12 +55,7 @@ final class BookQRReaderController: UIViewController {
         bindAction()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-    }
-    
-    //MARK: - Camera 
+    //MARK: - Camera
     
     private func checkCameraPermission() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -94,7 +94,6 @@ final class BookQRReaderController: UIViewController {
         session.addOutput(output)
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         output.metadataObjectTypes = [.qr]
-        output.rectOfInterest = rootView.scanRectInPreviewLayer
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
         rootView.previewLayer = previewLayer
@@ -125,9 +124,19 @@ final class BookQRReaderController: UIViewController {
         print("Found code: \(code)")
         captureSession?.stopRunning()
         
-        //TODO: 서버연결
+        Task {
+            let isSuccess = await handleQRCode(code: code)
+            
+            if isSuccess {
+                showAlert(title: "QR 처리 완료", message: "도서 처리가 성공적으로 완료되었습니다.") {
+                    self.dismissAction()
+                }
+            } else {
+                showAlert(title: "QR 처리 실패", message: "잠시 후 다시 시도해주세요.")
+            }
+        }
     }
-
+    
     private func dismissAction() {
         navigationController?.popViewController(animated: true)
     }
@@ -136,7 +145,31 @@ final class BookQRReaderController: UIViewController {
     private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
+    
+    //MARK: - Custom Method
+    
+    private func handleQRCode(code: String) async -> Bool {
+        if libraryOperation == .borrowBook {
+            do {
+                try await service.postBookBorrow(bookId: bookId, qrCode: code)
+                return true
+            } catch {
+                print("borrow failed: \(error.localizedDescription)")
+                return false
+            }
+        } else {
+            do {
+                try await service.postBookReturn(bookId: bookId, qrCode: code)
+                return true
+            } catch {
+                print("return failed: \(error.localizedDescription)")
+                return false
+            }
+        }
+    }
 }
+
+//MARK: - AVCaptureMetadataOutputObjectsDelegate
 
 extension BookQRReaderController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -147,5 +180,25 @@ extension BookQRReaderController: AVCaptureMetadataOutputObjectsDelegate {
         
         isReading = true
         found(code: stringValue)
+    }
+}
+
+//MARK: - API
+
+extension BookQRReaderController {
+    private func bookBorrow(qrCode: String) async {
+        do {
+            try await service.postBookBorrow(bookId: self.bookId, qrCode: qrCode)
+        } catch {
+            print("Borrowing Book failed: \(error.localizedDescription)")
+        }
+    }
+    
+    private func bookReturn(qrCode: String) async {
+        do {
+            try await service.postBookBorrow(bookId: self.bookId, qrCode: qrCode)
+        } catch {
+            print("Returning Book failed: \(error.localizedDescription)")
+        }
     }
 }
