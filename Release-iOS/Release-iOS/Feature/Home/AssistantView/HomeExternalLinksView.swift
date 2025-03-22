@@ -100,8 +100,8 @@ final class HomeExternalLinksView: UIView {
     
     private func setLayout() {
         linksTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(16)
-            $0.leading.equalToSuperview().inset(40)
+            $0.top.equalToSuperview().inset(40)
+            $0.leading.equalToSuperview().inset(24)
         }
         
         websiteButton.snp.makeConstraints {

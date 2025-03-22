@@ -9,15 +9,14 @@ import UIKit
 
 enum ReleaseTabBarItem: CaseIterable {
     
-//    case home, activity, book, myPage
-    case home,  book, myPage
+    case home, activity, book, myPage
     
     var normalItemImage: UIImage {
         switch self {
         case .home:
             return .icHome.withTintColor(.gray3, renderingMode: .alwaysTemplate)
-//        case .activity:
-//            return .icStudy.withTintColor(.gray3, renderingMode: .alwaysTemplate)
+        case .activity:
+            return .icStudy.withTintColor(.gray3, renderingMode: .alwaysTemplate)
         case .book:
             return .icBook.withTintColor(.gray3, renderingMode: .alwaysTemplate)
         case .myPage:
@@ -29,8 +28,8 @@ enum ReleaseTabBarItem: CaseIterable {
         switch self {
         case .home:
             return .icHome.withTintColor(.primary1, renderingMode: .alwaysTemplate)
-//        case .activity:
-//            return .icStudy.withTintColor(.primary1, renderingMode: .alwaysTemplate)
+        case .activity:
+            return .icStudy.withTintColor(.primary1, renderingMode: .alwaysTemplate)
         case .book:
             return .icBook.withTintColor(.primary1, renderingMode: .alwaysTemplate)
         case .myPage:
@@ -42,8 +41,8 @@ enum ReleaseTabBarItem: CaseIterable {
         switch self {
         case .home:
             return "홈"
-//        case .activity:
-//            return "활동"
+        case .activity:
+            return "활동"
         case .book:
             return "도서"
         case .myPage:
@@ -55,8 +54,8 @@ enum ReleaseTabBarItem: CaseIterable {
         switch self {
         case .home:
             return HomeViewController(service: DefaultNoticeService())
-//        case .activity:
-//            return ActivityViewController()
+        case .activity:
+            return ActivityViewController(service: DefaultActivityService())
         case .book:
             return BookViewController(service: DefaultBookService())
         case .myPage:

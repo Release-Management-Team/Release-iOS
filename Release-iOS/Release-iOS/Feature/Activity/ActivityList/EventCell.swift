@@ -111,35 +111,11 @@ class EventCell: UITableViewCell {
         }
     }
     
-    func configure(with data: EventDTO) {
-        titleLabel.text = data.name
-        descriptionLabel.text = data.description
-        var start_time = ""
-        var end_time = ""
-        if let formattedStartDate = convertDate(data.start_time) {
-            start_time = formattedStartDate
-        }
-        if let formattedEndDate = convertDate(data.end_time) {
-            end_time = formattedEndDate
-        }
-        
-        timeLabel.text = start_time + " ~ " + end_time
-        locationLabel.text = data.place
-    }
+    //MARK: - Bind Data
     
-    private func convertDate(_ dateString: String) -> String? {
-        let isoFormatter = ISO8601DateFormatter()
-        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        
-        if let date = isoFormatter.date(from: dateString) {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-            dateFormatter.locale = Locale(identifier: "ko_KR")
-            dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
-            
-            return dateFormatter.string(from: date)
-        }
-        
-        return nil
+    func configure(with data: EventEntity) {
+        titleLabel.text = data.title
+        timeLabel.text = data.start_time
+        locationLabel.text = data.place
     }
 }

@@ -48,7 +48,6 @@ final class MyPageProfileContentView: UIView {
         }
         
         profileNameLabel.do {
-            $0.text = StringLiterals.My.dummyName
             $0.font = .heading3
             $0.textColor = .gray1
         }

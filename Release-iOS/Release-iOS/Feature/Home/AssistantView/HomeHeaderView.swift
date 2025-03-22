@@ -133,8 +133,10 @@ final class HomeHeaderView: UIView {
             $0.leading.trailing.bottom.equalToSuperview()
             
             noticeContentLabel.snp.makeConstraints {
-                $0.top.bottom.equalToSuperview().inset(24)
+                $0.top.equalToSuperview().inset(24)
                 $0.leading.trailing.equalToSuperview().inset(16)
+                $0.height.equalTo(30)
+                $0.bottom.equalToSuperview()
             }
         }
     }
