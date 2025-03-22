@@ -146,20 +146,25 @@ final class ActivityCell: UITableViewCell {
     
     //MARK: - Bind Data
     
-    func configure(with activity: ActivityDTO) {
+    func configure(with activity: ActivityEntity) {
 //        activityImageView.kfSetImage(url: activity.image)
         activityImageView.image = .dummyLogo
-        titleLabel.text = activity.name
-        contentLabel.text = activity.tags.joined(separator: ", ")
+        titleLabel.text = activity.title
         personLabel.text = activity.leader
         
-        if activity.state == "recruiting" {
+        if activity.info == .study {
+            categoryLabel.text = "스터디"
+        } else {
+            categoryLabel.text = "프로젝트"
+        }
+
+        if activity.state == .recruiting {
             statusLabel.text = "모집 중"
             statusLabel.backgroundColor = .primary1
-        } else if activity.state == "before_recruit" {
+        } else if activity.state == .beforeRecruit {
             statusLabel.text = "모집 예정"
             statusLabel.backgroundColor = .primary2
-        } else if activity.state == "running" {
+        } else if activity.state == .running {
             statusLabel.text = "모집 마감"
             statusLabel.backgroundColor = .primary2
         }

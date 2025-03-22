@@ -7,14 +7,13 @@
 
 import Foundation
 
-struct EventResponse: Decodable {
-    let evets: [EventDTO]
+struct EventsResponse: Decodable {
+    let events: [EventDTO]
 }
 
 struct EventDTO: Codable {
-    let name: String
-    let description: String
+    let id: Int
+    let title: String
     let start_time: String
-    let end_time: String
     let place: String
 }

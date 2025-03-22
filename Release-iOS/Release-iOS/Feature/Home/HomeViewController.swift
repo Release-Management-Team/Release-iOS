@@ -8,7 +8,7 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-
+    
     //MARK: - Properties
     
     private var service: NoticeService
@@ -63,9 +63,21 @@ final class HomeViewController: UIViewController {
     }
     
     private func bindAction() {
-        rootView.notificationButton.addTarget(self,
-                                              action: #selector(noticeButtonTapped),
-                                              for: .touchUpInside)
+        rootView.headerView.notificationButton.addTarget(self,
+                                                         action: #selector(noticeButtonTapped),
+                                                         for: .touchUpInside)
+        
+        rootView.homeExternalLinkView.websiteButton.addTarget(self,
+                                                              action: #selector(webSiteButtonTapped),
+                                                              for: .touchUpInside)
+        
+        rootView.homeExternalLinkView.notionButton.addTarget(self,
+                                                             action: #selector(notionButtonTapped),
+                                                             for: .touchUpInside)
+        
+        rootView.homeExternalLinkView.discordButton.addTarget(self,
+                                                              action: #selector(discordButtonTapped),
+                                                              for: .touchUpInside)
     }
     
     @objc
@@ -73,6 +85,32 @@ final class HomeViewController: UIViewController {
         let noticeViewController = NoticeViewController(service: DefaultNoticeService())
         noticeViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(noticeViewController, animated: true)
+    }
+    
+    @objc
+    private func webSiteButtonTapped() {
+        openURL("https://release.sogang.ac.kr")
+    }
+    
+    @objc
+    private func notionButtonTapped() {
+        openURL("https://smoggy-energy-2f8.notion.site/Release-18be6c14480080d6be3bc9aff9947e45")
+    }
+    
+    @objc
+    private func discordButtonTapped() {
+        openURL("https://discord.gg/5P5q9m4H5Y")
+    }
+    
+    //MARK: - Custom Method
+    
+    func openURL(_ urlString: String) {
+        guard let url = URL(string: urlString),
+              UIApplication.shared.canOpenURL(url) else {
+            print("❌ 유효하지 않은 URL입니다: \(urlString)")
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 

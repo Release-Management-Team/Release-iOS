@@ -35,6 +35,11 @@ struct StringLiterals {
         static let notice = "Notice"
         static let weekly = "Weekly Events"
         static let weeklyDay = ["월", "화", "수", "목", "금", "토", "일"]
+        
+        static let linksTitle = "릴리즈 플랫폼 바로가기"
+        static let website = "Website"
+        static let notion = "Notion"
+        static let discord = "Discord"
     }
     
     enum Activity {

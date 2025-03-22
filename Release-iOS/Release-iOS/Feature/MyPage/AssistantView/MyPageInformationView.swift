@@ -165,7 +165,7 @@ final class MyPageInformationView: UIView {
         majorLabel.text = data.department
         
         let status = data.state
-        periodLabel.text = data.joined_semester + "~ " + status
+        periodLabel.text = data.joined_semester + " ~ " + status
         emailLabel.text = data.email
         phoneLabel.text = data.phone
     }

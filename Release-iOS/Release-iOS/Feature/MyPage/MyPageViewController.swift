@@ -39,21 +39,17 @@ final class MyPageViewController: UIViewController {
         super.viewDidLoad()
         
         bindAction()
+        fetchProfileData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        viewWillAppearAction()
+        navigationController?.navigationBar.isHidden = true
+        showTabBar()
     }
     
     //MARK: - Action
-    
-    private func viewWillAppearAction() {
-        showTabBar()
-        navigationController?.navigationBar.isHidden = true
-        fetchProfileData()
-    }
     
     private func bindAction() {
         self.rootView.myActivityView.myActivityButton.addTarget(self,

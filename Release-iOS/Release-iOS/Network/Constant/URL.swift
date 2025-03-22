@@ -45,7 +45,6 @@ struct ReleaseURL {
     
     enum activity {
         static let activity = "/activity"
-        static let studies = activity + "/studies"
-        static let projects = activity + "/projects"
+        static let event = activity + "/event"
     }
 }
