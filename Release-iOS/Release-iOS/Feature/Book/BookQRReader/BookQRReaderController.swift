@@ -47,12 +47,15 @@ final class BookQRReaderController: UIViewController {
         super.viewDidLoad()
         
         checkCameraPermission()
+        bindAction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
     }
+    
+    //MARK: - Camera 
     
     private func checkCameraPermission() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -91,15 +94,25 @@ final class BookQRReaderController: UIViewController {
         session.addOutput(output)
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         output.metadataObjectTypes = [.qr]
+        output.rectOfInterest = rootView.scanRectInPreviewLayer
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
         rootView.previewLayer = previewLayer
         
-        session.startRunning()
+        ///카메라는 백그라운드에서 돌리도록 !
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.startRunning()
+        }
         self.captureSession = session
     }
     
     //MARK: - Action
+    
+    private func bindAction() {
+        self.rootView.backButton.addTarget(self,
+                                           action: #selector(backButtonTapped),
+                                           for: .touchUpInside)
+    }
     
     private func fail() {
         print("카메라 사용 불가")
@@ -111,13 +124,18 @@ final class BookQRReaderController: UIViewController {
     private func found(code: String) {
         print("Found code: \(code)")
         captureSession?.stopRunning()
-        // 전달 처리 (delegate or coordinator or viewModel)
+        
+        //TODO: 서버연결
     }
 
     private func dismissAction() {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc
+    private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension BookQRReaderController: AVCaptureMetadataOutputObjectsDelegate {
