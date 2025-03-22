@@ -47,7 +47,10 @@ final class MyPageBorrowingBookViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        viewWillAppearAction()
+        setSmallFontNavigationBar(title: StringLiterals.Navigation.bookCheck,
+                                  left: rootView.backButton, right: nil)
+        hideTabBar()
+        fetchBookList()
     }
     
     //MARK: - Delegate & Register
@@ -62,13 +65,6 @@ final class MyPageBorrowingBookViewController: UIViewController {
     }
     
     //MARK: - Action
-    
-    private func viewWillAppearAction() {
-        setSmallFontNavigationBar(title: StringLiterals.Navigation.bookCheck,
-                                  left: rootView.backButton, right: nil)
-        hideTabBar()
-        fetchBookList()
-    }
     
     private func bindAction() {
         rootView.backButton.addTarget(self,
@@ -100,11 +96,11 @@ extension MyPageBorrowingBookViewController: UITableViewDataSource, UITableViewD
         tableView.deselectRow(at: indexPath, animated: true)
         
         let bookID = borrowingBookListData[indexPath.row].id
-        let bookDetailVC = BookDetailViewController(entryType: .myPage,
+        let bookQRReaderVC = BookQRReaderController(libraryOperation: .returnBook,
                                                     bookId: bookID,
                                                     service: DefaultBookService())
-        bookDetailVC.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(bookDetailVC, animated: true)
+        bookQRReaderVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(bookQRReaderVC, animated: true)
     }
 }
 
@@ -136,23 +132,8 @@ extension MyPageBorrowingBookViewController {
     
     private func makeBookEntity(from response: BookDTO) -> BookEntity {
         let tags = response.tags.joined(separator: ", ")
-        var statusText: String = ""
-        var statusColor: UIColor = .primary1
-        switch response.availability {
-        case "available":
-            statusText = "대여 가능"
-            statusColor = .primary1
-        case "unavailable":
-            statusText = "대여 불가"
-            statusColor = .primary2
-        case "rented":
-            statusText = "대여 중"
-            statusColor = .primary2
-        default:
-            statusText = ""
-            statusColor = .clear
-        }
-        
+        let statusText: String = StringLiterals.Book.returnBook
+        let statusColor: UIColor = .primary5
         return BookEntity(id: response.id,
                           imageURL: response.image,
                           title: response.title,

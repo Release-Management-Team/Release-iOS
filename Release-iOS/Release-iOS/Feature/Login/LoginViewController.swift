@@ -107,7 +107,6 @@ extension LoginViewController {
     private func login(loginData: LoginRequest) async -> LoginResponse? {
         do {
             let response = try await service.login(loginData: loginData)
-            print(response, "😄")
             return response
         } catch {
             print("Login failed: \(error.localizedDescription)")

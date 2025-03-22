@@ -10,7 +10,7 @@ import UIKit
 final class BookDetailViewController: UIViewController {
     
     //MARK: - Properties
-
+    
     private var bookId: String
     private var service: BookService
     
@@ -41,21 +41,17 @@ final class BookDetailViewController: UIViewController {
         super.viewDidLoad()
         
         bindAction()
-        fetchBookList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        viewWillAppearAction()
+        navigationController?.navigationBar.isHidden = true
+        hideTabBar()
+        fetchBookList()
     }
     
     //MARK: - Action
-    
-    private func viewWillAppearAction() {
-        navigationController?.navigationBar.isHidden = true
-        hideTabBar()
-    }
     
     private func bindAction() {
         self.rootView.backButton.addTarget(self,
@@ -73,7 +69,7 @@ final class BookDetailViewController: UIViewController {
     
     @objc
     private func borrowButtonTapped() {
-        let bookQRReaderVC = BookQRReaderController(entryType: entryType,
+        let bookQRReaderVC = BookQRReaderController(libraryOperation: .borrowBook,
                                                     bookId: bookId,
                                                     service: service)
         bookQRReaderVC.hidesBottomBarWhenPushed = true
@@ -131,13 +127,8 @@ extension BookDetailViewController {
     }
     
     private func checkBookStatus(from response: BookDTO) -> (String, Bool) {
-        var buttonText: String = ""
         let isAbled = response.availability == "available"
-        if entryType == .tabBar {
-            buttonText = isAbled ? StringLiterals.Book.avaliable : StringLiterals.Book.unavaliable
-        } else {
-            buttonText = StringLiterals.Book.returnBook
-        }
+        let buttonText = isAbled ? StringLiterals.Book.avaliable : StringLiterals.Book.unavaliable
         
         return (buttonText, isAbled)
     }

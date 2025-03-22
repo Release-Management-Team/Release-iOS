@@ -46,7 +46,7 @@ final class DefaultBookService: Networking, BookService {
     
     func getBookBorrowingList() async throws -> BooksResponse {
         let request = try makeHTTPRequest(method: .get,
-                                          path: ReleaseURL.book.bookBorrow,
+                                          path: ReleaseURL.book.bookBorrowList,
                                           headers: APIConstants.tokenHeaders)
         
         let (data, response) = try await URLSession.shared.data(for: request)
