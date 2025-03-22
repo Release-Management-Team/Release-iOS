@@ -173,9 +173,9 @@ extension ActivityViewController {
         
         let stateString: ActivityState
         if response.state == 0 {
-            stateString = .recruiting
-        } else if (response.state == 1) {
             stateString = .beforeRecruit
+        } else if (response.state == 1) {
+            stateString = .recruiting
         } else {
             stateString = .running
         }
