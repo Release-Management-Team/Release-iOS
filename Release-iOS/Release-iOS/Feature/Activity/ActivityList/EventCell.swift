@@ -8,8 +8,9 @@
 import UIKit
 
 import SnapKit
+import Then
 
-class EventCell: UITableViewCell {
+final class EventCell: UITableViewCell {
     
     //MARK: - Properties
     
@@ -27,32 +28,26 @@ class EventCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupUI()
-        setupLayout()
+        
+        setUI()
+        setHierarchy()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Configure Cell
-    
-    func configure(title: String, time: String, location: String, description: String) {
-        titleLabel.text = title
-        timeLabel.text = time
-        locationLabel.text = location
-        descriptionLabel.text = description
-    }
-    
     //MARK: - Setup UI
     
-    private func setupUI() {
+    private func setUI() {
         contentView.backgroundColor = .black1
-        contentView.addSubview(containerView)
         
-        containerView.backgroundColor = .black2
-        containerView.layer.cornerRadius = 16
-        containerView.layer.masksToBounds = true
+        containerView.do {
+            $0.backgroundColor = .black2
+            $0.layer.cornerRadius = 16
+            $0.layer.masksToBounds = true
+        }
         
         titleLabel.do {
             $0.font = .heading4
@@ -68,46 +63,38 @@ class EventCell: UITableViewCell {
             $0.font = .paragraph2
             $0.textColor = .gray3
         }
-        
-        descriptionLabel.do {
-            $0.font = .paragraph2
-            $0.textColor = .gray5
-            $0.numberOfLines = 2
-        }
-        
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(timeLabel)
-        containerView.addSubview(locationLabel)
-        containerView.addSubview(descriptionLabel)
     }
     
-    //MARK: - Setup Layout
+    private func setHierarchy() {
+        contentView.addSubview(containerView)
+        
+        [titleLabel,
+         timeLabel,
+         locationLabel].forEach {
+            containerView.addSubview($0)
+        }
+    }
     
-    private func setupLayout() {
-        containerView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(8)
+    private func setLayout() {
+        containerView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(8)
         }
         
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(12)
-            make.leading.equalToSuperview().inset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(12)
+            $0.leading.equalToSuperview().inset(16)
         }
         
-        locationLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().inset(16)
+        locationLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().inset(16)
         }
         
-        timeLabel.snp.makeConstraints { make in
-            make.top.equalTo(locationLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().inset(16)
-        }
-        
-        descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(timeLabel.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(12)
+        timeLabel.snp.makeConstraints {
+            $0.top.equalTo(locationLabel.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(12)
         }
     }
     

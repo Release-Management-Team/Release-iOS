@@ -45,7 +45,7 @@ final class BookView: UIView {
         tableView.do {
             $0.backgroundColor = .black1
             $0.separatorStyle = .none
-            $0.showsVerticalScrollIndicator = false
+            $0.showsVerticalScrollIndicator = true
             $0.showsHorizontalScrollIndicator = false
         }
     }

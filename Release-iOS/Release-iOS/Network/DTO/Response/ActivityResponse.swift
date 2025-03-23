@@ -15,7 +15,18 @@ struct ActivityDTO: Decodable {
     let id: Int
     let title: String
     let leader: String
-    let image: String
+    let image: String?
+    let info: Int
+    let state: Int
+}
+
+struct ActivityDetailDTO: Decodable {
+    let id: Int
+    let title: String
+    let content: String
+    let leader: String
+    let image: String?
+    let link: String
     let info: Int
     let state: Int
 }

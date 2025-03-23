@@ -52,6 +52,7 @@ final class ActivityViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         showTabBar()
         fetchActivityList()
+        fetchEventList()
     }
     
     //MARK: - Delegate & Register
@@ -105,14 +106,15 @@ extension ActivityViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if isStudy {
-            let detailVC = ActivityDetailViewController(activity: activityData[indexPath.row])
+            let detailVC = ActivityDetailViewController(activityId: activityData[indexPath.row].id,
+                                                        service: DefaultActivityService())
             detailVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        isStudy ? 134 : 166
+        isStudy ? 134 : 100
     }
 }
 
@@ -122,6 +124,11 @@ extension ActivityViewController {
     private func fetchActivityList() {
         Task {
             await getActivityListData()
+        }
+    }
+    
+    private func fetchEventList() {
+        Task {
             await getEventListData()
         }
     }
@@ -143,7 +150,7 @@ extension ActivityViewController {
             let eventEntities = response.events.map { makeEventEntity(from: $0) }
             updateEventList(with: eventEntities)
         } catch {
-            print("Failed to get activity list: \(error.localizedDescription)")
+            print("Failed to get event list: \(error.localizedDescription)")
         }
     }
     
@@ -183,7 +190,7 @@ extension ActivityViewController {
         return ActivityEntity(id: response.id,
                               title: response.title,
                               leader: response.leader,
-                              image: response.image,
+                              image: response.image ?? "",
                               info: infoString,
                               state: stateString)
     }
@@ -192,7 +199,7 @@ extension ActivityViewController {
         let convertTime = convertDate(response.start_time)
         return EventEntity(id: response.id,
                            title: response.title,
-                           start_time: convertTime ?? "",
+                           start_time: convertTime,
                            place: response.place)
     }
 }

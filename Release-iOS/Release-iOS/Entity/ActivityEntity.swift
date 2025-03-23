@@ -28,6 +28,17 @@ struct ActivityEntity {
     let state: ActivityState
 }
 
+struct ActivityDetailEntity {
+    let id: Int
+    let title: String
+    let content: String
+    let leader: String
+    let image: String
+    let link: String
+    let info: ActivityInfo
+    let state: ActivityState
+}
+
 struct EventEntity {
     let id: Int
     let title: String

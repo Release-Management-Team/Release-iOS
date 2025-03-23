@@ -10,8 +10,10 @@ import UIKit
 final class ActivityDetailViewController: UIViewController {
     
     //MARK: - Properties
-    
-    private let activity: ActivityEntity
+
+    private let activityId: Int
+    private let service: ActivityService
+    private var activityURL: String? = ""
     
     //MARK: - UI Components
     
@@ -19,8 +21,10 @@ final class ActivityDetailViewController: UIViewController {
     
     //MARK: - Initializer
     
-    init(activity: ActivityEntity) {
-        self.activity = activity
+    init(activityId: Int, service: ActivityService) {
+        self.activityId = activityId
+        self.service = service
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,7 +41,7 @@ final class ActivityDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        rootView.bindData(activity: activity)
+        fetchActivityData()
         bindAction()
     }
     
@@ -60,11 +64,58 @@ final class ActivityDetailViewController: UIViewController {
     
     @objc
     private func joinButtonTapped() {
-        print("참여하기 버튼 탭")
+        guard let activityURL else { return }
+        openURL(activityURL)
     }
     
     @objc
     private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension ActivityDetailViewController {
+    private func fetchActivityData() {
+        Task {
+            await getActivityData()
+        }
+    }
+    
+    private func getActivityData() async {
+        do {
+            let response = try await service.getProjectDetail(activityId: activityId)
+            let activityEntities = makeActivityEntity(from: response)
+            rootView.bindData(activity: activityEntities)
+            activityURL = activityEntities.link
+        } catch {
+            print("Failed to get book: \(error)")
+        }
+    }
+    
+    private func makeActivityEntity(from response: ActivityDetailDTO) -> ActivityDetailEntity {
+        let infoString: ActivityInfo
+        if response.state == 0 {
+            infoString = .study
+        } else {
+            infoString = .project
+        }
+        
+        let stateString: ActivityState
+        if response.state == 0 {
+            stateString = .beforeRecruit
+        } else if (response.state == 1) {
+            stateString = .recruiting
+        } else {
+            stateString = .running
+        }
+        
+        return ActivityDetailEntity(id: response.id,
+                                    title: response.title,
+                                    content: response.content,
+                                    leader: response.leader,
+                                    image: response.image ?? "",
+                                    link: response.link,
+                                    info: infoString,
+                                    state: stateString)
     }
 }

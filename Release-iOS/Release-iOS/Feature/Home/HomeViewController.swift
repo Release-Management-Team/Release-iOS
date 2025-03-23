@@ -101,17 +101,6 @@ final class HomeViewController: UIViewController {
     private func discordButtonTapped() {
         openURL("https://discord.gg/5P5q9m4H5Y")
     }
-    
-    //MARK: - Custom Method
-    
-    func openURL(_ urlString: String) {
-        guard let url = URL(string: urlString),
-              UIApplication.shared.canOpenURL(url) else {
-            print("❌ 유효하지 않은 URL입니다: \(urlString)")
-            return
-        }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-    }
 }
 
 //MARK: - API

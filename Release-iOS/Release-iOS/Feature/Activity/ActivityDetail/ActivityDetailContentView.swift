@@ -96,6 +96,8 @@ final class ActivityDetailContentView: UIView {
     }
     
     private func setHierarchy() {
+        addSubview(stackView)
+        
         [activityImageView,
          contentView].forEach {
             stackView.addArrangedSubview($0)
@@ -162,9 +164,10 @@ final class ActivityDetailContentView: UIView {
     
     //MARK: - Bind Data
     
-    func bindData(activity: ActivityEntity) {
+    func bindData(activity: ActivityDetailEntity) {
         activityImageView.image = .dummyLogo
         titleLabel.text = activity.title
+        contentLabel.text = activity.content
         personLabel.text = activity.leader
         
         if activity.info == .study {

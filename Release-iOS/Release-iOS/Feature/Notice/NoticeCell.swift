@@ -103,11 +103,7 @@ final class NoticeCell: UITableViewCell {
         titleLabel.text = notice.title
         contentLabel.text = notice.content
         
-        if let formattedDate = convertDate(notice.date) {
-            dateLabel.text = formattedDate
-        }
+        let formattedDate = convertDate(notice.date)
+        dateLabel.text = formattedDate
     }
 }
-
-
-

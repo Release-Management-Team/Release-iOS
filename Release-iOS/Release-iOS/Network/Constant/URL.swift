@@ -45,6 +45,9 @@ struct ReleaseURL {
     
     enum activity {
         static let activity = "/activity"
+        static func activityDetail(activityId: Int) -> String {
+            return "\(activity)/\(activityId)"
+        }
         static let event = activity + "/event"
     }
 }

@@ -14,7 +14,7 @@ struct ProfileEntity {
 struct ProfileContentEntity {
     let name: String
     let message: String?
-    let role: Int
+    let isExecutive: Bool
     let infomation: ProfileInfomationEntity
 }
 

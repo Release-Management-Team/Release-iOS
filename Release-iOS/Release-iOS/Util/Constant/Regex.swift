@@ -8,20 +8,26 @@
 import UIKit
 
 // 날짜 변환
-func convertDate(_ dateString: String) -> String? {
+func convertDate(_ dateString: String) -> String {
     let isoFormatter = ISO8601DateFormatter()
     isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-    
-    if let date = isoFormatter.date(from: dateString) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
-        
-        return dateFormatter.string(from: date)
+
+    var date = isoFormatter.date(from: dateString)
+    if date == nil {
+        isoFormatter.formatOptions = [.withInternetDateTime]
+        date = isoFormatter.date(from: dateString)
     }
     
-    return nil
+    guard let validDate = date else {
+        return "-" 
+    }
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
+    dateFormatter.locale = Locale(identifier: "ko_KR")
+    dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
+    
+    return dateFormatter.string(from: validDate)
 }
 
 // 전화번호 변환

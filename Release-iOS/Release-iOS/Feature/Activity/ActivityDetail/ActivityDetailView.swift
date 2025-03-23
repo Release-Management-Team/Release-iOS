@@ -73,7 +73,8 @@ final class ActivityDetailView: UIView {
         }
         
         joinButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(10)
+            $0.centerX.equalToSuperview()
             $0.height.equalTo(55)
             $0.width.equalTo(193)
         }
@@ -81,7 +82,7 @@ final class ActivityDetailView: UIView {
     
     //MARK: - Bind Data
     
-    func bindData(activity: ActivityEntity) {
+    func bindData(activity: ActivityDetailEntity) {
         joinButton.isHidden = activity.state != .running
         activityDetailContentView.bindData(activity: activity)
     }

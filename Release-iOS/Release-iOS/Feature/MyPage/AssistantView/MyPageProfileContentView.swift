@@ -118,7 +118,7 @@ final class MyPageProfileContentView: UIView {
     func bindProfileContentData(data: ProfileContentEntity) {
         profileNameLabel.text = data.name
         statusMessageLabel.text = data.message ?? StringLiterals.My.dummyStatus
-        roleLabel.isHidden = data.role != 0
+        roleLabel.isHidden = !data.isExecutive
         infomationView.bindProfileInfomationData(data: data.infomation)
     }
 }
