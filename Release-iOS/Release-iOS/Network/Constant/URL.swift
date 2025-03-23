@@ -29,7 +29,7 @@ struct ReleaseURL {
         static func bookRead(bookId: String) -> String {
             return "\(book)/\(bookId)"
         }
-        static let bookBorrow = book + "/borrowing"
+        static let bookBorrowList = book + "/borrowing"
         static func bookBorrow(bookId: String) -> String {
             return "\(book)/\(bookId)/borrow"
         }
