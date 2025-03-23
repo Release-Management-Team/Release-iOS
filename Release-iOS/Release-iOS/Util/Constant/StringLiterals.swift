@@ -29,6 +29,7 @@ struct StringLiterals {
         static let passwordEdit = "비밀번호 변경"
         static let activityCheck = "나의 스터디/프로젝트"
         static let bookCheck = "대여 중인 도서"
+        static let manage = "학회 관리"
     }
     
     enum Home {
@@ -90,5 +91,9 @@ struct StringLiterals {
         static let warningPassword = "영문, 숫자가 조합된 8~20자로 설정해주세요."
         
         static let changeButtonTitle = "변경하기"
+    }
+    
+    enum Manage {
+        static let postNotice = "공지 작성 완료"
     }
 }

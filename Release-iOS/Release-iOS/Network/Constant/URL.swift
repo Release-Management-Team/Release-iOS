@@ -41,6 +41,9 @@ struct ReleaseURL {
     enum notice {
         static let notice = "/notice"
         static let uploadToken = notice + "/upload-fcm-token"
+        static func noticeDetail(noticeId: Int) -> String {
+            return "\(notice)/\(noticeId)"
+        }
     }
     
     enum activity {

@@ -15,7 +15,7 @@ final class MyPageProfileView: UIView {
     //MARK: - UI Components
     
     private let profileImageView = UIImageView()
-    private let profileContentView = MyPageProfileContentView()
+    let profileContentView = MyPageProfileContentView()
     
     //MARK: - Initializer
     
