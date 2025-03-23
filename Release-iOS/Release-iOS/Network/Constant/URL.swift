@@ -22,6 +22,7 @@ struct ReleaseURL {
         static let changePassword = myProfile + "/change-password"
         static let memberList = member + "/member-list"
         static let memberProfile = member + "/member-profile"
+        static let registerDevice = member + "register-device"
     }
     
     enum book {

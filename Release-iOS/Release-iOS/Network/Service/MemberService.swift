@@ -10,6 +10,7 @@ import Foundation
 protocol MemberService {
     func getUserProfile() async throws -> ProfileResponse
     func postUserProfile(changePasswordData: ChangePasswordRequest) async throws
+    func postRegisterDeviceToken(deviceData: FCMTokenRequest) async throws
 }
 
 final class DefaultMemberService: Networking, MemberService {
@@ -37,6 +38,25 @@ final class DefaultMemberService: Networking, MemberService {
         
         let request = try makeHTTPRequest(method: .post,
                                           path: ReleaseURL.member.changePassword,
+                                          headers: APIConstants.tokenHeaders,
+                                          body: body)
+        
+        let (_, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NetworkError.invalidResponse
+        }
+    }
+    
+    func postRegisterDeviceToken(deviceData: FCMTokenRequest) async throws {
+        let parameters: [String: String] = [
+            FCMTokenRequest.CodingKeys.uuid.rawValue: deviceData.uuid,
+            FCMTokenRequest.CodingKeys.fcmToken.rawValue: deviceData.fcmToken
+        ]
+        
+        let body = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        
+        let request = try makeHTTPRequest(method: .post,
+                                          path: ReleaseURL.member.registerDevice,
                                           headers: APIConstants.tokenHeaders,
                                           body: body)
         
