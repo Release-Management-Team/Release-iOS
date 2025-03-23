@@ -46,7 +46,7 @@ final class DefaultNoticeService: Networking, NoticeService {
         let parameters: [String: String] = [
             NoticeRequest.CodingKeys.title.rawValue: noticeData.title,
             NoticeRequest.CodingKeys.content.rawValue: noticeData.content,
-            NoticeRequest.CodingKeys.important.rawValue: noticeData.important
+            NoticeRequest.CodingKeys.important.rawValue: String(noticeData.important)
         ]
         
         let body = try JSONSerialization.data(withJSONObject: parameters, options: [])

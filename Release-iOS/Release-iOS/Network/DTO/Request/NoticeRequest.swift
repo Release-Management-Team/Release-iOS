@@ -8,7 +8,7 @@
 struct NoticeRequest: Encodable {
     let title: String
     let content: String
-    let important: String
+    let important: Bool
     
     enum CodingKeys: String, CodingKey {
         case title = "title"

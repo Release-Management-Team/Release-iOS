@@ -63,15 +63,10 @@ final class ManageCreateNoticeViewController: UIViewController {
     
     @objc
     private func changeButtonTapped() {
-        Task {
-            var importantString = ""
-            if rootView.noticeImportantSwitch.isOn {
-                importantString = "*"
-            }
-            
+        Task {            
             await createNotice(title: rootView.noticeTitleTextField.text ?? "",
                                  content: rootView.noticeContentTextView.text ?? "",
-                                 important: importantString)
+                                 important: rootView.noticeImportantSwitch.isOn)
         }
     }
 }
@@ -92,7 +87,7 @@ extension ManageCreateNoticeViewController: UITextFieldDelegate {
 //MARK: - API
 
 extension ManageCreateNoticeViewController {
-    private func createNotice(title: String, content: String, important: String) async {
+    private func createNotice(title: String, content: String, important: Bool) async {
         do {
             try await service.postNotice(noticeData: NoticeRequest(title: title, content: content, important: important))
             DispatchQueue.main.async {
