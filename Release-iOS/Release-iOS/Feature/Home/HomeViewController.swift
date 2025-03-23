@@ -108,16 +108,16 @@ final class HomeViewController: UIViewController {
 extension HomeViewController {
     private func getNoticeData() async {
         do {
-            let response = try await service.getNoticeList()
+            let response = try await service.getNoticeImportantList()
             bindNoticeCell(notices: response)
         } catch {
             print("Failed to get notice: \(error.localizedDescription)")
         }
     }
     
-    private func bindNoticeCell(notices: NoticesResponse) {
+    private func bindNoticeCell(notices: NoticesImportantResponse) {
         let noticeList = notices.notices
-        if let lastNotice = noticeList.last?.content {
+        if let lastNotice = noticeList.last?.title {
             DispatchQueue.main.async {
                 self.rootView.bindNoticeData(lastNotice: lastNotice)
             }

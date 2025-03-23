@@ -9,13 +9,14 @@ import Foundation
 
 protocol NoticeService {
     func getNoticeList() async throws -> NoticesResponse
+    func getNoticeImportantList() async throws -> NoticesImportantResponse
     func postNotice(noticeData: NoticeRequest) async throws
 }
 
 final class DefaultNoticeService: Networking, NoticeService {
     func getNoticeList() async throws -> NoticesResponse {
         let request = try makeHTTPRequest(method: .get,
-                                          path: ReleaseURL.notice.notice,
+                                          path: ReleaseURL.notice.Yeynotice,
                                           headers: APIConstants.tokenHeaders)
         
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -24,6 +25,20 @@ final class DefaultNoticeService: Networking, NoticeService {
         }
         
         let decodedResponse = try JSONDecoder().decode(NoticesResponse.self, from: data)
+        return decodedResponse
+    }
+    
+    func getNoticeImportantList() async throws -> NoticesImportantResponse {
+        let request = try makeHTTPRequest(method: .get,
+                                          path: ReleaseURL.notice.noticeImportant,
+                                          headers: APIConstants.tokenHeaders)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NetworkError.invalidResponse
+        }
+        
+        let decodedResponse = try JSONDecoder().decode(NoticesImportantResponse.self, from: data)
         return decodedResponse
     }
     
@@ -36,7 +51,7 @@ final class DefaultNoticeService: Networking, NoticeService {
         
         let body = try JSONSerialization.data(withJSONObject: parameters, options: [])
         let request = try makeHTTPRequest(method: .post,
-                                          path: ReleaseURL.notice.notice,
+                                          path: ReleaseURL.notice.Yeynotice,
                                           headers: APIConstants.tokenHeaders,
                                           body: body)
         

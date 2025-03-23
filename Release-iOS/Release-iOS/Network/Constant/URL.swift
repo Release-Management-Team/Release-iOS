@@ -40,7 +40,9 @@ struct ReleaseURL {
     
     enum notice {
         static let notice = "/notice"
+        static let Yeynotice = "/notice/"
         static let uploadToken = notice + "/upload-fcm-token"
+        static let noticeImportant = notice + "/important"
         static func noticeDetail(noticeId: Int) -> String {
             return "\(notice)/\(noticeId)"
         }
