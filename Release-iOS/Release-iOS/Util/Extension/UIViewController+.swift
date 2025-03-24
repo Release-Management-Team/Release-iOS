@@ -67,4 +67,15 @@ extension UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    //MARK: - Open URL
+    
+    func openURL(_ urlString: String) {
+        guard let url = URL(string: urlString),
+              UIApplication.shared.canOpenURL(url) else {
+            print("❌ 유효하지 않은 URL입니다: \(urlString)")
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }

@@ -19,3 +19,12 @@ struct NoticeDTO: Decodable {
     let important: Bool
     let expired: Bool
 }
+
+struct NoticesImportantResponse: Decodable {
+    let notices: [NoticeImportantDTO]
+}
+
+struct NoticeImportantDTO: Decodable {
+    let id: Int
+    let title: String
+}

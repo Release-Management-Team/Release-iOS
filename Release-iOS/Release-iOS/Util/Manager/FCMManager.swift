@@ -11,22 +11,26 @@ import FirebaseCore
 import FirebaseMessaging
 
 class FCMManager: NSObject, UNUserNotificationCenterDelegate, MessagingDelegate {
-
-    static let shared = FCMManager()
-
-    private override init() {}
-
+    
+    static let shared = FCMManager(service: DefaultMemberService())
+    private let service: MemberService
+    
+    init(service: MemberService) {
+        self.service = service
+        super.init()
+    }
+    
     /// FireBase 초기 설정
     func configure(application: UIApplication) {
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
-
+        
         requestNotificationAuthorization()
-
+        
         UNUserNotificationCenter.current().delegate = self
         application.registerForRemoteNotifications()
     }
-
+    
     /// 알람권한 요청
     private func requestNotificationAuthorization() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -39,19 +43,28 @@ class FCMManager: NSObject, UNUserNotificationCenterDelegate, MessagingDelegate 
             }
         }
     }
-
+    
     /// APNs Token 업데이트
     func updateAPNsToken(_ deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
     }
-
+    
     /// FCM Token 업데이트
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let token = fcmToken else { return }
+        
+        let savedToken = UserDefaults.standard.string(forKey: "fcmToken")
+        if token != savedToken {
+            UserDefaults.standard.set(token, forKey: "fcmToken")
+            print("✅ FCM 토큰 업데이트: \(token)")
+            sendFCMToken(token: token)
+        }
+        
         guard let token = fcmToken, token != UserDefaults.standard.string(forKey: "fcmToken") else { return }
-
+        
         UserDefaults.standard.set(token, forKey: "fcmToken")
         print("Firebase token updated: \(token)")
-
+        
         NotificationCenter.default.post(
             name: Notification.Name("FCMToken"),
             object: nil,
@@ -61,8 +74,17 @@ class FCMManager: NSObject, UNUserNotificationCenterDelegate, MessagingDelegate 
 }
 
 // MARK: FCM 서버 연결
+
 extension FCMManager {
     private func sendFCMToken(token: String) {
-        //UUID 출력 & 서버연결 코드
+        let deviceUUID = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+        print("📱 Device UUID: \(deviceUUID)")
+        Task {
+            do {
+                try await service.postRegisterDeviceToken(deviceData: FCMTokenRequest(uuid: deviceUUID, fcmToken: token))
+            } catch {
+                print("Failed to post device token: \(error.localizedDescription)")
+            }
+        }
     }
 }

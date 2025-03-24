@@ -39,29 +39,28 @@ final class MyPageViewController: UIViewController {
         super.viewDidLoad()
         
         bindAction()
+        fetchProfileData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        viewWillAppearAction()
+        navigationController?.navigationBar.isHidden = true
+        showTabBar()
     }
     
     //MARK: - Action
     
-    private func viewWillAppearAction() {
-        showTabBar()
-        navigationController?.navigationBar.isHidden = true
-        fetchProfileData()
-    }
-    
     private func bindAction() {
-        self.rootView.myActivityView.myActivityButton.addTarget(self,
+        rootView.myActivityView.myActivityButton.addTarget(self,
                                                                 action: #selector(myActivityButtonTapped),
                                                                 for: .touchUpInside)
-        self.rootView.changeInfoView.passwordButton.addTarget(self,
+        rootView.changeInfoView.passwordButton.addTarget(self,
                                                action: #selector(passwordButtonTapped),
                                                for: .touchUpInside)
+        rootView.profileView.profileContentView.roleButton.addTarget(self,
+                                                                     action: #selector(roleButtonTapped),
+                                                                     for: .touchUpInside)
     }
     
     @objc
@@ -74,6 +73,13 @@ final class MyPageViewController: UIViewController {
     @objc
     private func passwordButtonTapped() {
         let vc = MyPageChangePasswordViewController(service: DefaultMemberService())
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    private func roleButtonTapped() {
+        let vc = ManageViewController()
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -114,10 +120,11 @@ extension MyPageViewController {
             joined_semester: response.joined_semester
         )
         
+        let checkExecutive = response.role == 1
         let contentData = ProfileContentEntity(
             name: response.name,
             message: response.message,
-            role: response.role,
+            isExecutive: checkExecutive,
             infomation: informationData
         )
         

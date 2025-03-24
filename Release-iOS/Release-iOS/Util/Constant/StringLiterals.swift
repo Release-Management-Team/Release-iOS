@@ -29,18 +29,25 @@ struct StringLiterals {
         static let passwordEdit = "비밀번호 변경"
         static let activityCheck = "나의 스터디/프로젝트"
         static let bookCheck = "대여 중인 도서"
+        static let manage = "학회 관리"
     }
     
     enum Home {
         static let notice = "Notice"
         static let weekly = "Weekly Events"
         static let weeklyDay = ["월", "화", "수", "목", "금", "토", "일"]
+        
+        static let linksTitle = "릴리즈 플랫폼 바로가기"
+        static let website = "Website"
+        static let notion = "Notion"
+        static let discord = "Discord"
     }
     
     enum Activity {
         static let study = "스터디/프로젝트"
         static let event = "이벤트"
         static let join = "참여하기"
+        static let notJoin = "진행 중"
     }
     
     enum Book {
@@ -85,5 +92,9 @@ struct StringLiterals {
         static let warningPassword = "영문, 숫자가 조합된 8~20자로 설정해주세요."
         
         static let changeButtonTitle = "변경하기"
+    }
+    
+    enum Manage {
+        static let postNotice = "공지 작성 완료"
     }
 }

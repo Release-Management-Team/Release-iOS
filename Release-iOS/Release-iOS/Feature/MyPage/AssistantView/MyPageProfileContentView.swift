@@ -16,8 +16,7 @@ final class MyPageProfileContentView: UIView {
     
     private let profileContentView = UIView()
     private let profileNameLabel = UILabel()
-    private let roleView = UIView()
-    private let roleLabel = UILabel()
+    let roleButton = UIButton()
     private let statusMessageLabel = UILabel()
     private let infomationView = MyPageInformationView()
     
@@ -48,21 +47,19 @@ final class MyPageProfileContentView: UIView {
         }
         
         profileNameLabel.do {
-            $0.text = StringLiterals.My.dummyName
             $0.font = .heading3
             $0.textColor = .gray1
         }
         
-        roleView.do {
+        roleButton.do {
+            $0.setTitle(StringLiterals.My.staff, for: .normal)
+            $0.setTitleColor(.primary1, for: .normal)
+            $0.titleLabel?.font = .paragraph3
             $0.layer.cornerRadius = 8
             $0.layer.borderWidth = 1
             $0.layer.borderColor = UIColor.primary1.cgColor
-            
-            roleLabel.do {
-                $0.text = StringLiterals.My.staff
-                $0.font = .paragraph3
-                $0.textColor = .primary1
-            }
+            $0.backgroundColor = .clear
+            $0.contentEdgeInsets = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
         }
         
         statusMessageLabel.do {
@@ -75,12 +72,11 @@ final class MyPageProfileContentView: UIView {
     private func setHierarchy() {
         addSubview(profileContentView)
         [profileNameLabel,
-         roleView,
+         roleButton,
          statusMessageLabel,
          infomationView].forEach {
             profileContentView.addSubview($0)
         }
-        roleView.addSubview(roleLabel)
     }
     
     private func setLayout() {
@@ -93,14 +89,9 @@ final class MyPageProfileContentView: UIView {
             $0.leading.equalToSuperview().inset(24)
         }
         
-        roleView.snp.makeConstraints {
+        roleButton.snp.makeConstraints {
             $0.centerY.equalTo(profileNameLabel.snp.centerY)
             $0.leading.equalTo(profileNameLabel.snp.trailing).offset(23)
-            
-            roleLabel.snp.makeConstraints {
-                $0.top.bottom.equalToSuperview().inset(3)
-                $0.leading.trailing.equalToSuperview().inset(10)
-            }
         }
         
         statusMessageLabel.snp.makeConstraints {
@@ -119,7 +110,7 @@ final class MyPageProfileContentView: UIView {
     func bindProfileContentData(data: ProfileContentEntity) {
         profileNameLabel.text = data.name
         statusMessageLabel.text = data.message ?? StringLiterals.My.dummyStatus
-        roleLabel.isHidden = data.role != 0
+        roleButton.isHidden = !data.isExecutive
         infomationView.bindProfileInfomationData(data: data.infomation)
     }
 }

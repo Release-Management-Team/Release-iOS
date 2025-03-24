@@ -8,7 +8,7 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-
+    
     //MARK: - Properties
     
     private var service: NoticeService
@@ -63,9 +63,21 @@ final class HomeViewController: UIViewController {
     }
     
     private func bindAction() {
-        rootView.notificationButton.addTarget(self,
-                                              action: #selector(noticeButtonTapped),
-                                              for: .touchUpInside)
+        rootView.headerView.notificationButton.addTarget(self,
+                                                         action: #selector(noticeButtonTapped),
+                                                         for: .touchUpInside)
+        
+        rootView.homeExternalLinkView.websiteButton.addTarget(self,
+                                                              action: #selector(webSiteButtonTapped),
+                                                              for: .touchUpInside)
+        
+        rootView.homeExternalLinkView.notionButton.addTarget(self,
+                                                             action: #selector(notionButtonTapped),
+                                                             for: .touchUpInside)
+        
+        rootView.homeExternalLinkView.discordButton.addTarget(self,
+                                                              action: #selector(discordButtonTapped),
+                                                              for: .touchUpInside)
     }
     
     @objc
@@ -74,6 +86,21 @@ final class HomeViewController: UIViewController {
         noticeViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(noticeViewController, animated: true)
     }
+    
+    @objc
+    private func webSiteButtonTapped() {
+        openURL("https://release.sogang.ac.kr")
+    }
+    
+    @objc
+    private func notionButtonTapped() {
+        openURL("https://smoggy-energy-2f8.notion.site/Release-18be6c14480080d6be3bc9aff9947e45")
+    }
+    
+    @objc
+    private func discordButtonTapped() {
+        openURL("https://discord.gg/5P5q9m4H5Y")
+    }
 }
 
 //MARK: - API
@@ -81,16 +108,16 @@ final class HomeViewController: UIViewController {
 extension HomeViewController {
     private func getNoticeData() async {
         do {
-            let response = try await service.getNoticeList()
+            let response = try await service.getNoticeImportantList()
             bindNoticeCell(notices: response)
         } catch {
             print("Failed to get notice: \(error.localizedDescription)")
         }
     }
     
-    private func bindNoticeCell(notices: NoticesResponse) {
+    private func bindNoticeCell(notices: NoticesImportantResponse) {
         let noticeList = notices.notices
-        if let lastNotice = noticeList.last?.content {
+        if let lastNotice = noticeList.last?.title {
             DispatchQueue.main.async {
                 self.rootView.bindNoticeData(lastNotice: lastNotice)
             }

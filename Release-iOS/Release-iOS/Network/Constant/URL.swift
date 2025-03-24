@@ -22,6 +22,7 @@ struct ReleaseURL {
         static let changePassword = myProfile + "/change-password"
         static let memberList = member + "/member-list"
         static let memberProfile = member + "/member-profile"
+        static let registerDevice = member + "register-device"
     }
     
     enum book {
@@ -40,12 +41,19 @@ struct ReleaseURL {
     
     enum notice {
         static let notice = "/notice"
+        static let Yeynotice = "/notice/"
         static let uploadToken = notice + "/upload-fcm-token"
+        static let noticeImportant = notice + "/important"
+        static func noticeDetail(noticeId: Int) -> String {
+            return "\(notice)/\(noticeId)"
+        }
     }
     
     enum activity {
         static let activity = "/activity"
-        static let studies = activity + "/studies"
-        static let projects = activity + "/projects"
+        static func activityDetail(activityId: Int) -> String {
+            return "\(activity)/\(activityId)"
+        }
+        static let event = activity + "/event"
     }
 }

@@ -20,7 +20,7 @@ final class BookDetailViewController: UIViewController {
     
     //MARK: - Initializer
     
-    init( bookId: String, service: BookService) {
+    init(bookId: String, service: BookService) {
         self.bookId = bookId
         self.service = service
         
