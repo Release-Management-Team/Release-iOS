@@ -67,7 +67,7 @@ final class LoginViewController: UIViewController {
                     UserDefaults.standard.set(loginResponse.accessToken, forKey: StringLiterals.UserDefault.accessToken)
                     UserDefaults.standard.set(loginResponse.refreshToken, forKey: StringLiterals.UserDefault.refreshToken)
                     UserDefaults.standard.set(loginData.password, forKey: StringLiterals.UserDefault.password)
-                    
+                    print(loginResponse.accessToken)
                     /// 화면 전환
                     self.rootView.loginErrorLabel.isHidden = true
                     let tabBarVC = ReleaseTabBarController()

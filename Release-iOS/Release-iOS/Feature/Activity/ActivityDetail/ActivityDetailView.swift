@@ -49,6 +49,7 @@ final class ActivityDetailView: UIView {
             $0.backgroundColor = .primary1
             $0.setTitleColor(.black2, for: .normal)
             $0.layer.cornerRadius = 16
+            $0.isEnabled = false
         }
     }
     

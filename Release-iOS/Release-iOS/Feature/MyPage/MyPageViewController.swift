@@ -120,7 +120,7 @@ extension MyPageViewController {
             joined_semester: response.joined_semester
         )
         
-        let checkExecutive = response.role != 1
+        let checkExecutive = response.role == 1
         let contentData = ProfileContentEntity(
             name: response.name,
             message: response.message,

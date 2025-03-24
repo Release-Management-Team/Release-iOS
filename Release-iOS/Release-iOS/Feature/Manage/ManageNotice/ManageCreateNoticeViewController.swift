@@ -44,8 +44,11 @@ final class ManageCreateNoticeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        navigationController?.navigationBar.isHidden = false
         setSmallFontNavigationBar(title: StringLiterals.Navigation.manage,
-                                  left: self.rootView.backButton, right: nil)
+                                  left: self.rootView.backButton,
+                                  right: nil)
+        hideTabBar()
     }
     
     //MARK: - Action

@@ -43,12 +43,12 @@ final class DefaultNoticeService: Networking, NoticeService {
     }
     
     func postNotice(noticeData: NoticeRequest) async throws {
-        let parameters: [String: String] = [
+        let parameters: [String: Any] = [
             NoticeRequest.CodingKeys.title.rawValue: noticeData.title,
             NoticeRequest.CodingKeys.content.rawValue: noticeData.content,
-            NoticeRequest.CodingKeys.important.rawValue: String(noticeData.important)
+            NoticeRequest.CodingKeys.important.rawValue: noticeData.important
         ]
-        
+
         let body = try JSONSerialization.data(withJSONObject: parameters, options: [])
         let request = try makeHTTPRequest(method: .post,
                                           path: ReleaseURL.notice.Yeynotice,
